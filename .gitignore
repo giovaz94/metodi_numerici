@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# But track these files
+!.gitignore
+!appunti.pdf
+!appunti.tex
+
+

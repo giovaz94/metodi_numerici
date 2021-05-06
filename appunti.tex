@@ -2084,8 +2084,213 @@ in questo caso l'ordine di convergenza è $p$ e risulta inoltre che :
 \[ 	
 	\lim_{i \rightarrow +\infty} \dfrac{|x_{i+1} - \alpha|}{|x_{i} - \alpha|^{p}} = C  \quad \quad C = \dfrac{|g^{p}(\alpha)|}{p!}
 \]
+\end{flushleft}
 
+\chapter{Sistemi lineari}
+\begin{flushleft}
+Nel seguente capitolo vogliamo studiare come risolvere sistemi lineari attraverso l'utilizzo di un calcolatore.
+\begin{defn}
+	Un sistema lineare quadrato di dimensione $n$ è un sistema lineare costituito da $n$ equazioni in $n$ incognite.  In forma matriciale lo possiamo scrivere come $A_{n \times n} x_{n \times 1} = b_{n \times 1}$.
+	
+	\[ 
+		\begin{pmatrix}
+			a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+			a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+			\vdots & & \ddots & & \vdots \\
+			a_{n1} & a_{n2} & a_{n3} & \dots & a_{nn} \\
+		\end{pmatrix}	
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		= 
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}		
+	\]
+
+Che possiamo rappresentare come sistema : 
+
+	\[ 
+			\begin{cases}
+  				a_{11}x_{1} + a_{12}x_{2}  + \dots + a_{1n}x_{n} &= b_{1} \\
+       			a_{21}x_{1} + a_{22}x_{2}  + \dots + a_{2n}x_{n} &= b_{2} \\
+       			\vdots \\
+  				a_{21}x_{1} + a_{22}x_{2}  + \dots + a_{nn}x_{n} &= b_{n} \\
+			\end{cases}
+	\]
+
+Esiste un'unica soluzione se e solo se il determinante della matrice $A$ è diverso da zero, ovvero $\det(A) \neq 0$.
+\end{defn}
+
+Il sistema lineare risulta un problema ben condizionato quando il numero di condizionamento della matrice $A$ ( $K(A) = \lVert A \rVert \lVert A^{-1} \rVert$ ) non risulta troppo elevato.
+\end{flushleft}
+
+\section{Metodi diretti}
+\begin{flushleft}
+Sia dato un sistema lineare $Ax = b$ tale per cui il $\det(A) \neq 0$ e il suo numero di condizionamento $K(A)$ risulti non troppo elevato.
+Risolvere questo sistema tramite applicazione di metodi diretti significa trasformarlo,  tramite un numero finito di passi, in un sistema lineare equivalente, ovvero avente la medesima soluzione,  di più facile soluzione e tale sistema presenterà una matrice dei coefficienti triangolare (inferiore o superiore).
+
+\subsection{Metodi di sostituzione per la soluzione di sistemi lineari con matrice dei coefficienti in forma triangolare}
+
+Abbiamo due tipologie differenti di metodi:
+
+\begin{enumerate}
+	\item Metodo di sostituzione \textbf{in avanti} per sistemi lineari con matrice \textbf{triangolare inferiore.}
+	\[
+		\begin{pmatrix}
+			a_{11} & 0 & 0 &0 & \dots & 0 \\
+			a_{21} & a_{22} & 0 & 0 & \dots & 0 \\
+			\vdots & & \ddots &  & & \vdots \\
+			a_{i1} & a_{i2} & \dots & a_{ii} & \dots & 0 \\
+			\vdots & & & & \ddots &   \vdots \\
+			a_{n1} & a_{n2} & a_{n3} & \dots &  \dots & a_{nn} \\
+		\end{pmatrix}
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{i}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{i}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}
+	\]
+	
+	Il relativo sistema risultante ci permette di ottenere i valori delle incognite $x_{1},x_{2}, \dots, x_{n}$ in una maniera più agevole  poichè si presenterà nel seguente modo : 	
+	\[ 
+		\begin{cases}
+  				a_{11}x_{1} = b_{1} \; \longrightarrow x_{1} = \frac{b_{1}}{a_{11}} \\   
+       			a_{21}x_{1} + a_{22}x_{2} = b_{2} \; \longrightarrow x_{2} = \frac{b_{2}- a_{21}x_{1}}{a_{22}}  \\
+       			\vdots \\
+       			a_{i1}x_{1} + a_{i2}x_{2}  + \dots + a_{ii}x_{i} = b_{i} \\
+       			\vdots \\
+  				a_{n1}x_{1} + a_{n2}x_{2}  + \dots + a_{ni}x_{i} + \dots + a_{nn}x_{n} = b_{n} \\
+		\end{cases}	
+	\]
+	
+	Possiamo riscrivere una generica riga $i$ del nostro sistema come una sommatoria di $i$ fattori, ovvero : 
+	\[
+		\sum_{j = 1} ^ {i} a_{ji}x_{j} = b_{i}
+	\]	
+	
+	Dunque la generica soluzione di $xi$ può essere scritta allo stesso modo in funzione di una sommatoria in quanto :
+	\[
+		x_{i} = \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ji}x_{j}}{a_{ii}}
+	\]	
+	
+	Questo ci permette dunque di determinare un algoritmo risolutivo : 
+	
+	\begin{algorithm}
+		\caption{ Metodo di sostituzione in avanti}
+		\begin{algorithmic} 
+			\STATE $ x_{1} \leftarrow  \frac{b_{1}}{a_{11}}$
+			\FOR{$ i = 2,3 \dots n $}
+				\STATE $ x_{i} \leftarrow  \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ji}x_{j}}{a_{ii}} $
+			\ENDFOR
+		\end{algorithmic}
+	\end{algorithm}	
+	
+	E' da notare che i fattori $a_{11}, a_{22}, \dots, a_{nn}$ non si annullino nel nostro algoritmo poichè abbiamo richiesto che la nostra matrice non abbia determinante nullo.\\
+\vspace{1em}
+\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-1$ moltiplicazioni e $1$ divisione per un totale di $i$ operazioni distinte,  ripetiamo queste $i$ operazioni per $n$ volte. 
+
+\[
+	\sum_{i = 1}^{n} i = \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
+\]
+
+	\item Metodo di sostituzione \textbf{all'indietro} per sistemi lineari con matrice \textbf{triangolare superiore.}
+	
+	\[
+		\begin{pmatrix}
+			a_{11} & a_{12} & a_{13} & \dots & \dots & a_{1n} \\
+			0  & a_{22} & a_{23} &  \dots & \dots & a_{2n} \\
+			\vdots & & \ddots &  & & \vdots \\
+			0 & 0 & \dots & a_{ii} &  \dots & a_{in} \\
+			\vdots & & & & \ddots &   \vdots \\
+			0 & 0 & 0 & 0 &  \dots & a_{nn} \\
+		\end{pmatrix}
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{i}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{i}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}
+	\]	
+	
+	Stiamo lavorando con un caso analogo a quello visto in precedenza dove avremmo ancora una matrice dei coefficienti avente determinante diverso da zero. In questo caso, per la risoluzione partiremo dalla n-esima equazione invece che dalla prima.
+	
+	\[ 
+		\begin{cases}
+				a_{nn}x_{1} = b_{n} \; \longrightarrow x_{1} = \frac{b_{n}}{a_{nn}} \\   
+				a_{n-1n-11}x_{1} + a_{n-1n}x_{2} = b_{n-1} \; \longrightarrow x_{2} = \frac{b_{n-1}-( a_{n-1n-1}x_{1})}{a_{n-1n}}  \\
+				\vdots \\
+				a_{i1}x_{1} + a_{i2}x_{2}  + \dots + a_{ii}x_{i} = b_{i} \\
+				\vdots \\
+				a_{11}x_{1} + a_{12}x_{2}  + \dots + a_{1i}x_{i} + \dots + a_{1n}x_{n} = b_{1} \\
+		\end{cases}	
+	\]
+	
+In questo caso possiamo scrivere l'equazione di una generica riga $i$ nel seguente modo:
+
+\[
+		\sum_{j = 1} ^ {i} a_{ij}x_{j} = b_{i}
+\]	
+
+\[
+		x_{i} = \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ij}x_{j}}{a_{ii}}
+\]	
+
+
+Il relativo pseudocodice : 
+
+\begin{algorithm}
+		\caption{ Metodo di sostituzione all'indietro}
+		\begin{algorithmic} 
+			\STATE $ x_{1} \leftarrow  \frac{b_{n}}{a_{nn}}$
+			\FOR{$ i = n-1, \dots, 1 $}
+				\STATE $ x_{i} \leftarrow  \frac{ b_{i} - \sum_{j = i+1} ^ {n} a_{ij}x_{j}}{a_{ii}} $
+			\ENDFOR
+		\end{algorithmic}
+\end{algorithm}	
+\vspace{1em}
+\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-i$ moltiplicazioni e $1$ divisione per un totale di $n-i+1$ operazioni distinte,  ripetiamo queste $n-i+1$ operazioni per $n$ volte. 
+
+\[
+	\sum_{i = 1}^{n} n-i+1 = \sum_{j= 1}^{n} j =  \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
+\]
+
+Da notare che abbiamo posto $j = n-i+1$ ottenendo lo stesso costo computazionale di partenza.
+
+
+\end{enumerate}
 
 
 \end{flushleft}
+
+
 \end{document}

@@ -2284,13 +2284,84 @@ Il relativo pseudocodice :
 	\sum_{i = 1}^{n} n-i+1 = \sum_{j= 1}^{n} j =  \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
 \]
 
-Da notare che abbiamo posto $j = n-i+1$ ottenendo lo stesso costo computazionale di partenza.
-
-
+Da notare che abbiamo posto $j = n-i+1$ ottenendo lo stesso costo computazionale del primo caso.
 \end{enumerate}
+
+Come useremo i metodi diretti per risolvere un sistema lineare ?\\
+Dato un sistema del tipo $Ax = b$ con $A$ matrice $n \times n $ e $\det(A) \neq 0$ ci ricondurremo ad un sistema $Cx = y$ equivalente e tale per cui $C$ è triangolare superiore.
+Una caratteristica comune che avranno i metodi che studieremo è quella della fattorizzazione, ovvero,  per ottenere il sistema  $Cx = y$ a partire da  $Ax = b$  moltiplicheremo la matrice triangolare superiore $C$ per una matrice $B$ tale che : 
+\[ 
+	A = BC
+\]
+dove $A,B,C$ sono matrici con dimensioni $n \times n$ e $B$ può essere :
+\begin{itemize}
+	\item triangolare inferiore.
+	\item ortogonale.
+\end{itemize}
+
+Tramite la fattorizzazione possiamo riscrivere il sistema $Ax = b$ nel relativo equivalente $BCx = b$ il quale vogliamo scomporre in due ulteriori sotto sistemi lineari  ponendo $Cx = y$. Avremmo dunque :
+\[ 
+		\begin{cases}
+				By = b\\
+				Cx = y
+		\end{cases}	
+\]
+
+Conoscendo il primo posso ricavare il vettore $y$ che andrò poi a sostituire al secondo membro per trovare $x$.  Nel caso $B$ sia triangolare inferiore risolverò il sistema $By = b$ tramite metodo di sostituzione all'avanti mentre nel caso in cui $B$ è ortogonale troverò $y$ semplicemente moltiplicando $B^{T}$ con $b$, ovvero:
+
+ \[ 
+		y = B^{T}b
+\]
+
+Per quanto riguarda i costi derivanti dalla fattorizzazione se $A = BC$ con $B$ triangolare inferiore e $C$ triangolare superiore avremmo che il costo computazionale per $By = b$ e  $Cx = y$ è $\frac{n^{2}}{2}$.
+\end{flushleft}
+
+\subsection{Metodo di gauss o eliminazione gaussiana}
+\begin{flushleft}
+
+Sia data la matrice $A = LU$  avente : 
+
+\begin{itemize}
+	\item $L$ triangolare inferiore e diagonale 1 
+	\item $U$ triangolare superiore
+\end{itemize}
+
+La condizioni che dobbiamo richiedere affinché le matrici $L$ ed $U$ esistano è :
+\[
+	\det(A(1:k, 1:k)) \neq 0 \quad \forall k = 1, \dots, n-1
+\]
+
+$A(1:k, 1:k)$ è detta sotto matrice principale di testa e si ottiene attraverso il ritaglio delle prime k righe e k colonne. Di seguito viene mostrato un esempio: 
+
+Data la matrice 
+\[
+	A = 
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} & a_{14} & \dots & a_{1n} \\
+		a_{21} & a_{22} & a_{23} & a_{24} & \dots & a_{2n} \\
+		\vdots & & \ddots &  & & \vdots \\
+		a_{i1} & a_{i2} & \dots & a_{ii} & \dots & a_{in} \\
+		\vdots & & & & \ddots &   \vdots \\
+		a_{n1} & a_{n2} & a_{n3} & \dots &  \dots & a_{nn} \\
+	\end{pmatrix}
+\]
+
+Le sue matrici di testa saranno
+
+\[ 
+	A(1:1, 1:1) = a_{11},
+	\quad
+	A(1:2, 1:2) = 
+	\begin{pmatrix}
+		a_{11} & a_{12} \\
+		a_{21} & a_{22} \\
+	\end{pmatrix},
+	\dots
+	,
+\]
+
 
 
 \end{flushleft}
-
 
 \end{document}

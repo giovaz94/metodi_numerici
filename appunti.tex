@@ -64,16 +64,18 @@
 
 \begin{flushleft}
 
-L'analisi numerica è la materia che si pone come obbiettivo quello di attribuire una risposta di tipo numerico (supportata da un calcolatore) ad un problema matematico che modellizza un problema reale.
+L'analisi numerica è la materia che si pone come obbiettivo quello di attribuire una risposta di tipo numerico, supportata da un calcolatore,  ad un problema matematico che modellizza un problema reale.
 
 \begin{exmp}
 Calcolare l'area della superficie terrestre
 \end{exmp}
 
-Per procedere al calcolo di tale area occorre iniziare con delle osservazioni. \\
-La prima è che la terra, a livello figurativo, può essere rappresentata come una sfera, dato dunque un raggio che possiamo attribuirle ( $r \approx 6370 km$ ) adoperiamo la formula dell'area della superficie della sfera:
+Per procedere al calcolo di tale area occorre iniziare con delle osservazioni:\\
+La prima è che la terra, a livello figurativo, può essere rappresentata come una sfera e dato dunque un raggio che possiamo attribuirle ( $r \approx 6370 km$ ) adoperiamo la formula dell'area della superficie della sfera:
 
-\[ 4\pi r^2 \]
+\[ 
+	4\pi r^2 
+\]
 
 In questo ragionamento è possibile individuare dei passaggi chiave ( Fig \ref{schema passaggi}) .   Siamo partiti da un problema reale (\emph{Area supericie terrestre}), abbiamo costruito un modello matematico ed infine applicato l'algoritmo per il calcolo dell'area. 
 
@@ -99,15 +101,15 @@ In questo ragionamento è possibile individuare dei passaggi chiave ( Fig \ref{s
 	\label{schema passaggi}
 \end{figure}
 
-Nell'effettuare questi è evidente come vengono compiute diverse approssimazioni.  Anzitutto la figura del pianeta è stata \textbf{approssimata ad una forma sferica} e, secondo,  tramite delle valutazioni empiriche abbiamo attribuito \textbf{un valore approssimativo alla lunghezza del raggio}.  Adoperando un calcolatore per effettuare le nostre operazioni sappiamo che il valore di $\pi$ deve essere anch'esso approssimato poiché lo spazio di immagazzinamento delle informazioni che abbiamo a disposizione è ovviamente limitato. 
+Nell'effettuare questi è evidente come vengono compiute diverse approssimazioni.  Anzitutto la figura del pianeta è stata \textbf{approssimata ad una forma sferica} e, secondo,  tramite delle valutazioni empiriche abbiamo attribuito \textbf{un valore approssimativo alla lunghezza del raggio}.  Adoperando un calcolatore per effettuare le nostre operazioni sappiamo inoltre che il valore di $\pi$ deve essere anch'esso approssimato poiché lo spazio di immagazzinamento delle informazioni che abbiamo a disposizione è ovviamente limitato. 
 
 \vfill
 Il risultato ottenuto è dunque un'approssimazione del vero valore dell'area terrestre. 
 
 Le considerazioni fatte quà sopra ci permettono dunque di delineare quello che è lo scopo dell' analisi numerica, ovvero :
 \begin{enumerate}
-  \item Trovare un algoritmo risolutivo ad un problema reale tale per cui questo possa essere calcolato da un calcolatore.
-  \item Verificare che l'algoritmo del punto precedente fornisca un risultato esatto. 
+  \item Trovare un algoritmo risolutivo ad un problema reale tale per cui questo possa essere calcolato tramite un calcolatore.
+  \item Verificare che il dato algoritmo fornisca un risultato esatto. 
 \end{enumerate}
 \end{flushleft}
 
@@ -137,7 +139,7 @@ Quello che vogliamo fare ora è cercare di definire delle classi di errore in cu
 		\end{tikzpicture}
 	\end{figure}
 
-\item \textbf{Errori del modello numerico-computazionale} : Tipologia di errori che vengono commessi durante il passaggio dal modello matematico al  problema numerico risolvibile dalla macchina. Vengono chiamati anche errori di discretizzazione o troncamento e rappresentano errori introdotti nel sintetizzare un procedimento infinito in uno finito
+\item \textbf{Errori del modello numerico-computazionale} : Tipologia di errori che vengono commessi durante il passaggio dal modello matematico al  problema numerico risolvibile dalla macchina. Vengono chiamati anche errori di discretizzazione o troncamento e rappresentano errori introdotti nel sintetizzare un procedimento infinito in uno finito.
 
 \begin{figure}[h!]
 		\centering
@@ -147,7 +149,6 @@ Quello che vogliamo fare ora è cercare di definire delle classi di errore in cu
 			auto,
 			every node/.style={node distance=2cm},
 			force/.style={rectangle, draw, inner sep=5pt, text width=4cm, text badly centered, minimum height=1.2cm}]
-		
 			\node [force,  below of=problema reale] (modello matematico) {Modello matematico};
 			\node [force, below of=modello matematico,  style={fill=red!10}] (computazione) {Problema risolvibile dalla macchina};
 		
@@ -156,7 +157,7 @@ Quello che vogliamo fare ora è cercare di definire delle classi di errore in cu
 		\end{tikzpicture}
 	\end{figure}
 \begin{exmp}
-Sia data la seguente funzione $ f(x) = x^2 $, si voglia trovare l'area della figura sottesa (evidenziata in rosso) tra i punti a e b.\\
+Sia data la funzione $ f(x) = x^2 $, si vuole trovare l'area della figura sottesa (evidenziata in rosso) tra i punti a e b.\\
 
 \begin{figure}[h!]
 \centering
@@ -186,12 +187,16 @@ Sia data la seguente funzione $ f(x) = x^2 $, si voglia trovare l'area della fig
 
 Per risolvere il seguente problema abbiamo bisogno di calcolare l'integrale :
 
-\[ \int_{a}^{b} f(x) dx \]
+\[ 
+	\int_{a}^{b} f(x) dx 
+\]
 
 Adoperando il calcolatore per effettuare le operazioni possiamo utilizzare delle approssimazioni denominate \textit{formule di quadratura}:
 
 
-\[ \int_{a}^{b} f(x) dx  \approx  \sum_{i=0}^{n} w_{i}f(x_{i}) \]
+\[ 
+	\int_{a}^{b} f(x) dx  \approx  \sum_{i=0}^{n} w_{i}f(x_{i}) 
+\]
 
 dove $ x_{1},x_{2},..,x_{n} \in \left[a,b\right].$
 
@@ -229,7 +234,7 @@ dove $ x_{1},x_{2},..,x_{n} \in \left[a,b\right].$
 \end{tikzpicture} 
 \end{figure}
 
-Alternativamente possiamo utilizzare un'ulteriore formula di quadratura che ci permette di approssimare l'area sottesa tra a e b con l'area di trapezio descritto in questo modo : 
+Alternativamente potremmo pensare di approssimare l'area sottesa tra a e b con l'area di trapezio descritto in questo modo : 
 
 \begin{figure}[h!]
 \centering
@@ -259,7 +264,9 @@ Alternativamente possiamo utilizzare un'ulteriore formula di quadratura che ci p
 \end{figure}
 
 La formula dell'area risultante sarà:
-\[ \int_{a}^{b} f(x) dx  \approx  \frac{(f(a) - f(b))(b-a)}{2} \]
+\[ 
+	\int_{a}^{b} f(x) dx  \approx  \frac{(f(a) - f(b))(b-a)}{2} 
+\]
 
 Questi non sono altro che esempi di introduzione di sorgenti di errore nel passaggio dal modello matematico al modello computazionale.
 \end{exmp}
@@ -275,7 +282,7 @@ Questi non sono altro che esempi di introduzione di sorgenti di errore nel passa
 \begin{flushleft}
 
 \begin{defn}
-Si definisce \textbf{Problema numerico} una descrizione chiara e non ambigua di una determinata relazione funzionale $\phi$ tra dei dati in ingresso e dei risultati (o anche detti dati di uscita). 
+	Si definisce \textbf{Problema numeric} una descrizione chiara e non ambigua di una determinata relazione funzionale $\phi$ tra dei dati in ingresso e dei risultati detti anche dati di uscita. 
 \end{defn}
 \vspace{1cm}
 
@@ -283,24 +290,31 @@ Siano dati $x,y$ come dati di ingresso e uscita del problema ( non necessariamen
 Nell'effettuare il passaggio dal modello matematico al numerico computazionale possiamo incontrare tre tipologie di problemi differenti: 
 
 \begin{enumerate}
-\item \textbf{Problemi diretti} : tipologie di problemi in cui siamo a conoscenza di $x, \phi$ e vogliamo trovare $y$
+	\item \textbf{Problemi diretti} : tipologie di problemi in cui siamo a conoscenza di $x, \phi$ e vogliamo trovare $y$
 \begin{exmp}
-E' il calcolo di un valore delle ordinate di una funzione dato un valore delle ascisse :
-\[f(x) = y\]
+
+Calcolo di un valore delle ordinate di una funzione dato un valore delle ascisse :
+
+\[
+	f(x) = y
+\]
 \end{exmp}
-\item \textbf{Problemi diretti} : tipologie di problemi in cui siamo a conoscenza di $y, \phi$ e vogliamo trovare $x$
+\item \textbf{Problemi inversi} : tipologie di problemi in cui siamo a conoscenza di $y, \phi$ e vogliamo trovare $x$
 \begin{exmp}
 La risoluzione di un sistema lineare è un esempio di problema inverso: 
-\[ A_{n \times n} x_{1 \times n} = y_{n \times 1}\]
+\[ 
+	A_{n \times n} x_{1 \times n} = y_{n \times 1}
+\]
 conosciamo la matrice dei coefficienti $A$ che rappresenta la nostra relazione funzionale $\phi$.  Conosciamo inoltre i nostri termini noti dati dalla variabile $y$ e vogliamo trovare il vettore incognito $x$.
 \end{exmp}
-\item \textbf{Problemi d'identità} : tipologie di problemi in cui siamo a conoscenza di $x, y$ e vogliamo trovare $\phi$.\\
+
+\item \textbf{Problemi d'identificazione} : tipologie di problemi in cui siamo a conoscenza di $x, y$ e vogliamo trovare $\phi$.\\
 Come esempio di quest'ultima categoria di problemi vogliamo presentare un problema di approssimazione :
 \begin{exmp}
 Sia data una serie di n punti $(x_{i}, y_{i})$ $\forall i = 1,2, ...  n$ e con le ascisse tutte distinte. \\
 Vogliamo individuare se $\exists p $ polinomio di grado $n-1$ tale che $p(x_{i}) = y_{i}$ $\forall i = 1,2, ...  n$.\\
 Se $n = 3$ per,  esempio allora $p$ è una parabola denominata,  in questo caso,  polinomio di interpolazione dei dati. \\
-E' da notare in questo caso che io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ che in questo caso corrisponde al polinomio $p$ di grando $n-1$.
+E' da notare che in questo caso io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ corrispondente al polinomio $p$ di grando $n-1$.
 \end{exmp}
 \end{enumerate}
 \end{flushleft}
@@ -318,7 +332,7 @@ Si definisce \textbf{problema ben posto} una particolare tipologia di problema l
 \item Dipende in modo continuo dai dati del problema.
 \end{enumerate}
 \end{defn}
-Se un problema non è ben posto allora si dice che questio sia \textbf{mal posto}.\\
+Se un problema non è ben posto allora si dice che questo sia \textbf{mal posto}.\\
 I problemi che andremo a risolvere sul calcolatore saranno sia \textbf{ben posti che ben condizionati}
 \begin{defn}
 Si definisce \textbf{problema ben condizionato} un problema nel quale a piccole perturbazioni su dati corrispondono piccole perturbazioni sui risultati ottenuti.
@@ -330,14 +344,19 @@ Si definisce \textbf{problema ben condizionato} un problema nel quale a piccole 
 
 \section{La notazione posizionale}
 \begin{flushleft}
-Trattando problemi matematici di tipo aritmetico ci viene naturale rappresentare un determinato valore in base decimale. Questo è dovuto alla semplicità con la quale possiamo usare i valori ed effettuare le operazioni; tuttavia in ambito informatico i calcolatori, per effettuare i loro controlli e le loro operazioni adottano una rappresentazione binaria per i valori. Abbiamo bisogno, dunque, di una metodologia per effettuare agilmente dei cambi di base.\\
+Trattando problemi matematici di tipo aritmetico ci viene naturale rappresentare un determinato valore in base decimale. Questo è dovuto alla semplicità con la quale possiamo usare i valori per effettuare le operazioni; tuttavia in ambito informatico i calcolatori, per effettuare i loro controlli ed eseguire istruzioni adottano una rappresentazione binaria per i valori. Abbiamo bisogno, dunque, di una metodologia per effettuare agilmente dei cambi di base.\\
 
-Data $\beta$ una base :
-\[ (a_{n}....a_{0}.b_{1}b_{2}....)_{\beta} = \sum_{k=0}^{n}a_{k}\beta^{k} + \sum_{k=1}^{\infty}b_{k}\beta^{-k} \]
+Sia data dunque una base $\beta$, possiamo rappresentare un valore in questa attraverso la seguente notazione :
+
+\[ 
+	(a_{n}....a_{0}.b_{1}b_{2}....)_{\beta} = \sum_{k=0}^{n}a_{k}\beta^{k} + \sum_{k=1}^{\infty}b_{k}\beta^{-k} 
+\]
 
 \begin{exmp}
 La rappresentazione del numero 56.78 in base $\beta = 10$ :
-\[ 56.78 = 6 \times 10^{0} + 5 \times 10^{1} + 7 \times 10^{-1} + 8 \times 10^{-2} \]
+\[ 
+	56.78 = 6 \times 10^{0} + 5 \times 10^{1} + 7 \times 10^{-1} + 8 \times 10^{-2}
+\]
 \end{exmp}
 \end{flushleft}
 
@@ -348,7 +367,10 @@ Scelta una base $\beta$ vogliamo ora vedere come possiamo rappresentare un quals
 
 \begin{defn}
 Un numero $x$ si dice \textbf{rappresentato in forma normalizzata} se,  scelta una base $\beta \geq 2$,  questo si presenta nella forma: 
-\[ \pm (0.d_{1}d_{2}d_{3}....)_{\beta} \times \beta^{p}. \]
+\[ 
+	\pm (0.d_{1}d_{2}d_{3}....)_{\beta} \times \beta^{p}. 
+\]
+
 Dove $ 1 \leq d_{1} \leq \beta - 1 $ e $ 0 \leq d_{i} \leq \beta $ $\forall i > 1$
 \end{defn}
 $0.d_{1}d_{2}d_{3}....$ è detta \textit{mantissa} del numero e questa può assumere valori compresi tra $\beta^{-1}$ e 1.
@@ -368,7 +390,10 @@ Adottando la notazione posizionale in forma normalizzata per la rappresentazione
 \end{enumerate} 
 
 Possiamo rappresentare $F$ come: 
-\[ F(\beta, t, L, U) := \bigg\{ x \in \mathbb{R} \setminus \{0\} : x =  \pm \bigg( \sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}\]
+\[ 
+	F(\beta, t, L, U) := 
+	\bigg\{ x \in \mathbb{R} \setminus \{0\} : x =  \pm \bigg( \sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}
+\]
 
 $F$ è detto \textit{Insieme dei numeri finiti} o anche \textit{insieme numeri macchina} e possiamo rappresentarlo graficamente nella seguente maniera: 
 \vspace{2cm}
@@ -397,7 +422,7 @@ I due riquadri comprendono i numeri positivi e negativi appartenenti ad $F$, com
 Ovviamente il tentare di rappresentare numeri $x \notin F$ può comportare una serie di errori:
 \begin{enumerate}
 	\item \textbf{Overflow}: Può essere di tipo positivo o negativo in base al segno di $x$.  Si tratta del caso in cui il valore  $ |x| $ è maggiore del massimo numero rappresentabile in $F$
-	\item \textbf{Underflow}: Errore opposto all'overflow: $|x|$ è minore del più piccolo numero rappresentabile in $F$. Anche in questo caso può avere tipologia positiva o negativa.
+	\item \textbf{Underflow}: Errore opposto all'overflow, ovvero, $|x|$ è minore del più piccolo numero rappresentabile in $F$. Anche in questo caso può avere tipologia positiva o negativa.
 \end{enumerate}
 
 \begin{figure}[h!]
@@ -432,14 +457,14 @@ Ovviamente il tentare di rappresentare numeri $x \notin F$ può comportare una s
 \label{rappresentazione errori f}
 \end{figure}
  
-E' importante notare che gli intervalli rappresentati dai due rettangoli nelle figure \ref{rappresentazione f} e \ref{rappresentazione errori f} presentano dei "buchi" al loro interno . Due numeri $x_{1}, x_{2} \in F$ e contigui tra loro presentano uno spazio in cui ricadono tutti quei valori non appartenenti ad $F$.
+E' importante notare che gli intervalli rappresentati dai due rettangoli nelle figure \ref{rappresentazione f} e \ref{rappresentazione errori f} presentino dei "buchi" al loro interno . Due numeri $x_{1}, x_{2} \in F$  contigui tra loro presentano uno spazio in cui ricadono dei valori che non appartengono ad $F$.
  
 \begin{exmp} 
 \label{card1}
 Si rappresenti $F(2, 3, -2 ,1) := \{ \pm 0.1d_{1}d_{2} \times \beta^{p} \} \cup \{0\}$ dove $d_{i} \in \{0,1\}$ e $ -2 \leq p \leq 1$.\\
 \vspace{1em}
 Notiamo subito che, per essere in forma normalizzata, il primo numero dopo la virgola deve essere necessariamente diverso da 0. questo impone, se $\beta = 2$ che la prima cifra dopo la virgola sia un 1, quindi le uniche cifre che varieranno saranno due (ovvero $d_{1}$ e $d_{2}$). 
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \begin{tabular}{|l|c|c|c|c|}\hline
 \diagbox{m}{p} & -2 & -1 & 0 & 1  \\ \hline
@@ -454,7 +479,7 @@ Possiamo subito vedere come i numeri positivi in  $F$ siano 16,  sapendo che i n
 
 Convertiamo ora i valori in base 10 e facciamo una considerazione:  
 
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \begin{tabular}{|l|c|c|c|c|}\hline
 \diagbox{m}{p} & -2 & -1 & 0 & 1  \\ \hline
@@ -558,15 +583,17 @@ Finalmente possiamo calcolare la cardinalità del nostro insieme $F$ tenendo con
 \begin{flushleft}
 Vogliamo porci ora il seguente problema: \\
 Ipotizziamo di aver definito un insieme $F$ con degli opportuni parametri $\beta, t L,U$. Dato un valore $x \notin F$ vogliamo ottenere un valore $x_{i} \approx x$ tale che $x_{i} \in F$.\\
-Quello che dobbiamo fare in questo caso è effettuare delle approssimazioni tali da trasformare il nostro numero in partenza in un determinato valore rappresentabile internamente ad $F$. \\
-Abbiamo due possibili soluzioni differenti che ci permettono di proseguire: 
+Quello che dobbiamo fare in questo caso è effettuare delle approssimazioni tali da trasformare il nostro numero di partenza in un determinato valore rappresentabile internamente ad $F$. \\
+Valutiamo due tipologie di approssimazioni : 
 \end{flushleft}
 
 \subsection{Approssimazione per troncamento}
 \begin{flushleft}
 sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per troncamento : 
-\[ fl_{T}(x) = \pm(d_{1}d_{2}....d_{t})\times \beta^{p}.\]
-Se il nostro valore $x$ ha un numero di cifre dopo la virgola maggiore del $t$ semplicemente quelle in eccesso vengono scartate
+\[ 
+	fl_{T}(x) = \pm(d_{1}d_{2}....d_{t})\times \beta^{p}.
+\]
+Se il nostro valore $x$ ha un numero di cifre dopo la virgola maggiori di $t$ semplicemente quelle in eccesso vengono scartate
 
 \begin{exmp}
 Se definiamo $F$ con $\beta = 10 $ e $t = 4$ e vogliamo approssimare il valore $x = 0.143578$ per troncamento il risultato che otterremmo sarà $ fl_{T}(x) = 0.1435 $
@@ -575,7 +602,7 @@ Se definiamo $F$ con $\beta = 10 $ e $t = 4$ e vogliamo approssimare il valore $
 
 \subsection{Approssimazione per arrotondamento}
 \begin{flushleft}
-In questo caso richiediamo che la base in cui lavoriamo sia pari.
+In questo caso richiediamo che la base con cui lavoriamo sia pari.
 sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per arrotondamento :
 \[
 fl_{A}(x) = 
@@ -618,7 +645,7 @@ Si definisce  \textbf{roundoff unit} la metà della precisione macchina : $u = \
 \end{defn}
 
 Ragioniamo nel concreto cosa questi valori vogliano significare nel nostro studio.\\
-Partendo dalla prima definizione portiamoci nel segmento $[\beta^0, \beta^1]$, avendo definito $eps = \beta^{1-t}$ lo spacing di questo intervallo possiamo subito capire che la distanza tra due numeri macchina consecutivi in questo è proprio eps.
+Partendo dalla prima definizione portiamoci nel segmento $[\beta^0, \beta^1]$, avendo definito $eps = \beta^{1-t}$ lo spacing di questo intervallo possiamo subito capire che la distanza tra due numeri macchina consecutivi in questo è proprio $eps$.
 Per esempio,  se volessimo conoscere il numero macchina immediatamente successivo ad 1 ($\beta^{0}$) occorrerebbe semplicemente sommare ad 1 il valore $eps$. \\
 Cosa accade quando si aggiunge ad 1 il nostro valore $u$ rappresentante la roundoff unit? \\
 $ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola : $0.1d_{1}d_{2}d_{3}...d_{t}$ $\forall i $ $d_{i} = 0$
@@ -648,12 +675,22 @@ Si vuole ora procedere con un osservazione:
 \begin{flushleft}
 Immaginiamo di voler rappresentare un determinato numero $x_{1}$  tramite rappresentazione per troncamento. 
 Riprendendo quanto fatto in precedenza tal numero, non ancora approssimato,  si presenta in questa forma : 
-\[ x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \times \beta^{p} \]
+\[
+	 x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \times \beta^{p} 
+\]
+
 Effettuando l'approssimazione per troncamento rimuoviamo dalla mantissa le cifre decimali in eccesso riducendole esattamente a t:
-\[ \widetilde{x} = 0.d_{1}d_{2}...d_{t}\times\beta^{p} \]
+\[ 
+	\widetilde{x} = 0.d_{1}d_{2}...d_{t}\times\beta^{p} 
+\]
+
 Calcoliamo ora l'errore commesso : 
-\[ E_{ass}^{T} = |x - \widetilde{x}| =   0.d_{t+1}d_{t+2}...\times\beta^{p-t} < 1 \Longrightarrow  E_{ass}^{T} < \beta^{p-t}  \]
-\[ E_{rel}^{T} = \frac{E_{ass}^{T}}{|x|} < \frac{ \beta^{p-t}}{ \beta^{p-1}} =  \beta^{1-t} = esp \]
+\[ 
+	E_{ass}^{T} = |x - \widetilde{x}| =   0.d_{t+1}d_{t+2}...\times\beta^{p-t} < 1 \Longrightarrow  E_{ass}^{T} < \beta^{p-t}  
+\]
+
+\[
+	E_{rel}^{T} = \frac{E_{ass}^{T}}{|x|} < \frac{ \beta^{p-t}}{ \beta^{p-1}} =  \beta^{1-t} = esp \]
 
 essendo infatti $x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che : $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
 \end{flushleft}
@@ -703,12 +740,14 @@ troncamento,  più preciso in quanto :
 \subsection{Il significato della roundoff unit}
 \begin{flushleft}
 Come visto precedentemente il valore della roundoff unit rappresenta un limite superiore all'errore relativo che si può commettere approssimando i numeri in virgola mobile. \\
-Essendo $u$ vincolata ad un valore relativo possiamo trascurare l'ordine di grandezza e concentrarci sui numeri compresi nel segmento $[\beta^{0}, \beta{1}].$
+Essendo $u$ vincolata ad un valore relativo possiamo trascurare l'ordine di grandezza e concentrarci sui numeri compresi nel segmento $[\beta^{0}, \beta^{1}].$
 Come visto precedentemente il valore massimo dell'errore assoluto, e quindi del numeratore per calcolare l'errore relativo,  in caso di floating per arrotondamento è la metà dello spacing.
 Al denominatore invece è presente il numero $x$ che occorre approssimare e che,  per rendere massimo l'errore relativo, dev'essere il più piccolo possibile. 
-In caso quindi di numeri compresi nel segmento $[\beta^{0}, \beta{1}]$ il massimo valore che possiamo avere per l'errore relativo è quando approssimiamo un valore nella forma : $x = 1 + a$ con  $0 < a <  \frac{1}{2}\beta^{1-t}.$
+In caso quindi di numeri compresi nel segmento $[\beta^{0}, \beta^{1}]$ il massimo valore che possiamo avere per l'errore relativo è quando approssimiamo un valore nella forma : $x = 1 + a$ con  $0 < a <  \frac{1}{2}\beta^{1-t}.$
 Tramite floating il valore $x$ viene approssimato ad 1 e quindi:
-\[E_{rel} = \displaystyle\left\lvert \frac{x - fl(x)}{x} \right\rvert = \displaystyle\left\lvert \frac{a}{1+a} \right\rvert < \displaystyle\left\lvert \frac{u}{1+a} \right\rvert < u \]
+\[
+	E_{rel} = \displaystyle\left\lvert \frac{x - fl(x)}{x} \right\rvert = \displaystyle\left\lvert \frac{a}{1+a} \right\rvert < \displaystyle\left\lvert \frac{u}{1+u} \right\rvert < u 
+\]
 \end{flushleft}
 
 \section{Operazioni di macchina}
@@ -728,9 +767,13 @@ In caso questi non vi appartenessero quello che dobbiamo fare è sicuramente uti
 \[ x \longrightarrow fl_{A}(x) \in F, \]
 \[y \longrightarrow fl_{A}(y) \in F \]
 A questo punto possiamo calcolare il risultato della nostra operazione con i nuovi valori ottenuti $fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)$ tuttavia non sappiamo se il risultato ottenuto appartenga ad $F$ quindi in questo caso dobbiamo effettuare un'ulteriore approssimazione di questo: 
-\[ fl_{A}(fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)) \in F \]
+\[ 
+	fl_{A}(fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)) \in F 
+\]
 Fatto ciò calcoliamo il valore dell'errore relativo tra il risultato esatto tra i due numeri $x,y$ e le loro approssimazioni: 
- \[E_{rel} =  \displaystyle\left\lvert \frac{x \boldsymbol{\cdot} y - fl_{A}(fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)) }{x \boldsymbol{\cdot} y} \right\rvert\]
+ \[
+ 	E_{rel} =  \displaystyle\left\lvert \frac{x \boldsymbol{\cdot} y - fl_{A}(fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)) }{x \boldsymbol{\cdot} y} \right\rvert
+ \]
 Cerchiamo di riscrivere ora l'equazione trattata sopra ricordando : 
 \[ fl_{A}(x) = x(1 - \varepsilon_{x}) \quad |\varepsilon_{x}| \leq u \]
 \[ fl_{A}(y) = y(1 - \varepsilon_{y}) \quad |\varepsilon_{y}| \leq u \]
@@ -2084,8 +2127,284 @@ in questo caso l'ordine di convergenza è $p$ e risulta inoltre che :
 \[ 	
 	\lim_{i \rightarrow +\infty} \dfrac{|x_{i+1} - \alpha|}{|x_{i} - \alpha|^{p}} = C  \quad \quad C = \dfrac{|g^{p}(\alpha)|}{p!}
 \]
+\end{flushleft}
+
+\chapter{Sistemi lineari}
+\begin{flushleft}
+Nel seguente capitolo vogliamo studiare come risolvere sistemi lineari attraverso l'utilizzo di un calcolatore.
+\begin{defn}
+	Un sistema lineare quadrato di dimensione $n$ è un sistema lineare costituito da $n$ equazioni in $n$ incognite.  In forma matriciale lo possiamo scrivere come $A_{n \times n} x_{n \times 1} = b_{n \times 1}$.
+	
+	\[ 
+		\begin{pmatrix}
+			a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+			a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+			\vdots & & \ddots & & \vdots \\
+			a_{n1} & a_{n2} & a_{n3} & \dots & a_{nn} \\
+		\end{pmatrix}	
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		= 
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}		
+	\]
+
+Che possiamo rappresentare come sistema : 
+
+	\[ 
+			\begin{cases}
+  				a_{11}x_{1} + a_{12}x_{2}  + \dots + a_{1n}x_{n} &= b_{1} \\
+       			a_{21}x_{1} + a_{22}x_{2}  + \dots + a_{2n}x_{n} &= b_{2} \\
+       			\vdots \\
+  				a_{21}x_{1} + a_{22}x_{2}  + \dots + a_{nn}x_{n} &= b_{n} \\
+			\end{cases}
+	\]
+
+Esiste un'unica soluzione se e solo se il determinante della matrice $A$ è diverso da zero, ovvero $\det(A) \neq 0$.
+\end{defn}
+
+Il sistema lineare risulta un problema ben condizionato quando il numero di condizionamento della matrice $A$ ( $K(A) = \lVert A \rVert \lVert A^{-1} \rVert$ ) non risulta troppo elevato.
+\end{flushleft}
+
+\section{Metodi diretti}
+\begin{flushleft}
+Sia dato un sistema lineare $Ax = b$ tale per cui il $\det(A) \neq 0$ e il suo numero di condizionamento $K(A)$ risulti non troppo elevato.
+Risolvere questo sistema tramite applicazione di metodi diretti significa trasformarlo,  tramite un numero finito di passi, in un sistema lineare equivalente, ovvero avente la medesima soluzione,  di più facile soluzione e tale sistema presenterà una matrice dei coefficienti triangolare (inferiore o superiore).
+
+\subsection{Metodi di sostituzione per la soluzione di sistemi lineari con matrice dei coefficienti in forma triangolare}
+
+Abbiamo due tipologie differenti di metodi:
+
+\begin{enumerate}
+	\item Metodo di sostituzione \textbf{in avanti} per sistemi lineari con matrice \textbf{triangolare inferiore.}
+	\[
+		\begin{pmatrix}
+			a_{11} & 0 & 0 &0 & \dots & 0 \\
+			a_{21} & a_{22} & 0 & 0 & \dots & 0 \\
+			\vdots & & \ddots &  & & \vdots \\
+			a_{i1} & a_{i2} & \dots & a_{ii} & \dots & 0 \\
+			\vdots & & & & \ddots &   \vdots \\
+			a_{n1} & a_{n2} & a_{n3} & \dots &  \dots & a_{nn} \\
+		\end{pmatrix}
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{i}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{i}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}
+	\]
+	
+	Il relativo sistema risultante ci permette di ottenere i valori delle incognite $x_{1},x_{2}, \dots, x_{n}$ in una maniera più agevole  poichè si presenterà nel seguente modo : 	
+	\[ 
+		\begin{cases}
+  				a_{11}x_{1} = b_{1} \; \longrightarrow x_{1} = \frac{b_{1}}{a_{11}} \\   
+       			a_{21}x_{1} + a_{22}x_{2} = b_{2} \; \longrightarrow x_{2} = \frac{b_{2}- a_{21}x_{1}}{a_{22}}  \\
+       			\vdots \\
+       			a_{i1}x_{1} + a_{i2}x_{2}  + \dots + a_{ii}x_{i} = b_{i} \\
+       			\vdots \\
+  				a_{n1}x_{1} + a_{n2}x_{2}  + \dots + a_{ni}x_{i} + \dots + a_{nn}x_{n} = b_{n} \\
+		\end{cases}	
+	\]
+	
+	Possiamo riscrivere una generica riga $i$ del nostro sistema come una sommatoria di $i$ fattori, ovvero : 
+	\[
+		\sum_{j = 1} ^ {i} a_{ji}x_{j} = b_{i}
+	\]	
+	
+	Dunque la generica soluzione di $xi$ può essere scritta allo stesso modo in funzione di una sommatoria in quanto :
+	\[
+		x_{i} = \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ji}x_{j}}{a_{ii}}
+	\]	
+	
+	Questo ci permette dunque di determinare un algoritmo risolutivo : 
+	
+	\begin{algorithm}
+		\caption{ Metodo di sostituzione in avanti}
+		\begin{algorithmic} 
+			\STATE $ x_{1} \leftarrow  \frac{b_{1}}{a_{11}}$
+			\FOR{$ i = 2,3 \dots n $}
+				\STATE $ x_{i} \leftarrow  \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ji}x_{j}}{a_{ii}} $
+			\ENDFOR
+		\end{algorithmic}
+	\end{algorithm}	
+	
+	E' da notare che i fattori $a_{11}, a_{22}, \dots, a_{nn}$ non si annullino nel nostro algoritmo poichè abbiamo richiesto che la nostra matrice non abbia determinante nullo.\\
+\vspace{1em}
+\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-1$ moltiplicazioni e $1$ divisione per un totale di $i$ operazioni distinte,  ripetiamo queste $i$ operazioni per $n$ volte. 
+
+\[
+	\sum_{i = 1}^{n} i = \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
+\]
+
+	\item Metodo di sostituzione \textbf{all'indietro} per sistemi lineari con matrice \textbf{triangolare superiore.}
+	
+	\[
+		\begin{pmatrix}
+			a_{11} & a_{12} & a_{13} & \dots & \dots & a_{1n} \\
+			0  & a_{22} & a_{23} &  \dots & \dots & a_{2n} \\
+			\vdots & & \ddots &  & & \vdots \\
+			0 & 0 & \dots & a_{ii} &  \dots & a_{in} \\
+			\vdots & & & & \ddots &   \vdots \\
+			0 & 0 & 0 & 0 &  \dots & a_{nn} \\
+		\end{pmatrix}
+		\begin{pmatrix}
+			x_{1}  \\
+			x_{2}  \\
+			\vdots  \\
+			x_{i}  \\
+			\vdots  \\
+			x_{n}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			b_{1}  \\
+			b_{2}  \\
+			\vdots  \\
+			b_{i}  \\
+			\vdots  \\
+			b_{n}
+		\end{pmatrix}
+	\]	
+	
+	Stiamo lavorando con un caso analogo a quello visto in precedenza dove avremmo ancora una matrice dei coefficienti avente determinante diverso da zero. In questo caso, per la risoluzione partiremo dalla n-esima equazione invece che dalla prima.
+	
+	\[ 
+		\begin{cases}
+				a_{nn}x_{1} = b_{n} \; \longrightarrow x_{1} = \frac{b_{n}}{a_{nn}} \\   
+				a_{n-1n-11}x_{1} + a_{n-1n}x_{2} = b_{n-1} \; \longrightarrow x_{2} = \frac{b_{n-1}-( a_{n-1n-1}x_{1})}{a_{n-1n}}  \\
+				\vdots \\
+				a_{i1}x_{1} + a_{i2}x_{2}  + \dots + a_{ii}x_{i} = b_{i} \\
+				\vdots \\
+				a_{11}x_{1} + a_{12}x_{2}  + \dots + a_{1i}x_{i} + \dots + a_{1n}x_{n} = b_{1} \\
+		\end{cases}	
+	\]
+	
+In questo caso possiamo scrivere l'equazione di una generica riga $i$ nel seguente modo:
+
+\[
+		\sum_{j = 1} ^ {i} a_{ij}x_{j} = b_{i}
+\]	
+
+\[
+		x_{i} = \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ij}x_{j}}{a_{ii}}
+\]	
+
+
+Il relativo pseudocodice : 
+
+\begin{algorithm}
+		\caption{ Metodo di sostituzione all'indietro}
+		\begin{algorithmic} 
+			\STATE $ x_{1} \leftarrow  \frac{b_{n}}{a_{nn}}$
+			\FOR{$ i = n-1, \dots, 1 $}
+				\STATE $ x_{i} \leftarrow  \frac{ b_{i} - \sum_{j = i+1} ^ {n} a_{ij}x_{j}}{a_{ii}} $
+			\ENDFOR
+		\end{algorithmic}
+\end{algorithm}	
+\vspace{1em}
+\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-i$ moltiplicazioni e $1$ divisione per un totale di $n-i+1$ operazioni distinte,  ripetiamo queste $n-i+1$ operazioni per $n$ volte. 
+
+\[
+	\sum_{i = 1}^{n} n-i+1 = \sum_{j= 1}^{n} j =  \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
+\]
+
+Da notare che abbiamo posto $j = n-i+1$ ottenendo lo stesso costo computazionale del primo caso.
+\end{enumerate}
+
+Come useremo i metodi diretti per risolvere un sistema lineare ?\\
+Dato un sistema del tipo $Ax = b$ con $A$ matrice $n \times n $ e $\det(A) \neq 0$ ci ricondurremo ad un sistema $Cx = y$ equivalente e tale per cui $C$ è triangolare superiore.
+Una caratteristica comune che avranno i metodi che studieremo è quella della fattorizzazione, ovvero,  per ottenere il sistema  $Cx = y$ a partire da  $Ax = b$  moltiplicheremo la matrice triangolare superiore $C$ per una matrice $B$ tale che : 
+\[ 
+	A = BC
+\]
+dove $A,B,C$ sono matrici con dimensioni $n \times n$ e $B$ può essere :
+\begin{itemize}
+	\item triangolare inferiore.
+	\item ortogonale.
+\end{itemize}
+
+Tramite la fattorizzazione possiamo riscrivere il sistema $Ax = b$ nel relativo equivalente $BCx = b$ il quale vogliamo scomporre in due ulteriori sotto sistemi lineari  ponendo $Cx = y$. Avremmo dunque :
+\[ 
+		\begin{cases}
+				By = b\\
+				Cx = y
+		\end{cases}	
+\]
+
+Conoscendo il primo posso ricavare il vettore $y$ che andrò poi a sostituire al secondo membro per trovare $x$.  Nel caso $B$ sia triangolare inferiore risolverò il sistema $By = b$ tramite metodo di sostituzione all'avanti mentre nel caso in cui $B$ è ortogonale troverò $y$ semplicemente moltiplicando $B^{T}$ con $b$, ovvero:
+
+ \[ 
+		y = B^{T}b
+\]
+
+Per quanto riguarda i costi derivanti dalla fattorizzazione se $A = BC$ con $B$ triangolare inferiore e $C$ triangolare superiore avremmo che il costo computazionale per $By = b$ e  $Cx = y$ è $\frac{n^{2}}{2}$.
+\end{flushleft}
+
+\subsection{Metodo di gauss o eliminazione gaussiana}
+\begin{flushleft}
+
+Sia data la matrice $A = LU$  avente : 
+
+\begin{itemize}
+	\item $L$ triangolare inferiore e diagonale 1 
+	\item $U$ triangolare superiore
+\end{itemize}
+
+La condizioni che dobbiamo richiedere affinché le matrici $L$ ed $U$ esistano è :
+\[
+	\det(A(1:k, 1:k)) \neq 0 \quad \forall k = 1, \dots, n-1
+\]
+
+$A(1:k, 1:k)$ è detta sotto matrice principale di testa e si ottiene attraverso il ritaglio delle prime k righe e k colonne. Di seguito viene mostrato un esempio: 
+
+Data la matrice 
+\[
+	A = 
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} & a_{14} & \dots & a_{1n} \\
+		a_{21} & a_{22} & a_{23} & a_{24} & \dots & a_{2n} \\
+		\vdots & & \ddots &  & & \vdots \\
+		a_{i1} & a_{i2} & \dots & a_{ii} & \dots & a_{in} \\
+		\vdots & & & & \ddots &   \vdots \\
+		a_{n1} & a_{n2} & a_{n3} & \dots &  \dots & a_{nn} \\
+	\end{pmatrix}
+\]
+
+Le sue matrici di testa saranno
+
+\[ 
+	A(1:1, 1:1) = a_{11},
+	\quad
+	A(1:2, 1:2) = 
+	\begin{pmatrix}
+		a_{11} & a_{12} \\
+		a_{21} & a_{22} \\
+	\end{pmatrix},
+	\dots
+	,
+\]
 
 
 
 \end{flushleft}
+
 \end{document}

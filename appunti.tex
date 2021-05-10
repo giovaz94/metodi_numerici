@@ -796,7 +796,7 @@ Di seguito viene definito come effettuare le basiche operazioni algebriche (somm
 	\item  Si rappresentano i due numeri \textbf{in forma normalizzata}. 
 	\item  Si prende il numero tra $x$ e $y$ che presenta l'esponente minore e lo si trasforma in modo che entrambi i valori presentino lo stesso esponente.  Ovviamente in questo passaggio il numero trasformato perde la forma normalizzata. 
 	\item  Le mantisse vengono sommate tra loro ( gli esponenti vengono lasciati invariati tra di loro 
-	\item  Il risultato approssimato tramite le varie tecniche di floating mostrate in precedenza. 
+	\item  Il risultato viene approssimato tramite le varie tecniche di floating mostrate in precedenza. 
 \end{itemize}
 
 Vediamo di seguito un esempio di questi passaggi: 
@@ -815,7 +815,7 @@ Effettuiamo i passaggi elencati qui sopra :
      \hline
      $0.279 \times 10^{1}$
  \end{tabular}
- 	\item Il risultato che abbiamo ottenuto nell'ultima operazione non è conforme all'insieme $F$ definito all'inizio dell'esempio. Dobbiamo quindi approssimare il risultato che abbiamo ottenuto effettuando il floating per arrotondamento 
+ 	\item Il risultato che abbiamo ottenuto nell'ultima operazione non è conforme all'insieme $F$ definito all'inizio dell'esempio. Dobbiamo quindi effettuare un floating per arrotondamento.
  	
  	\[ fl_{A}(x+y) = fl_{A}(0.279 \times 10^{1}) = 0.28 \times 10^{1} \]
 \end{itemize}
@@ -823,9 +823,9 @@ Effettuiamo i passaggi elencati qui sopra :
 
 \paragraph{Prodotto algebrico: } 
 \begin{itemize}
-	\item Anche in questo caso occorre trasformare il valore ( se non lo è già) in forma normalizzata. 
+	\item Anche in questo caso occorre trasformare il valore (se non lo è già) in forma normalizzata. 
 	\item Si moltiplicano o dividono le mantisse e successivamente si sommano o sottraggono i vari esponenti. 
-	\item Se il risultato non è un valore che rientra all'interno dell'insieme $F$ allora occorre, anche in questo caso effettuare il floating del risultato. 
+	\item Se il risultato non è un valore che rientra all'interno dell'insieme $F$ allora occorre, anche in questo caso, effettuare un floating. 
 \end{itemize}
 
 \begin{exmp}
@@ -869,7 +869,7 @@ Effettuiamo lo stesso calcolo ma questa volta con valore $y=2^{-3}$
 \end{equation}
 
 Soffermiamoci a ragionare sui calcoli che sono stati svolti in questo esempio. Visto che stiamo lavorando nell'insieme $F(2,3,-3,2)$ vogliamo calcolare di questo il valore di $eps$ il quale vale $\beta^{1-t} = 2 ^ {1-3} = 2^{-2}$ ed il valore della roundoff unit $u = \frac{1}{2}\beta^{1-t} = 2^{-3}$.\\
-Questi valori che abbiamo ottenuto sono esattamente gli stessi delle $y$ che abbiamo usato nei casi precedenti; nel primo conto ( somma di 1 con $eps$) siamo riusciti ad ottenere il successivo numero di macchina di 1 mentre nel secondo l'arrotondamento ci ha restituito il numero x di partenza.
+Questi valori che abbiamo ottenuto sono esattamente gli stessi delle $y$ che abbiamo usato nei casi precedenti; nel primo conto ( somma di 1 con $eps$) siamo riusciti ad ottenere il successivo numero di macchina di 1 mentre nel secondo l'arrotondamento ci ha restituito il numero $x$ di partenza.
 Proprio l'ultimo calcolo ci fa capire che lo 0 non è più l'elemento neutro rispetto la somma,  infatti basterebbe sommare a $x$ qualsiasi numero $y \leq u$ per ottenere il valore iniziale di $x$.
 \end{exmp}
 \end{flushleft}
@@ -956,7 +956,7 @@ Questo fenomeno viene detto \textbf{fenomeno della cancellazione algebrica}.
 
 \section{Osservazioni conclusive }
 \begin{flushleft}
-Abbiamo visto in questo capitolo come l'effettuare operazioni all'interno della macchina comporti una serie di approssimazioni che coinvolgono sia gli operandi che i risultati delle operazioni stesse. \\
+Abbiamo visto in questo capitolo come l'effettuare operazioni all'interno della macchina comporti una serie di approssimazioni che coinvolgono sia gli operandi che i risultati delle  stesse. \\
 Con un esempio vediamo come operazioni algebricamente identiche possano produrre talvolta risultati inaccettabili all'interno di un insieme $F$.
 
 \begin{exmp}
@@ -967,19 +967,21 @@ Sia dato un insieme $F(10, 2, L,U)$ e due numeri $a,b \in F$ vogliamo calcolarne
 \end{itemize}
 \paragraph{Algoritmo 1:}
 Sia $a = 0.96 \times 10^{-1}$ e $b = 0.99 \times 10^{-1}$ voglio prima sommare il loro valore e, successivamente, dividere il tutto per 2. 
+\[
 \begin{tabular}{r}
     	$0.96 \times 10^{-1}$ \\ 
     	$+$ $0.99 \times 10^{-1}$  \\ 
      \hline
      $1.95 \times 10^{-1}$   
 \end{tabular}
-che in forma normalizzata è $0.195 \time 10^{0}$.  Ora vogliamo assicurarci che il risultato ottenuto sia sempre interno all'interno di $F$ per questo motivo effettuiamo un arrotondamento di quanto ottenuto :
+\]
+che in forma normalizzata è $0.195 \time 10^{0}$.  Ora vogliamo assicurarci che il risultato ottenuto sia sempre interno all'interno di $F$ per questo motivo effettuiamo un arrotondamento :
 \[ fl_{A}(a+b) = fl_{A}(0.195 \time 10^{0}) = 0.2 \times 10^{0} \quad per \; R.T.E \]
 Infine calcoliamo l'approssimazione della somma ottenuta moltiplicata per 0.5 ( ovvero divisa per due ).
 \[ fl_{A}((a+b) \times 0.5 ) = 0.1 \times 10^{0} \]
 
-Cosa notiamo da questo risultato ? \\
-Se visualizzassimo l'intervallo $[a,b]$ noteremo sicuramente che il risultato ottenuto da questo primo algoritmo non vi appartiene.
+Cosa notiamo in questo risultato ? \\
+Se visualizzassimo l'intervallo $[a,b]$ noteremo sicuramente che quanto ottenuto da questo primo algoritmo non vi appartiene.
 \vspace{1em}
 \begin{figure}[h!]
 \centering
@@ -1007,10 +1009,10 @@ Se visualizzassimo l'intervallo $[a,b]$ noteremo sicuramente che il risultato ot
 Calcoliamo anzitutto $b-a= 0.03 \times 10^{-1} = 0.3 \times 10^{-2}$, il risultato ottenuto da questa operazione rimane ancora all'interno di $F$, non abbiamo bisogno di ulteriori arrotondamenti. \\
 Procediamo poi a dividere il risultato per 2 ed effettuare successivamente un floating :
 \[ fl_{A}(0.3 \times 10^{-2}) = 0.15 \times 10 ^ {-2} \]
-A questo punto sommiamo al risultato ottenuto il valore di $a$.
+A questo punto sommiamo al il valore di $a$.
 \[ fl_{A}(0.96 \times 10^{-1} + 0.15 \times 10 ^ {-2}) =  fl_{A}(0.975 \times 10^{-1}) = 0.98 \times 10^{-1} \quad per\; R.T.E\]
 
-Possiamo notare subito il perchè, rispetto al primo, questo algoritmo ci dia un risultato più soddisfacente, infatti il risultato che abbiamo ottenuto è effettivamente un valore compreso tra i due estremi a e b che si ritrova in una posizione abbastanza centrale tra i due.
+Possiamo notare subito il perchè, rispetto al primo, questo algoritmo ci dia un risultato più soddisfacente, infatti il risultato che abbiamo ottenuto è effettivamente un valore compreso tra i due estremi a e b collocato in una posizione centrale tra i due.
 \end{exmp}
 \end{flushleft}
 

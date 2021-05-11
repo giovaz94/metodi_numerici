@@ -384,7 +384,7 @@ $0.d_{1}d_{2}d_{3}\dots$ è detta \textit{mantissa} del numero e questa può ass
 
 \begin{enumerate}
 \item $\beta$: base usata.
-\item $t$: è il numero di cifre di cui si compone la mantissa $\pm (0.d_{1}d_{2}d_{3}\dotsd_{t}). $
+\item $t$: è il numero di cifre di cui si compone la mantissa $\pm (0.d_{1}d_{2}d_{3}\dots d_{t}). $
 \item $L$: \textit{Lower bound} dell'esponente $p$.  $L$ si intende come intero negativo.
 \item $U$: \textit{Upper bound} dell'esponente $p$.  In questo caso $U$ è inteso essere un intero positivo.
 \end{enumerate} 
@@ -510,8 +510,8 @@ Per iniziare contiamo il numero di valori positivi di $F$.
 
 La prima cosa che vogliamo capire è quale sia il massimo e il minimo numero in valore assoluto che possiamo rappresentare in $F$.  \\
 \begin{itemize}
-	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}\dotsd{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi: $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
-	\item il numero più grande che possiamo rappresentare invece è $0.d_{1}d_{2}\dotsd{t} \times \beta^{U}$ dove $\forall i $ $d_{i} = \beta - 1$. 
+	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}\dots d{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi: $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
+	\item il numero più grande che possiamo rappresentare invece è $0.d_{1}d_{2}\dots d{t} \times \beta^{U}$ dove $\forall i $ $d_{i} = \beta - 1$. 
 \[ (\beta -1)\times\beta^{-1}(\beta -1)\times\beta^{-2}\dots(\beta -1)\times\beta^{-t} \times \beta^{U} \]
 \[ (\beta -1) \beta^{-t}(1 + \beta + \beta^{2} +\dots+ \beta^{t-1})\beta^{U} \]
 
@@ -552,8 +552,8 @@ Il primo passo che facciamo è osservare quanti segmenti del tipo $[\beta^{p}, \
 \draw[black,thick,fill] (axis cs: 6.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U-1}$};
 \draw[black,thick,fill] (axis cs: 8.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U}$};
 
-\node [black] (dots1) at (axis cs:-4.5 ,  -1.5) {\dots};
-\node [black] (dots1) at (axis cs:3.5 ,  -1.5) {\dots};
+\node [black] (\dots) at (axis cs:-4.5 ,  -1.5) {\dots};
+\node [black] (\dots) at (axis cs:3.5 ,  -1.5) {\dots};
 \end{axis}
 \end{tikzpicture}
 \caption{Segmenti tra più potenze successive di $F^{+}$}
@@ -564,10 +564,10 @@ Il nostro esponente p può assumere un valore massimo $U$ ed uno minimo $L$ il n
 \vspace{1em}
 Internamente ad ogni intervallo tra due potenze successive di $\beta$ vi è una stessa quantità di numeri macchina.  Questi sono equispaziati tra loro di un valore variabile (di segmento in segmento) $s$ detto spacing.
 Calcoliamo $s$ portando la nostra attenzione ad un generico segmento $[\beta^{p}, \beta^{p+1}]$. \\
-Il numero macchina più piccolo in questo intervallo è uguale a $x_{1} = 0.1000000\dots0000 \times \beta^{p+1}$, il suo successivo, invece,  è uguale alla stessa cifra con l'unica differenza che la mantissa è incrementata di uno alla t-esima posizione: $x_{2}=0.1000000\dots0001 \times \beta^{p+1}$. 
+Il numero macchina più piccolo in questo intervallo è uguale a $x_{1} = 0.1000000\dots 0000 \times \beta^{p+1}$, il suo successivo, invece,  è uguale alla stessa cifra con l'unica differenza che la mantissa è incrementata di uno alla t-esima posizione: $x_{2}=0.1000000\dots 0001 \times \beta^{p+1}$. 
 La differenza tra questi due valori ci permette di ricavare lo spazio $s$ che intercorre tra loro:
 
-\[ x_{2} - x_{1} = 0.1000000\dots0001 \times \beta^{p+1} - 0.1000000\dots0000 \times \beta^{p+1} = \beta^{-t}\beta^{p+1} = \beta^{p-t+1} \]
+\[ x_{2} - x_{1} = 0.1000000\dots 0001 \times \beta^{p+1} - 0.1000000\dots 0000 \times \beta^{p+1} = \beta^{-t}\beta^{p+1} = \beta^{p-t+1} \]
 
 Il quantitativo di numeri macchina compresi in questo intervallo è: 
 \[ \frac{\beta^{p+1} - \beta^{p}}{\beta^{p-t+1}}  =(\beta-1)\beta^{t-1}\]
@@ -589,9 +589,9 @@ Valutiamo due tipologie di approssimazioni:
 
 \subsection{Approssimazione per troncamento}
 \begin{flushleft}
-sia $x = \pm(d_{1}d_{2}\dotsd_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per troncamento: 
+sia $x = \pm(d_{1}d_{2}\dots d_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per troncamento: 
 \[ 
-	fl_{T}(x) = \pm(d_{1}d_{2}\dotsd_{t})\times \beta^{p}.
+	fl_{T}(x) = \pm(d_{1}d_{2}\dots d_{t})\times \beta^{p}.
 \]
 Se il nostro valore $x$ ha un numero di cifre dopo la virgola maggiori di $t$ semplicemente quelle in eccesso vengono scartate
 
@@ -603,7 +603,7 @@ Se definiamo $F$ con $\beta = 10 $ e $t = 4$ e vogliamo approssimare il valore $
 \subsection{Approssimazione per arrotondamento}
 \begin{flushleft}
 In questo caso richiediamo che la base con cui lavoriamo sia pari.
-sia $x = \pm(d_{1}d_{2}\dotsd_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per arrotondamento:
+sia $x = \pm(d_{1}d_{2}\dots d_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per arrotondamento:
 \[
 fl_{A}(x) = 
 \begin{cases}
@@ -648,7 +648,7 @@ Ragioniamo nel concreto cosa questi valori vogliano significare nel nostro studi
 Partendo dalla prima definizione portiamoci nel segmento $[\beta^0, \beta^1]$, avendo definito $eps = \beta^{1-t}$ lo spacing di questo intervallo possiamo subito capire che la distanza tra due numeri macchina consecutivi in questo è proprio $eps$.
 Per esempio,  se volessimo conoscere il numero macchina immediatamente successivo ad 1 ($\beta^{0}$) occorrerebbe semplicemente sommare ad 1 il valore $eps$. \\
 Cosa accade quando si aggiunge ad 1 il nostro valore $u$ rappresentante la roundoff unit? \\
-$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola: $0.1d_{1}d_{2}d_{3}\dotsd_{t}$ $\forall i $ $d_{i} = 0$
+$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola: $0.1d_{1}d_{2}d_{3}\dots d_{t}$ $\forall i $ $d_{i} = 0$
 Il successivo macchina invece avrà una mantissa uguale fatta eccezione per la t-esima cifra la quale possiede un 1 come valore.  Dovendo approssimare questo risultato avremmo che, tramite la regola del rouding to even, il nostro valore approssimato risulterà proprio 1. 
 
 \[ fl_{A}(1+u) = 1  \]
@@ -676,12 +676,12 @@ Si vuole ora procedere con un osservazione:
 Immaginiamo di voler rappresentare un determinato numero $x_{1}$  tramite rappresentazione per troncamento. 
 Riprendendo quanto fatto in precedenza tal numero, non ancora approssimato,  si presenta in questa forma: 
 \[
-	 x = 0.d_{1}d_{2}\dotsd_{t}d_{t+1}\dots \times \beta^{p} 
+	 x = 0.d_{1}d_{2}\dots d_{t}d_{t+1}\dots \times \beta^{p} 
 \]
 
 Effettuando l'approssimazione per troncamento rimuoviamo dalla mantissa le cifre decimali in eccesso riducendole esattamente a t:
 \[ 
-	\widetilde{x} = 0.d_{1}d_{2}\dotsd_{t}\times\beta^{p} 
+	\widetilde{x} = 0.d_{1}d_{2}\dots d_{t}\times\beta^{p} 
 \]
 
 Calcoliamo ora l'errore commesso: 
@@ -692,7 +692,7 @@ Calcoliamo ora l'errore commesso:
 \[
 	E_{rel}^{T} = \frac{E_{ass}^{T}}{|x|} < \frac{ \beta^{p-t}}{ \beta^{p-1}} =  \beta^{1-t} = esp \]
 
-essendo infatti $x = 0.d_{1}d_{2}\dotsd_{t}d_{t+1}\dots \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che: $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
+essendo infatti $x = 0.d_{1}d_{2}\dots d_{t}d_{t+1}\dots \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che: $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
 \end{flushleft}
 \pagebreak
 
@@ -1222,7 +1222,7 @@ Definiamo una matrice $\VarMtrx{A}$:
 
 \begin{defn}
 Si definisce norma matriciale infinito la funzione:
-\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,\dotsm\}} \sum_{j=1}^{n} |a_{i,j}| \]
+\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,\dots m\}} \sum_{j=1}^{n} |a_{i,j}| \]
 \end{defn}
 
 prendendo come riferimento \VarMtrx{A} siano: 
@@ -1239,7 +1239,7 @@ Allora possiamo scrivere la funzione precedente come:
 \newpage
 \begin{defn}
 Si definisce norma matriciale uno la funzione:
-\[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,\dotsn\}} \sum_{i=1}^{m} |a_{i,j}| \]
+\[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,\dots n\}} \sum_{i=1}^{m} |a_{i,j}| \]
 \end{defn}
 
 Consideriamo ora: 

@@ -1,0 +1,20 @@
+name: 'Crea il PDF degli appunti'
+on: push
+jobs:
+  pdflatex:
+    name: 'Compile LaTeX'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Run pdflatex'
+        run: |
+          sudo apt install texlive-pictures texlive-lang-italian
+          pdflatex appunti.tex
+          pdflatex appunti.tex
+        shell: bash
+      - name: 'Archive production artifacts'
+        uses: actions/upload-artifact@v2
+        with:
+          name: appunti
+          path: appunti.pdf

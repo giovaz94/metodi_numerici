@@ -106,7 +106,7 @@ Nell'effettuare questi è evidente come vengono compiute diverse approssimazioni
 \vfill
 Il risultato ottenuto è dunque un'approssimazione del vero valore dell'area terrestre. 
 
-Le considerazioni fatte quà sopra ci permettono dunque di delineare quello che è lo scopo dell' analisi numerica, ovvero :
+Le considerazioni fatte quà sopra ci permettono dunque di delineare quello che è lo scopo dell' analisi numerica, ovvero:
 \begin{enumerate}
   \item Trovare un algoritmo risolutivo ad un problema reale tale per cui questo possa essere calcolato tramite un calcolatore.
   \item Verificare che il dato algoritmo fornisca un risultato esatto. 
@@ -120,7 +120,7 @@ Le considerazioni fatte quà sopra ci permettono dunque di delineare quello che 
 Quello che vogliamo fare ora è cercare di definire delle classi di errore in cui possiamo ricadere nel tentare di risolvere un determinato problema tramite una computazione effettuata da un calcolatore:
 
 \begin{enumerate}
-  \item \textbf{Problemi modello matematico} : Tipologia di errori che vengono commessi durante il passaggio dal problema reale al modello matematico sono causati talvolta dall'introduzione di ipotesi semplificative. 
+  \item \textbf{Problemi modello matematico}: Tipologia di errori che vengono commessi durante il passaggio dal problema reale al modello matematico sono causati talvolta dall'introduzione di ipotesi semplificative. 
   
   	\begin{figure}[h]
 		\centering
@@ -139,7 +139,7 @@ Quello che vogliamo fare ora è cercare di definire delle classi di errore in cu
 		\end{tikzpicture}
 	\end{figure}
 
-\item \textbf{Errori del modello numerico-computazionale} : Tipologia di errori che vengono commessi durante il passaggio dal modello matematico al  problema numerico risolvibile dalla macchina. Vengono chiamati anche errori di discretizzazione o troncamento e rappresentano errori introdotti nel sintetizzare un procedimento infinito in uno finito.
+\item \textbf{Errori del modello numerico-computazionale}: Tipologia di errori che vengono commessi durante il passaggio dal modello matematico al  problema numerico risolvibile dalla macchina. Vengono chiamati anche errori di discretizzazione o troncamento e rappresentano errori introdotti nel sintetizzare un procedimento infinito in uno finito.
 
 \begin{figure}[h!]
 		\centering
@@ -185,7 +185,7 @@ Sia data la funzione $ f(x) = x^2 $, si vuole trovare l'area della figura sottes
 \end{tikzpicture}
 \end{figure}
 
-Per risolvere il seguente problema abbiamo bisogno di calcolare l'integrale :
+Per risolvere il seguente problema abbiamo bisogno di calcolare l'integrale:
 
 \[ 
 	\int_{a}^{b} f(x) dx 
@@ -234,7 +234,7 @@ dove $ x_{1},x_{2},..,x_{n} \in \left[a,b\right].$
 \end{tikzpicture} 
 \end{figure}
 
-Alternativamente potremmo pensare di approssimare l'area sottesa tra a e b con l'area di trapezio descritto in questo modo : 
+Alternativamente potremmo pensare di approssimare l'area sottesa tra a e b con l'area di trapezio descritto in questo modo: 
 
 \begin{figure}[h!]
 \centering
@@ -271,7 +271,7 @@ La formula dell'area risultante sarà:
 Questi non sono altro che esempi di introduzione di sorgenti di errore nel passaggio dal modello matematico al modello computazionale.
 \end{exmp}
 
-\item \textbf{Errori nei dati} : Sono errori  presenti all'interno dei dati su cui stiamo lavorando e che possono essere dovuti dalla sensibilità dello strumento che adoperiamo per le misurazioni (\textit{Errori sistematici}) o dovuti da fenomeni non prevedibili.
+\item \textbf{Errori nei dati}: Sono errori  presenti all'interno dei dati su cui stiamo lavorando e che possono essere dovuti dalla sensibilità dello strumento che adoperiamo per le misurazioni (\textit{Errori sistematici}) o dovuti da fenomeni non prevedibili.
 
 \item \textbf{Errori di arrotondamento}.
 
@@ -290,16 +290,16 @@ Siano dati $x,y$ come dati di ingresso e uscita del problema ( non necessariamen
 Nell'effettuare il passaggio dal modello matematico al numerico computazionale possiamo incontrare tre tipologie di problemi differenti: 
 
 \begin{enumerate}
-	\item \textbf{Problemi diretti} : tipologie di problemi in cui siamo a conoscenza di $x, \phi$ e vogliamo trovare $y$
+	\item \textbf{Problemi diretti}: tipologie di problemi in cui siamo a conoscenza di $x, \phi$ e vogliamo trovare $y$
 \begin{exmp}
 
-Calcolo di un valore delle ordinate di una funzione dato un valore delle ascisse :
+Calcolo di un valore delle ordinate di una funzione dato un valore delle ascisse:
 
 \[
 	f(x) = y
 \]
 \end{exmp}
-\item \textbf{Problemi inversi} : tipologie di problemi in cui siamo a conoscenza di $y, \phi$ e vogliamo trovare $x$
+\item \textbf{Problemi inversi}: tipologie di problemi in cui siamo a conoscenza di $y, \phi$ e vogliamo trovare $x$
 \begin{exmp}
 La risoluzione di un sistema lineare è un esempio di problema inverso: 
 \[ 
@@ -308,8 +308,8 @@ La risoluzione di un sistema lineare è un esempio di problema inverso:
 conosciamo la matrice dei coefficienti $A$ che rappresenta la nostra relazione funzionale $\phi$.  Conosciamo inoltre i nostri termini noti dati dalla variabile $y$ e vogliamo trovare il vettore incognito $x$.
 \end{exmp}
 
-\item \textbf{Problemi d'identificazione} : tipologie di problemi in cui siamo a conoscenza di $x, y$ e vogliamo trovare $\phi$.\\
-Come esempio di quest'ultima categoria di problemi vogliamo presentare un problema di approssimazione :
+\item \textbf{Problemi d'identificazione}: tipologie di problemi in cui siamo a conoscenza di $x, y$ e vogliamo trovare $\phi$.\\
+Come esempio di quest'ultima categoria di problemi vogliamo presentare un problema di approssimazione:
 \begin{exmp}
 Sia data una serie di n punti $(x_{i}, y_{i})$ $\forall i = 1,2, ...  n$ e con le ascisse tutte distinte. \\
 Vogliamo individuare se $\exists p $ polinomio di grado $n-1$ tale che $p(x_{i}) = y_{i}$ $\forall i = 1,2, ...  n$.\\
@@ -346,14 +346,14 @@ Si definisce \textbf{problema ben condizionato} un problema nel quale a piccole 
 \begin{flushleft}
 Trattando problemi matematici di tipo aritmetico ci viene naturale rappresentare un determinato valore in base decimale. Questo è dovuto alla semplicità con la quale possiamo usare i valori per effettuare le operazioni; tuttavia in ambito informatico i calcolatori, per effettuare i loro controlli ed eseguire istruzioni adottano una rappresentazione binaria per i valori. Abbiamo bisogno, dunque, di una metodologia per effettuare agilmente dei cambi di base.\\
 
-Sia data dunque una base $\beta$, possiamo rappresentare un valore in questa attraverso la seguente notazione :
+Sia data dunque una base $\beta$, possiamo rappresentare un valore in questa attraverso la seguente notazione:
 
 \[ 
 	(a_{n}....a_{0}.b_{1}b_{2}....)_{\beta} = \sum_{k=0}^{n}a_{k}\beta^{k} + \sum_{k=1}^{\infty}b_{k}\beta^{-k} 
 \]
 
 \begin{exmp}
-La rappresentazione del numero 56.78 in base $\beta = 10$ :
+La rappresentazione del numero 56.78 in base $\beta = 10$:
 \[ 
 	56.78 = 6 \times 10^{0} + 5 \times 10^{1} + 7 \times 10^{-1} + 8 \times 10^{-2}
 \]
@@ -391,8 +391,8 @@ Adottando la notazione posizionale in forma normalizzata per la rappresentazione
 
 Possiamo rappresentare $F$ come: 
 \[ 
-	F(\beta, t, L, U) := 
-	\bigg\{ x \in \mathbb{R} \setminus \{0\} : x =  \pm \bigg( \sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}
+	F(\beta, t, L, U):= 
+	\bigg\{ x \in \mathbb{R} \setminus \{0\}: x =  \pm \bigg( \sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}
 \]
 
 $F$ è detto \textit{Insieme dei numeri finiti} o anche \textit{insieme numeri macchina} e possiamo rappresentarlo graficamente nella seguente maniera: 
@@ -461,7 +461,7 @@ E' importante notare che gli intervalli rappresentati dai due rettangoli nelle f
  
 \begin{exmp} 
 \label{card1}
-Si rappresenti $F(2, 3, -2 ,1) := \{ \pm 0.1d_{1}d_{2} \times \beta^{p} \} \cup \{0\}$ dove $d_{i} \in \{0,1\}$ e $ -2 \leq p \leq 1$.\\
+Si rappresenti $F(2, 3, -2 ,1):= \{ \pm 0.1d_{1}d_{2} \times \beta^{p} \} \cup \{0\}$ dove $d_{i} \in \{0,1\}$ e $ -2 \leq p \leq 1$.\\
 \vspace{1em}
 Notiamo subito che, per essere in forma normalizzata, il primo numero dopo la virgola deve essere necessariamente diverso da 0. questo impone, se $\beta = 2$ che la prima cifra dopo la virgola sia un 1, quindi le uniche cifre che varieranno saranno due (ovvero $d_{1}$ e $d_{2}$). 
 \begin{table}[h!]
@@ -510,16 +510,16 @@ Per iniziare contiamo il numero di valori positivi di $F$.
 
 La prima cosa che vogliamo capire è quale sia il massimo e il minimo numero in valore assoluto che possiamo rappresentare in $F$.  \\
 \begin{itemize}
-	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}......d{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi : $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
+	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}......d{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi: $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
 	\item il numero più grande che possiamo rappresentare invece è $0.d_{1}d_{2}......d{t} \times \beta^{U}$ dove $\forall i $ $d_{i} = \beta - 1$. 
 \[ (\beta -1)\times\beta^{-1}(\beta -1)\times\beta^{-2}...(\beta -1)\times\beta^{-t} \times \beta^{U} \]
 \[ (\beta -1) \beta^{-t}(1 + \beta + \beta^{2} +......+ \beta^{t-1})\beta^{U} \]
 
-Facciamo ora un osservazione :
+Facciamo ora un osservazione:
 
 \[ (1 + \beta + \beta^{2} +......+ \beta^{t-1})  = \frac{1-\beta^{t}}{1-\beta}\]
 
-Poichè :
+Poichè:
 
 \[ (1-\beta)(1 + \beta + \beta^{2} +......+ \beta^{t}) = (1 + \beta + \beta^{2} +......+ \beta^{t-1}) - (\beta + \beta^{2} +......+ \beta^{t-1} + \beta^{t-1}) \]
 
@@ -569,7 +569,7 @@ La differenza tra questi due valori ci permette di ricavare lo spazio $s$ che in
 
 \[ x_{2} - x_{1} = 0.1000000...0001 \times \beta^{p+1} - 0.1000000...0000 \times \beta^{p+1} = \beta^{-t}\beta^{p+1} = \beta^{p-t+1} \]
 
-Il quantitativo di numeri macchina compresi in questo intervallo è : 
+Il quantitativo di numeri macchina compresi in questo intervallo è: 
 \[ \frac{\beta^{p+1} - \beta^{p}}{\beta^{p-t+1}}  =(\beta-1)\beta^{t-1}\]
 
 Finalmente possiamo calcolare la cardinalità del nostro insieme $F$ tenendo conto dei passaggi fatti fin'ora: 
@@ -584,12 +584,12 @@ Finalmente possiamo calcolare la cardinalità del nostro insieme $F$ tenendo con
 Vogliamo porci ora il seguente problema: \\
 Ipotizziamo di aver definito un insieme $F$ con degli opportuni parametri $\beta, t L,U$. Dato un valore $x \notin F$ vogliamo ottenere un valore $x_{i} \approx x$ tale che $x_{i} \in F$.\\
 Quello che dobbiamo fare in questo caso è effettuare delle approssimazioni tali da trasformare il nostro numero di partenza in un determinato valore rappresentabile internamente ad $F$. \\
-Valutiamo due tipologie di approssimazioni : 
+Valutiamo due tipologie di approssimazioni: 
 \end{flushleft}
 
 \subsection{Approssimazione per troncamento}
 \begin{flushleft}
-sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per troncamento : 
+sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per troncamento: 
 \[ 
 	fl_{T}(x) = \pm(d_{1}d_{2}....d_{t})\times \beta^{p}.
 \]
@@ -603,7 +603,7 @@ Se definiamo $F$ con $\beta = 10 $ e $t = 4$ e vogliamo approssimare il valore $
 \subsection{Approssimazione per arrotondamento}
 \begin{flushleft}
 In questo caso richiediamo che la base con cui lavoriamo sia pari.
-sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per arrotondamento :
+sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per arrotondamento:
 \[
 fl_{A}(x) = 
 \begin{cases}
@@ -623,7 +623,7 @@ si aggiunge al numero $x$ il valore $\frac{\beta}{2}\beta^{-(t+1)}$ poi si effet
 \subsection{Approssimazione per arrotondamento ai pari}
 \begin{flushleft}
 Questo è un arrotondamento che viene effettuato in casi speciali quando un numero $x$ risiede esattamente tra due numeri macchina consecutivi.\\
-Abbiamo quindi che : $d_{t+1} = \frac{\beta}{2}$ e $d_{i} = 0$ $\forall i > t + 1$; l'approssimazione che si effettua è portare $x$ al numero macchina pari più vicino.  
+Abbiamo quindi che: $d_{t+1} = \frac{\beta}{2}$ e $d_{i} = 0$ $\forall i > t + 1$; l'approssimazione che si effettua è portare $x$ al numero macchina pari più vicino.  
 
 \begin{itemize}
   	\item $\beta = 10$,  $t=2$,  $x = 0.185 $,  $fl_{A}(x) =  0.18$
@@ -636,19 +636,19 @@ Abbiamo quindi che : $d_{t+1} = \frac{\beta}{2}$ e $d_{i} = 0$ $\forall i > t + 
 
 \subsection{Precisione macchina e roundoff unit}
 \begin{flushleft}
-Per introdurre il concetto relativo agli errori è opportuno iniziare con qualche definizione :
+Per introdurre il concetto relativo agli errori è opportuno iniziare con qualche definizione:
 \begin{defn}
 Si definisce \textbf{precisione macchina} lo spacing relativo al segmento $[\beta^0, \beta^1]$ il cui valore è $eps = \beta^{1-t}.$
 \end{defn}
 \begin{defn}
-Si definisce  \textbf{roundoff unit} la metà della precisione macchina : $u = \frac{1}{2}eps =  \frac{1}{2}\beta^{1-t}.$
+Si definisce  \textbf{roundoff unit} la metà della precisione macchina: $u = \frac{1}{2}eps =  \frac{1}{2}\beta^{1-t}.$
 \end{defn}
 
 Ragioniamo nel concreto cosa questi valori vogliano significare nel nostro studio.\\
 Partendo dalla prima definizione portiamoci nel segmento $[\beta^0, \beta^1]$, avendo definito $eps = \beta^{1-t}$ lo spacing di questo intervallo possiamo subito capire che la distanza tra due numeri macchina consecutivi in questo è proprio $eps$.
 Per esempio,  se volessimo conoscere il numero macchina immediatamente successivo ad 1 ($\beta^{0}$) occorrerebbe semplicemente sommare ad 1 il valore $eps$. \\
 Cosa accade quando si aggiunge ad 1 il nostro valore $u$ rappresentante la roundoff unit? \\
-$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola : $0.1d_{1}d_{2}d_{3}...d_{t}$ $\forall i $ $d_{i} = 0$
+$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola: $0.1d_{1}d_{2}d_{3}...d_{t}$ $\forall i $ $d_{i} = 0$
 Il successivo macchina invece avrà una mantissa uguale fatta eccezione per la t-esima cifra la quale possiede un 1 come valore.  Dovendo approssimare questo risultato avremmo che, tramite la regola del rouding to even, il nostro valore approssimato risulterà proprio 1. 
 
 \[ fl_{A}(1+u) = 1  \]
@@ -660,10 +660,10 @@ La roundoff unit ci ritornerà utile sopratutto nel dimostrare che l'errore mass
 \begin{flushleft}
 Sia dato un valore $x \in \mathbb{R}$ con $x \neq 0$ e sia $fl(x)$ una sua qualsiasi approssimazione. 
 \begin{defn}
-Si definisce errore assoluto il valore: \[ E_{ass} := |x - fl(x)| \]
+Si definisce errore assoluto il valore: \[ E_{ass}:= |x - fl(x)| \]
 \end{defn}
 \begin{defn}
-Si definisce errore relativo il valore: \[E_{rel} := \frac{E_{ass}}{|x|} =  \displaystyle\left\lvert \frac{x - fl(x)}{x} \right\rvert\]
+Si definisce errore relativo il valore: \[E_{rel}:= \frac{E_{ass}}{|x|} =  \displaystyle\left\lvert \frac{x - fl(x)}{x} \right\rvert\]
 \end{defn}
 Entrambe le definizioni date permettono di individuare un errore commesso durante l'approssimazione di un numero reale in un numero macchina, tuttavia queste presentano delle differenze sostanziali tra loro: 
 Anzitutto possiamo notare come l'errore relativo non venga influenzato dall'ordine di grandezza del numero che va ad approssimare mentre l'errore assoluto, al contrario, si. \\
@@ -674,7 +674,7 @@ Si vuole ora procedere con un osservazione:
 \subsection{Errori floating per troncamento}
 \begin{flushleft}
 Immaginiamo di voler rappresentare un determinato numero $x_{1}$  tramite rappresentazione per troncamento. 
-Riprendendo quanto fatto in precedenza tal numero, non ancora approssimato,  si presenta in questa forma : 
+Riprendendo quanto fatto in precedenza tal numero, non ancora approssimato,  si presenta in questa forma: 
 \[
 	 x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \times \beta^{p} 
 \]
@@ -684,7 +684,7 @@ Effettuando l'approssimazione per troncamento rimuoviamo dalla mantissa le cifre
 	\widetilde{x} = 0.d_{1}d_{2}...d_{t}\times\beta^{p} 
 \]
 
-Calcoliamo ora l'errore commesso : 
+Calcoliamo ora l'errore commesso: 
 \[ 
 	E_{ass}^{T} = |x - \widetilde{x}| =   0.d_{t+1}d_{t+2}...\times\beta^{p-t} < 1 \Longrightarrow  E_{ass}^{T} < \beta^{p-t}  
 \]
@@ -692,7 +692,7 @@ Calcoliamo ora l'errore commesso :
 \[
 	E_{rel}^{T} = \frac{E_{ass}^{T}}{|x|} < \frac{ \beta^{p-t}}{ \beta^{p-1}} =  \beta^{1-t} = esp \]
 
-essendo infatti $x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che : $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
+essendo infatti $x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che: $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
 \end{flushleft}
 \pagebreak
 
@@ -726,12 +726,12 @@ Vogliamo adoperare il floating per arrotondamento in modo da trasformarlo in un 
 Il risultato ottenuto da questa approssimazione, per quanto visto in precedenza, è il numero macchina più vicino a $x$. 
 Prendendo come riferimento la figura \ref{floating arrotondamento} avremmo $fl_{A}(x) = \widetilde{x_{2}}$.
 Graficamente è possibile da subito notare come questo risultato non ci sorprenda, il nostro numero $x$ si trova a destra del valore centrale dello spacing tra $\widetilde{x_{1}}$ e $\widetilde{x_{2}}$.  L'errore massimo assoluto commesso dal floating per arrotondamento di un determinato valore $x$ è minore di $\frac{1}{2}\beta^{p-t} = \frac{1}{2}s$. 
-Calcoliamo ora l'errore relativo : 
+Calcoliamo ora l'errore relativo: 
 
 \[ E_{rel}^{A} = \frac{E_{ass}^{A}}{|x|} < \frac{\frac{1}{2}\beta^{p-t}}{\beta^{p-1}} = \frac{1}{2}\beta^{p-t-p+1} = u \]
 
 Per quanto osservato in precedenza, inoltre, possiamo vedere come il floating per arrotondamento sia, rispetto il floating per 
-troncamento,  più preciso in quanto : 
+troncamento,  più preciso in quanto: 
 \[ E_{rel}^{T} < esp \]
 \[ E_{rel}^{A} < u \]
 \[ E_{rel}^{A} < E_{rel}^{T}  \]
@@ -743,7 +743,7 @@ Come visto precedentemente il valore della roundoff unit rappresenta un limite s
 Essendo $u$ vincolata ad un valore relativo possiamo trascurare l'ordine di grandezza e concentrarci sui numeri compresi nel segmento $[\beta^{0}, \beta^{1}].$
 Come visto precedentemente il valore massimo dell'errore assoluto, e quindi del numeratore per calcolare l'errore relativo,  in caso di floating per arrotondamento è la metà dello spacing.
 Al denominatore invece è presente il numero $x$ che occorre approssimare e che,  per rendere massimo l'errore relativo, dev'essere il più piccolo possibile. 
-In caso quindi di numeri compresi nel segmento $[\beta^{0}, \beta^{1}]$ il massimo valore che possiamo avere per l'errore relativo è quando approssimiamo un valore nella forma : $x = 1 + a$ con  $0 < a <  \frac{1}{2}\beta^{1-t}.$
+In caso quindi di numeri compresi nel segmento $[\beta^{0}, \beta^{1}]$ il massimo valore che possiamo avere per l'errore relativo è quando approssimiamo un valore nella forma: $x = 1 + a$ con  $0 < a <  \frac{1}{2}\beta^{1-t}.$
 Tramite floating il valore $x$ viene approssimato ad 1 e quindi:
 \[
 	E_{rel} = \displaystyle\left\lvert \frac{x - fl(x)}{x} \right\rvert = \displaystyle\left\lvert \frac{a}{1+a} \right\rvert < \displaystyle\left\lvert \frac{u}{1+u} \right\rvert < u 
@@ -752,9 +752,9 @@ Tramite floating il valore $x$ viene approssimato ad 1 e quindi:
 
 \section{Operazioni di macchina}
 \begin{flushleft}
-Per iniziare a parlare delle operazioni elementari che possono essere eseguite all'interno della macchina vogliamo anzitutto introdurre una nuova notazione : 
+Per iniziare a parlare delle operazioni elementari che possono essere eseguite all'interno della macchina vogliamo anzitutto introdurre una nuova notazione: 
 \[ \varepsilon_{x} = \frac{x - fl(x)}{x} \quad |\varepsilon_{x}| < u \]
-Questa ci permette di mettere in relazione il valore approssimato $fl(x)$ con l'effettivo valore $x$ poiché :
+Questa ci permette di mettere in relazione il valore approssimato $fl(x)$ con l'effettivo valore $x$ poiché:
 \[  \varepsilon_{x}x =  x - fl(x) \Longrightarrow fl_{A}(x) = x(1 - \varepsilon_{x}) \]
 Il quale ritornerà utile nel parlare di errori commessi nel calcolare il risultato di una specifica operazione.
 \end{flushleft}
@@ -774,11 +774,11 @@ Fatto ciò calcoliamo il valore dell'errore relativo tra il risultato esatto tra
  \[
  	E_{rel} =  \displaystyle\left\lvert \frac{x \boldsymbol{\cdot} y - fl_{A}(fl_{A}(x) \boldsymbol{\cdot}  fl_{A}(y)) }{x \boldsymbol{\cdot} y} \right\rvert
  \]
-Cerchiamo di riscrivere ora l'equazione trattata sopra ricordando : 
+Cerchiamo di riscrivere ora l'equazione trattata sopra ricordando: 
 \[ fl_{A}(x) = x(1 - \varepsilon_{x}) \quad |\varepsilon_{x}| \leq u \]
 \[ fl_{A}(y) = y(1 - \varepsilon_{y}) \quad |\varepsilon_{y}| \leq u \]
 
-sia $r :=  x(1 - \varepsilon_{x})\boldsymbol{\cdot}  y(1 - \varepsilon_{y}) $ allora $fl_{A}(r) = r(1-\varepsilon_{r})$.  L'equazione iniziale si trasforma in :
+sia $r:=  x(1 - \varepsilon_{x})\boldsymbol{\cdot}  y(1 - \varepsilon_{y}) $ allora $fl_{A}(r) = r(1-\varepsilon_{r})$.  L'equazione iniziale si trasforma in:
 \[E_{rel} =  \displaystyle\left\lvert \frac{x \boldsymbol{\cdot} y - (x(1 - \varepsilon_{x})\boldsymbol{\cdot}  y(1 - \varepsilon_{y}))(1-\varepsilon_{r})}{x \boldsymbol{\cdot} y} \right\rvert \quad |\varepsilon_{x}|, |\varepsilon_{y}|, |\varepsilon_{r}| \leq u\]
 
 Dove $(1-\varepsilon_{x})$ e $(1 - \varepsilon_{y})$ sono gli errori commessi nell'approssimare i valori $x$ e $y$ mentre $(1 - \varepsilon_{r})$ rappresenta l'errore di approssimazione del risultato ottenuto.
@@ -803,7 +803,7 @@ Vediamo di seguito un esempio di questi passaggi:
 
 \begin{exmp}
 L'insieme $F$ sul quale lavoriamo è definito nella seguente maniera: $F(10, 2, -3,2)$.  Sia $x = 0.29 \times 10^{0}$  e $ y = 0.25 \times 10^{1}$; è evidente che $x,y \in F$.  
-Effettuiamo i passaggi elencati qui sopra : 
+Effettuiamo i passaggi elencati qui sopra: 
 \begin{itemize}
 	\item I due numeri sono espressi già in forma normalizzata, non occorre effettuare alcuna correzione sotto questo aspetto.
 	\item I due numeri presentano degli esponenti diversi tra loro, occorre prendere il valore avente quello più piccollo ( $x$ ) e trasformarlo in modo che il suo esponente diventi 1. Il valore finale di $x$ dopo questo passaggio sarà $0.029 \times 10^{1}$.  
@@ -880,13 +880,13 @@ Proprio l'ultimo calcolo ci fa capire che lo 0 non è più l'elemento neutro ris
 
 In questa sezione vogliamo stimare gli errori relativi che vengono effettuati nel calcolare un operazione di moltiplicazione o divisione in aritmetica macchina.\\
 Dati due valori $x,y \in \mathbb{R} $ tali che $x,y \notin F$ vogliamo effettuare l'operazione $x \otimes y$.\\
-La prima cosa da fare è quella di ottenere dei valori rappresentativi di $x$ e $y$ all'interno di $F$,  effettuiamo un arrotondamento :
+La prima cosa da fare è quella di ottenere dei valori rappresentativi di $x$ e $y$ all'interno di $F$,  effettuiamo un arrotondamento:
 \[ x \longrightarrow fl_{A}(x) = x(1+\varepsilon_{x}),  \quad |\varepsilon_{x}| \leq u \]
 \[ y \longrightarrow fl_{A}(y)  =  y(1+\varepsilon_{y}),  \quad |\varepsilon_{y}| \leq u \]
-Il calcolo da effettuare all'interno della macchina è :
+Il calcolo da effettuare all'interno della macchina è:
 \[ fl_{A}(x) \otimes fl_{A}(y) = fl_{A}(fl_{A}(x)fl_{A}(y)) = (x(1+\varepsilon_{x})y(1+\varepsilon_{y}))(1+\varepsilon_{p}) = xy(1+\varepsilon_{x})(1+\varepsilon_{y})(1+\varepsilon_{p}). \]
 
-L'errore relativo sarà : 
+L'errore relativo sarà: 
 
 \begin{equation} \label{}
 	\begin{split}
@@ -905,7 +905,7 @@ Cosa succede se, invece che moltiplicare, io dividessi i valori di $x$ e $y$ di 
 I passaggi iniziali rimangono invariati, ovvero, se avessi che $x,y \notin F$ allora dovrei operare delle approssimazioni tali per cui possa rappresentare sia $x$ che $y$ all'interno di $F$. \\
 Calcolo il valore della divisione internamente alla macchina: 
 \[ x \oslash y =  fl_{A}\left( \frac{fl_{A}(x)}{fl_{A}(y)}\right) = \left(\frac{x(1+\varepsilon_{x})}{y(1+\varepsilon_{y})} \right)(1+\varepsilon_{d})\]
-L'errore relativo è in questo caso : 
+L'errore relativo è in questo caso: 
 \begin{equation} \label{}
 	\begin{split}
 		E_{rel} &=  \displaystyle\left\lvert \frac{ \frac{x}{y} -  \left(\frac{x(1+\varepsilon_{x})}{y(1+\varepsilon_{y})} \right)(1+\varepsilon_{d})}{ \frac{x}{y}} \right\rvert  \\
@@ -916,7 +916,7 @@ A questo punto utilizziamo l'espansione di serie di Taylor di una funzione $f(x)
 \[ f(x) \approx f(x_{0})f^{'}(x_{0})(x-x_{0})  \]
 dove nel nostro caso $x = \varepsilon_{y}$, $x_{0} = 0$:
 \[ f(\varepsilon_{y}) \approx f(0)f^{'}(0)\varepsilon_{y}  \]
-La funzione $f(\varepsilon) = \frac{1}{1+\varepsilon_{y}} $ mentre $f^{'}(\varepsilon) = \frac{1}{(1+\varepsilon_{y})^{2}} $ sostituendo avremmo che : 
+La funzione $f(\varepsilon) = \frac{1}{1+\varepsilon_{y}} $ mentre $f^{'}(\varepsilon) = \frac{1}{(1+\varepsilon_{y})^{2}} $ sostituendo avremmo che: 
 \[ f(\varepsilon_{y}) \approx 1-\varepsilon_{y} \]
 
 \begin{equation} \label{}
@@ -934,10 +934,10 @@ Anche in questo caso abbiamo ottenuto un'ulteriore importante risultato, ovvero,
 \subsection{Stima degli errori relativi della somma}
 \begin{flushleft}
 Esattamente per come abbiamo fatto per divisione e moltiplicazione vogliamo vedere qual'è l'errore relativo che possiamo commettere se effettuiamo una somma algebrica tra due numeri $x,y \notin F$. 
-Si omettono di seguito le varie operazioni di floating per i valori di $x$ e di $y$,  passiamo direttamente al calcolo : 
+Si omettono di seguito le varie operazioni di floating per i valori di $x$ e di $y$,  passiamo direttamente al calcolo: 
 \[ x \oplus y = fl_{A}(fl_{A}(x) + fl_{A}(y)) = (x(1+\varepsilon_{x})y(1+\varepsilon_{y}))(1+\varepsilon_{s}) \]
 
-L'errore relativo sarà : 
+L'errore relativo sarà: 
 
 \begin{equation} \label{}
 	\begin{split}
@@ -975,7 +975,7 @@ Sia $a = 0.96 \times 10^{-1}$ e $b = 0.99 \times 10^{-1}$ voglio prima sommare i
      $1.95 \times 10^{-1}$   
 \end{tabular}
 \]
-che in forma normalizzata è $0.195 \time 10^{0}$.  Ora vogliamo assicurarci che il risultato ottenuto sia sempre interno all'interno di $F$ per questo motivo effettuiamo un arrotondamento :
+che in forma normalizzata è $0.195 \time 10^{0}$.  Ora vogliamo assicurarci che il risultato ottenuto sia sempre interno all'interno di $F$ per questo motivo effettuiamo un arrotondamento:
 \[ fl_{A}(a+b) = fl_{A}(0.195 \time 10^{0}) = 0.2 \times 10^{0} \quad per \; R.T.E \]
 Infine calcoliamo l'approssimazione della somma ottenuta moltiplicata per 0.5 ( ovvero divisa per due ).
 \[ fl_{A}((a+b) \times 0.5 ) = 0.1 \times 10^{0} \]
@@ -1007,7 +1007,7 @@ Se visualizzassimo l'intervallo $[a,b]$ noteremo sicuramente che quanto ottenuto
 
 \paragraph{Algoritmo 2:}
 Calcoliamo anzitutto $b-a= 0.03 \times 10^{-1} = 0.3 \times 10^{-2}$, il risultato ottenuto da questa operazione rimane ancora all'interno di $F$, non abbiamo bisogno di ulteriori arrotondamenti. \\
-Procediamo poi a dividere il risultato per 2 ed effettuare successivamente un floating :
+Procediamo poi a dividere il risultato per 2 ed effettuare successivamente un floating:
 \[ fl_{A}(0.3 \times 10^{-2}) = 0.15 \times 10 ^ {-2} \]
 A questo punto sommiamo al il valore di $a$.
 \[ fl_{A}(0.96 \times 10^{-1} + 0.15 \times 10 ^ {-2}) =  fl_{A}(0.975 \times 10^{-1}) = 0.98 \times 10^{-1} \quad per\; R.T.E\]
@@ -1023,7 +1023,7 @@ Possiamo notare subito il perchè, rispetto al primo, questo algoritmo ci dia un
 \begin{defn}
 Una norma vettoriale è una funzione che associa ad un vettore \VarMtrx{x} di $\mathbb{R}^{n}$ un numero reale maggiore o uguale di 0: 
 
-\[ \lVert \VarMtrx{x} \rVert :  \mathbb{R}^{n} \longrightarrow \mathbb{R}_{+} \cup \{0\} \]
+\[ \lVert \VarMtrx{x} \rVert:  \mathbb{R}^{n} \longrightarrow \mathbb{R}_{+} \cup \{0\} \]
 \end{defn}
 Una norma vettoriale deve godere delle seguenti proprietà: 
 \begin{itemize}
@@ -1037,13 +1037,13 @@ Le norme che utilizzeremo da quì in avanti godono di tutte queste proprietà (d
 
 \subsection{Norma infinito}
 \begin{flushleft}
-La norma infinito di un vettore è definita nella seguente maniera : 
+La norma infinito di un vettore è definita nella seguente maniera: 
 \[ \lVert\VarMtrx{x}\rVert_{\infty}  = \max_{\{i = 1,...,n\}} |x_{i}| \]
 
 \begin{exmp}
-Sia dato il vettore :
+Sia dato il vettore:
 \[ \VarMtrx{x} = \begin{pmatrix} 5 \\ 2 \\ -8  \end{pmatrix} \]
-la sua norma infinito sarà : 
+la sua norma infinito sarà: 
 \[ \lVert\VarMtrx{x}\rVert_{\infty}  = 8\]
 come da definizione. 
 \end{exmp}
@@ -1051,24 +1051,24 @@ come da definizione.
 
 \subsection{Norma uno}
 \begin{flushleft}
-Per calcolare la norma uno di un vettore basta semplicemente fare la somma dei valori assoluti dei suoi componenti : 
+Per calcolare la norma uno di un vettore basta semplicemente fare la somma dei valori assoluti dei suoi componenti: 
 \[ \lVert\VarMtrx{x}\rVert_{1}  =\sum_{i=1}^{n} |x_{i}| \]
 
 \begin{exmp}
-Il risultato della norma 1 della matrice usata nell'esempio precedente è uguale a : 
+Il risultato della norma 1 della matrice usata nell'esempio precedente è uguale a: 
 \[ \lVert\VarMtrx{x}\rVert_{1}  =\sum_{i=1}^{n} |x_{i}|  = |5| + |2| + |8| = |15| \]
 \end{exmp}
 \end{flushleft}
 
 \subsection{Norma due (o norma euclidea)}
 \begin{flushleft}
-Esistono due scritture equivalenti per esprimere questa tipologia di norma.  La prima è la seguente  : 
+Esistono due scritture equivalenti per esprimere questa tipologia di norma.  La prima è la seguente : 
 \[ \lVert\VarMtrx{x}\rVert_{2} = \sqrt{\VarMtrx{x}^{T}\VarMtrx{x}} \]
 
 dove $\VarMtrx{x}^{T}$ sta a significare la trasposizione del vettore x. 
 Un vettore solitamente è rappresentato come \textbf{vettore colonna}, ovvero, i suoi valori nella rappresentazione matriciale sono disposti verticalmente su una  sola colonna. L'operazione di trasposizione di un vettore significa che il dato vettore verrà rappresentato su una riga al posto di una colonna. \\
 \vspace{1em}
-Se moltiplicassimo un vettore per il suo trasposto avremmo il seguente risultato : 
+Se moltiplicassimo un vettore per il suo trasposto avremmo il seguente risultato: 
 
 \[ 
 	 \VarMtrx{x}^{T}\VarMtrx{x} = \begin{pmatrix} x_{1} \\ x_{2} \\ .\\ x_{n}  \end{pmatrix} \begin{pmatrix} x_{1} \; x_{2} \; . \; x_{n}  \end{pmatrix}  = 
@@ -1076,15 +1076,15 @@ Se moltiplicassimo un vettore per il suo trasposto avremmo il seguente risultato
 	 = \sum_{i=1}^{n} x_{i}^{2}
 \]
 
-Quindi possiamo scrivere la norma due di un vettore nel seguente modo : 
+Quindi possiamo scrivere la norma due di un vettore nel seguente modo: 
 \[ \lVert\VarMtrx{x}\rVert_{2} = \sqrt{\sum_{i=1}^{n} x_{i}^{2}} \]
 
 \begin{exmp}
-Il risultato della norma 2 della matrice usata nell'esempio precedente è uguale a : 
+Il risultato della norma 2 della matrice usata nell'esempio precedente è uguale a: 
 \[ \lVert\VarMtrx{x}\rVert_{2}  = \sqrt{\sum_{i=1}^{n} x_{i}^{2}}  = \sqrt{25 + 4 + 64} = \sqrt{93} = 9.64 \]
 \end{exmp}
 
-Vogliamo ora fare una notazione importante :\\
+Vogliamo ora fare una notazione importante:\\
 Immaginiamo di avere un vettore $\VarMtrx{y} \in \mathbb{R}^{n}$ tale per cui $\VarMtrx{y} = A\VarMtrx{x}$ dove $A$ è un vettore ortogonale, ovvero,  $A^{T}A = AA^{T} = I$.
 \vspace{1em}
 Calcoliamo la norma due del vettore \VarMtrx{y}:
@@ -1095,7 +1095,7 @@ Calcoliamo la norma due del vettore \VarMtrx{y}:
 \begin{flushleft}
 Si vuole estendere ora il concetto di errore relativo definito nel capitolo precedente applicandolo al caso in cui si vuole lavorare con dati in input che non sono più singolo valori ma bensì devi vettori. 
 Si immagini di avere come dati di input un vettore \VarMtrx{x} ed una funzione $f(\VarMtrx{x})$ la quale produce un risultato. Per rappresentare il nostro vettore all'interno della nostra macchina occorre effettuare delle approssimazioni ed ottenere quello che  è un dato perturbato.
-Sia quindi $\widetilde{\VarMtrx{x}}$ il nostro dato perturbato e  \VarMtrx{x} il vettore di origine. Possiamo calcolare il nostro errore relativo vettoriale nella seguente maniera : 
+Sia quindi $\widetilde{\VarMtrx{x}}$ il nostro dato perturbato e  \VarMtrx{x} il vettore di origine. Possiamo calcolare il nostro errore relativo vettoriale nella seguente maniera: 
 \[  E_{rel} = \frac{\lVert \VarMtrx{x} - \widetilde{\VarMtrx{x}}\rVert }{\lVert\VarMtrx{x}\rVert}\]
 
 Ovviamente la cosa da notare  è che le norme utilizzate per il denominatore e il numeratore devono coincidere come tipo. Verranno adoperate solamente norme che abbiamo visto in precedenza (1,2,  $\infty$).
@@ -1116,7 +1116,7 @@ Sottraiamo ad ogni elemento della nostra catena di disequazioni il vettore $\wid
 		A\lVert\widetilde{\VarMtrx{x}} - \VarMtrx{x}\rVert_{+} \leq \lVert\widetilde{\VarMtrx{x}} - \VarMtrx{x}\rVert_{*} \leq B\lVert\widetilde{\VarMtrx{x}} - \VarMtrx{x}\rVert_{+}
 	\end{split}
 \end{equation}
-Possiamo subito notare che $\lVert\widetilde{\VarMtrx{x}} - \VarMtrx{x}\rVert_{+}$ è il numeratore di un errore relativo.  Se prendessimo sempre l'equazione  \ref{dis_partenza} e calcolassimo i reciproci avremmo :
+Possiamo subito notare che $\lVert\widetilde{\VarMtrx{x}} - \VarMtrx{x}\rVert_{+}$ è il numeratore di un errore relativo.  Se prendessimo sempre l'equazione  \ref{dis_partenza} e calcolassimo i reciproci avremmo:
 \begin{equation} \label{dis_den}
 	\begin{split}
 		\frac{1}{B}\frac{1}{\lVert\VarMtrx{x}\rVert_{+} }\leq \frac{1}{\lVert\VarMtrx{x}\rVert_{*}} \leq \frac{1}{A}\frac{1}{\lVert\VarMtrx{x}\rVert_{+} }
@@ -1139,7 +1139,7 @@ Per le norme che abbiamo visto valgono le seguenti proposizioni:
 	\item se $*= 1$ e $+ = 2$ allora $A=1$ e $B=\sqrt{n}$ dove $n$ è la dimensione del vettore.
 \end{itemize}
 
-Il rapporto tra i due errori relativi è :
+Il rapporto tra i due errori relativi è:
 \begin{equation} \label{dis_err_rel}
 	\begin{split}
 		\frac{A}{B} \leq \frac{E_{rel}^{*}}{E_{rel}^{
@@ -1153,8 +1153,8 @@ Il rapporto tra i due errori relativi è :
 
 \begin{flushleft}
 \begin{defn}
-Una norma matriciale \textbf{generalizzata} è una funzione che,  analogamente a quella definita per le norme vettoriali, associa ad una matrice \VarMtrx{A} un numero reale maggiore o uguale a 0 : 
-\[ \lVert \VarMtrx{A} \rVert :  \mathbb{R}^{m \times n } \longrightarrow \mathbb{R}_{+} \cup \{0\} \]
+Una norma matriciale \textbf{generalizzata} è una funzione che,  analogamente a quella definita per le norme vettoriali, associa ad una matrice \VarMtrx{A} un numero reale maggiore o uguale a 0: 
+\[ \lVert \VarMtrx{A} \rVert:  \mathbb{R}^{m \times n } \longrightarrow \mathbb{R}_{+} \cup \{0\} \]
 \end{defn}
 Una norma matriciale generalizzata  gode delle seguenti proprietà (anche queste analoghe alla norma vettoriale): 
 \begin{itemize}
@@ -1171,9 +1171,9 @@ Si definisce una norma matriciale una funzione che oltre ad essere una norma mat
 
 Non tutte le norme matriciali generalizzate quindi possono essere norme matriciali. 
 \begin{exmp}
-Si immagini di aver definito una norma matriciale nel seguente modo : 
+Si immagini di aver definito una norma matriciale nel seguente modo: 
 \[ \lVert\VarMtrx{A}\rVert = \max_{\{i,j\}} |a_{ij}| \]
-Questa è una norma matriciale generalizzata che però non risulta essere una norma matriciale poichè date due matrici definite nel seguente modo : 
+Questa è una norma matriciale generalizzata che però non risulta essere una norma matriciale poichè date due matrici definite nel seguente modo: 
 \[ 
 	\VarMtrx{A} = \begin{pmatrix} 1 & 1 \\ 0 & 1  \end{pmatrix} 
 \]
@@ -1181,7 +1181,7 @@ Questa è una norma matriciale generalizzata che però non risulta essere una no
 	\VarMtrx{B} = \begin{pmatrix} 1 & 1 \\ 1 & 0  \end{pmatrix} 
 \]
 
-di cui : 
+di cui: 
 
 \[ 
 	\VarMtrx{AB} = \begin{pmatrix} 2 & 1 \\ 1 & 0  \end{pmatrix} 
@@ -1197,7 +1197,7 @@ Dove $\VarMtrx{A}$ e $\VarMtrx{x}$ sono rispettivamente una matrice ed un vettor
 
 \begin{defn}
 Una norma matriciale $\lVert\cdot\rVert_{M}$ si dice essere naturale o indotta da una norma vettoriale  $\lVert\cdot\rVert_{V}$
-solamente se produce la più piccola costante $C$ tale per cui vale la relazione :
+solamente se produce la più piccola costante $C$ tale per cui vale la relazione:
 \[ 
 	\lVert\VarMtrx{A}\VarMtrx{x}\rVert_{V} \leq C\lVert\VarMtrx{x}\rVert_{V} 
 \]
@@ -1207,7 +1207,7 @@ solamente se produce la più piccola costante $C$ tale per cui vale la relazione
 \subsection{Norma matriciale infinita e uno}
 \begin{flushleft}
 
-Definiamo una matrice $\VarMtrx{A}$ : 
+Definiamo una matrice $\VarMtrx{A}$: 
 
 \[
 		\VarMtrx{A} = 
@@ -1221,51 +1221,51 @@ Definiamo una matrice $\VarMtrx{A}$ :
 \]
 
 \begin{defn}
-Si definisce norma matriciale infinito la funzione :
+Si definisce norma matriciale infinito la funzione:
 \[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,...m\}} \sum_{j=1}^{n} |a_{i,j}| \]
 \end{defn}
 
-prendendo come riferimento \VarMtrx{A} siano : 
+prendendo come riferimento \VarMtrx{A} siano: 
 \begin{itemize}
-	\item $C_{1} := |a_{11}| + |a_{12}| + \dots + |a_{1n}|$
-	\item $C_{2} := |a_{21}| + |a_{22}| + \dots + |a_{2n}|$
+	\item $C_{1}:= |a_{11}| + |a_{12}| + \dots + |a_{1n}|$
+	\item $C_{2}:= |a_{21}| + |a_{22}| + \dots + |a_{2n}|$
 	\item $\dots$
-	\item  $C_{m} := |a_{m1}| + |a_{m2}| + \dots + |a_{mn}|$
+	\item  $C_{m}:= |a_{m1}| + |a_{m2}| + \dots + |a_{mn}|$
 \end{itemize}
 
-Allora possiamo scrivere la funzione precedente come : 
+Allora possiamo scrivere la funzione precedente come: 
 \[ \lVert\VarMtrx{A}\rVert_{\infty} = \max \{ C_{1}, C_{2}, \dots,  C_{m}\}\]
 
 \newpage
 \begin{defn}
-Si definisce norma matriciale uno la funzione :
+Si definisce norma matriciale uno la funzione:
 \[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,...n\}} \sum_{i=1}^{m} |a_{i,j}| \]
 \end{defn}
 
-Consideriamo ora : 
+Consideriamo ora: 
 \begin{itemize}
-	\item  $D_{1} := |a_{11}| + |a_{21}| + \dots + |a_{m1}|$
-	\item  $D_{2} := |a_{12}| + |a_{22}| + \dots + |a_{m2}|$
+	\item  $D_{1}:= |a_{11}| + |a_{21}| + \dots + |a_{m1}|$
+	\item  $D_{2}:= |a_{12}| + |a_{22}| + \dots + |a_{m2}|$
 	\item $\dots$
-	\item  $D_{n} := |a_{1n}| + |a_{2n}| + \dots + |a_{mn}|$
+	\item  $D_{n}:= |a_{1n}| + |a_{2n}| + \dots + |a_{mn}|$
 \end{itemize}
 
-possiamo riscrivere la funzione precedente come : 
+possiamo riscrivere la funzione precedente come: 
 \[ \lVert\VarMtrx{A}\rVert_{1} = \max \{ D_{1}, D_{2}, \dots,  D_{m}\}\]
 \end{flushleft}
 
 \subsection{Norma matriciale due}
 \begin{flushleft}
 \begin{defn}
-Si definisce norma matriciale due la funzione :
+Si definisce norma matriciale due la funzione:
 \[ \lVert\VarMtrx{A}\rVert_{2} = \sqrt{\rho(\VarMtrx{A}^{T}\VarMtrx{A})} \]
 dove $\rho(X)$ indica il raggio spettrale di una matrice $X$. Il raggio spettrale rappresenta l'autovalore di valore assoluto massimo. 
 \end{defn}
 
-La matrice $\VarMtrx{M}=\VarMtrx{A}^{T}\VarMtrx{A}$ di cui andiamo a calcolare il nostro raggio spettrale gode di due proprietà : 
+La matrice $\VarMtrx{M}=\VarMtrx{A}^{T}\VarMtrx{A}$ di cui andiamo a calcolare il nostro raggio spettrale gode di due proprietà: 
 \begin{enumerate}
-	\item E' simmetrica : $\VarMtrx{M} = \VarMtrx{M}^{T}$.  E' facile dimostrare tale proprietà infatti : $\VarMtrx{M}^{T} = (\VarMtrx{A}^{T}\VarMtrx{A})^{T} = \VarMtrx{A}^{T}\VarMtrx{A} = \VarMtrx{M} $. 
-	\item E' semidefinita positiva : $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}\VarMtrx{M}\VarMtrx{x} \geq 0$.
+	\item E' simmetrica: $\VarMtrx{M} = \VarMtrx{M}^{T}$.  E' facile dimostrare tale proprietà infatti: $\VarMtrx{M}^{T} = (\VarMtrx{A}^{T}\VarMtrx{A})^{T} = \VarMtrx{A}^{T}\VarMtrx{A} = \VarMtrx{M} $. 
+	\item E' semidefinita positiva: $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}\VarMtrx{M}\VarMtrx{x} \geq 0$.
 \end{enumerate}
 \end{flushleft}
 
@@ -1278,18 +1278,18 @@ Possiamo ordinare per valore crescente quest'ultimi e in particolare interessarc
 \[ \lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A}) \quad \lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A}) \]
 
 \begin{defn}
-Si definisce numero di condizionamento in norma 2 di una matrice $\VarMtrx{A}$ il valore : 
+Si definisce numero di condizionamento in norma 2 di una matrice $\VarMtrx{A}$ il valore: 
 \[ K_{2}(\VarMtrx{A})= \frac{\sqrt{ \lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A})}}{\sqrt{ \lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A})}}\]
 ovvero, il rapporto delle radici dell'autovalore massimo e minimo della matrice  $\VarMtrx{A}^{T}\VarMtrx{A}$
 \end{defn}
 
-Possiamo denotare tre proprietà per il numero di condizionamento :
+Possiamo denotare tre proprietà per il numero di condizionamento:
 
 \begin{enumerate}
 	\item $K_{2}(\VarMtrx{A}^{T}\VarMtrx{A}) = K_{2}(\VarMtrx{A})^{2} = \frac{\lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A})}{\lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A})}$
-	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice non singolare (determinante diverso da zero) allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
+	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice non singolare (determinante diverso da zero) allora possiamo riscrivere il suo valore di condizionamento nel seguente modo: 
 	\[K_{2}(\VarMtrx{A}) = \lVert\VarMtrx{A}\rVert_{2}\lVert\VarMtrx{A^{-1}}\rVert_{2} \]
-	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice simmetrica allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
+	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice simmetrica allora possiamo riscrivere il suo valore di condizionamento nel seguente modo: 
 	\[K_{2}(\VarMtrx{A}) = \frac{\max_{\{i=1,\dots, n\}}|\lambda_{i}(A)|}{\min_{\{i=1,\dots, n\}}|\lambda_{i}(A)|} \]
 \end{enumerate}
 
@@ -1299,7 +1299,7 @@ Possiamo denotare tre proprietà per il numero di condizionamento :
 
 \begin{flushleft}
 
-Iniziamo questo capitolo introducendo nuovamente alcuni elementi che avevamo visto già precedentemente.  Quando lavoriamo all'interno della macchina vogliamo svolgere alcune operazioni e ottenere dei risultati da queste, per far ciò occorre essere in possesso di due informazioni : 
+Iniziamo questo capitolo introducendo nuovamente alcuni elementi che avevamo visto già precedentemente.  Quando lavoriamo all'interno della macchina vogliamo svolgere alcune operazioni e ottenere dei risultati da queste, per far ciò occorre essere in possesso di due informazioni: 
 \begin{itemize}
 	\item un dato esatto $x$ su cui operare.
 	\item una funzione $f$ che mappa il dato di partenza in un risultato che chiamiamo $f(x)$
@@ -1342,7 +1342,7 @@ Si definisce errore totale una tipologia di errore che tiene conto sia di errori
 \] 
 \end{defn}
 
-Possiamo mettere in relazione tra loro queste diverse tipologie di errore; in particolar modo, partendo dall'errore totale, possiamo definire la seguente relazione : 
+Possiamo mettere in relazione tra loro queste diverse tipologie di errore; in particolar modo, partendo dall'errore totale, possiamo definire la seguente relazione: 
 
 \[
 		E_{tot} = \frac{\Psi(\tilde{x}) - f(x)}{f(x)} = \frac{\Psi(\tilde{x})}{f(x)} - 1  =  \frac{\Psi(\tilde{x})}{f(\tilde{x})} \frac{f(\tilde{x})}{f(x)} - 1 = (1+E_{alg})(1+E_{in}) -1
@@ -1377,7 +1377,7 @@ Utilizziamo Taylor e calcoliamone la serie arrestata al primo ordine della funzi
 \[f(\tilde{x}) \approx f(x) + f^{'}(x)(\tilde{x} - x) \]
 dove $(\tilde{x} - x)$ non è altro che $\delta x$ per quanto scritto sopra.\\
 
-Riscriviamo l'equazione e applichiamo le norme ad entrambi i membri : 
+Riscriviamo l'equazione e applichiamo le norme ad entrambi i membri: 
 \[
 		f(\tilde{x}) - f(x)  \approx   f^{'}(x)(\tilde{x} - x) \rightarrow \lVert f(\tilde{x})-f(x)\rVert\approx\lVert f^{'}(x)(\tilde{x} - x)\rVert\leq\lVert f^{'}(x)\rVert \lVert(\tilde{x} - x)\rVert 
 \]
@@ -1398,14 +1398,14 @@ L'espressione $\frac{\lVert f^{'}(x)\rVert}{\lVert f(x)\rVert }\lVert x\rVert$ r
 Se $K$ assume valori vicini ad 1 allora il valore inerente tenderà ad assumere simili all'errore relativo mentre per valori $K$ grandi avremmo un amplificazione dell'errore relativo sui dati.
 
 \begin{exmp}
-Per $f: \mathbb{R} \rightarrow \mathbb{R}$ dove $f(x) : x-1$ l'indice di condizionamento per tale applicazione risolvente sarà: 
+Per $f: \mathbb{R} \rightarrow \mathbb{R}$ dove $f(x): x-1$ l'indice di condizionamento per tale applicazione risolvente sarà: 
 \[ K = \frac{|f^{'}(x)| |x|}{|f(x)|} = \frac{|1-0||x|}{|x-1|} = \frac{|x|}{|x-1|} \]
 Quindi per valori di $x$ tendenti ad 1 il valore di $K$ tende a diventare estremamente grande ed il problema è mal condizionato.
 \end{exmp}
 
 
 \begin{exmp}
-Per $f: \mathbb{R} \rightarrow \mathbb{R}$ dove $f(x) : e^{x}$ l'indice di condizionamento per tale applicazione risolvente sarà: 
+Per $f: \mathbb{R} \rightarrow \mathbb{R}$ dove $f(x): e^{x}$ l'indice di condizionamento per tale applicazione risolvente sarà: 
 \[ K = \frac{|f^{'}(x)| |x|}{|f(x)|} = \frac{|e^{x}||x|}{|e^{x}|} = |x| \]
 Quindi il problema è mal condizionato per valori assoluti di $x$ molto più grandi di 1.
 \end{exmp}
@@ -1413,14 +1413,14 @@ Quindi il problema è mal condizionato per valori assoluti di $x$ molto più gra
 Prendiamo ora come riferimento le applicazioni risolventi del tipo $f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$. 
 
 \begin{defn}
-Una funzione  $f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ è una particolare tipologia di funzione che permette di mappare un vettore in un altro di dimensioni uguali a quello di partenza :  
+Una funzione  $f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ è una particolare tipologia di funzione che permette di mappare un vettore in un altro di dimensioni uguali a quello di partenza:  
 \[ \VarMtrx{x} = \begin{pmatrix} x_{1} \\ x_{2} \\ .\\ x_{n}  \end{pmatrix} \mapsto f(\VarMtrx{x}) = \begin{pmatrix} f_{1}(\VarMtrx{x}) \\ f_{2}(\VarMtrx{x}) \\ .\\ f_{n}(\VarMtrx{x})  \end{pmatrix}  \]
 
 Dove $f_{1},  f_{2},  \dots,  f_{n}$ sono funzioni del tipo $f_{i}: \mathbb{R}^{n} \rightarrow \mathbb{R}$
 
 \end{defn}
 
-Consideriamo ora di avere una matrice $\VarMtrx{A}$,  e due vettori $\VarMtrx{x}$ e $\VarMtrx{b}$ e si voglia risolvere il sistema lineare : 
+Consideriamo ora di avere una matrice $\VarMtrx{A}$,  e due vettori $\VarMtrx{x}$ e $\VarMtrx{b}$ e si voglia risolvere il sistema lineare: 
 \[ \VarMtrx{Ax} = \VarMtrx{b} \]
 
 Dove 
@@ -1430,7 +1430,7 @@ Dove
 	\item $\VarMtrx{b}$ è il vettore dei termini noti.
 \end{itemize}
 
-Sia ora :
+Sia ora:
 
 \[ \VarMtrx{A\tilde{x}} = \VarMtrx{\tilde{b}} \]
 
@@ -1440,7 +1440,7 @@ sempre il nostro sistema lineare nel quale al quale è stato indotto un errore d
 	\frac{ \lVert f_{A}(\tilde{b}) - f_{A}(b)\rVert }{ \lVert  f_{A}(b) \rVert} \leq K  \frac{ \lVert \tilde{b} - b \rVert }{ \lVert  b \rVert}
 \]
 
-Ovvero : 
+Ovvero: 
 
 \[ 
 	\frac{ \lVert \tilde{x} - x \rVert }{ \lVert x \rVert} \leq K  \frac{ \lVert \tilde{b} - b \rVert }{ \lVert  b \rVert}
@@ -1448,7 +1448,7 @@ Ovvero :
 
 
 \begin{defn}
-Si definisce matrice Jacobiana una matrice del seguente tipo : 
+Si definisce matrice Jacobiana una matrice del seguente tipo: 
 \[
 	\mathbb{J}=\left[\begin{array}{ccc}
 	\dfrac{\partial \mathbf{f}(\mathbf{x})}{\partial x_{1}} & \cdots & \dfrac{\partial \mathbf{f}(\mathbf{x})}{\partial x_{n}}
@@ -1460,11 +1460,11 @@ Si definisce matrice Jacobiana una matrice del seguente tipo :
 \]
 \end{defn}
 \begin{exmp}
-Sia $f: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ una funzione :
+Sia $f: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ una funzione:
 \[ 
 	\begin{pmatrix} x \\ y \\ z  \end{pmatrix} \mapsto \begin{pmatrix} 2x + 3y - 4z \\ x^{2} + y -z \\ x - 2y + 3z  \end{pmatrix} 
 \]
-La matrice $\mathbb{J}$ di questa sarà : 
+La matrice $\mathbb{J}$ di questa sarà: 
 
 \[ 
 	\mathbb{J} = 
@@ -1475,7 +1475,7 @@ La matrice $\mathbb{J}$ di questa sarà :
 			\end{bmatrix}
 \]
 \end{exmp}
-Sia quindi la funzione $f_{A} : b \mapsto x = A^{-1}b$ l'applicazione risolvente del sistema lineare $\VarMtrx{Ax} = \VarMtrx{b}$. Definiamo il numero di condizionamento K : 
+Sia quindi la funzione $f_{A}: b \mapsto x = A^{-1}b$ l'applicazione risolvente del sistema lineare $\VarMtrx{Ax} = \VarMtrx{b}$. Definiamo il numero di condizionamento K: 
 \[ 
 	K = \frac{\lVert f^{'}_{A}(b)\rVert \lVert b\rVert}{\lVert f_{A}(b)\rVert} 
 	   = \frac{\lVert \VarMtrx{A}^{-1} \rVert \lVert \VarMtrx{Ax} \rVert}{\lVert \VarMtrx{x} \rVert} 
@@ -1485,10 +1485,10 @@ Sia quindi la funzione $f_{A} : b \mapsto x = A^{-1}b$ l'applicazione risolvente
 \begin{itemize}
 	\item Per calcolare $f^{'}_{A}(b)$ occorrerebbe adoperare la matrice Jacobiana definita sopra. Tuttavia notiamo che l'applicazione risolvente è lineare in $b$. Quest'ultimo termine, quando si effettua la derivata, scompare facendo rimanere solamente la matrice $A^{-1}$. 
 	\item La sostituzione ($\lVert b \rVert$) deriva proprio dalla definizione del problema $\VarMtrx{Ax} = \VarMtrx{b}$
-	\item La norma adoperata è una norma vettoriale e vale quindi la relazione : $\frac{\lVert \VarMtrx{Ax} \rVert}{ \lVert x \rVert} \leq \lVert A \rVert$. Quest'ultima giustifica la disuguaglianza finale. 
+	\item La norma adoperata è una norma vettoriale e vale quindi la relazione: $\frac{\lVert \VarMtrx{Ax} \rVert}{ \lVert x \rVert} \leq \lVert A \rVert$. Quest'ultima giustifica la disuguaglianza finale. 
 \end{itemize}
 
-In caso di funzioni $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, ovvero,  funzioni che date in input un vettore $\VarMtrx{x}$ restituiscono un numero reale, possiamo calcolare il nostro indice di condizionamento nella seguente maniera : 
+In caso di funzioni $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$, ovvero,  funzioni che date in input un vettore $\VarMtrx{x}$ restituiscono un numero reale, possiamo calcolare il nostro indice di condizionamento nella seguente maniera: 
 
 \[ 
 	K = \sum_{i = 1}^{n} 
@@ -1522,7 +1522,7 @@ Il problema risulta mal condizionato per valori di $|a^{2}-b^{2}|$ tendenti a 0 
 
 In questo capitolo vengono discussi gli algoritmi per determinare gli zeri o radici di una funzione 
 \begin{defn}
-Data una funzione $f : \mathbb{R} \mapsto \mathbb{R} $ continua in tutto il suo dominio e differenziabile si dice che il valore $\alpha$ sia uno zero o una radice di questa se $f(\alpha) = 0$
+Data una funzione $f: \mathbb{R} \mapsto \mathbb{R} $ continua in tutto il suo dominio e differenziabile si dice che il valore $\alpha$ sia uno zero o una radice di questa se $f(\alpha) = 0$
 
 \begin{figure}[h!]
 \centering
@@ -1535,7 +1535,7 @@ Data una funzione $f : \mathbb{R} \mapsto \mathbb{R} $ continua in tutto il suo 
 \end{figure}
 \end{defn}
 
-Distinguiamo due categorie distinte di radici : 
+Distinguiamo due categorie distinte di radici: 
 \begin{itemize}
 	\item $\alpha$ si dice sia una radice semplice della funzione $f(x)$ se $f(\alpha) = 0$ e $f^{'}(\alpha) \neq 0$ 
 	\item $\alpha$ si dice sia uno radice multipla di molteplicità $m$ della funzione $f(x)$ se $f(\alpha) = 0,  f^{'}(\alpha) = 0, f^{''}(\alpha) = 0, \dots,  f^{m-1}(\alpha) = 0 $ e $f^{m}(\alpha) \neq 0$.
@@ -1567,10 +1567,10 @@ Questa operazione è detta differenziazione degli zeri di una funzione.
 \end{figure}
 
 
-Nell'esempio quì sopra considereremo la figura nell'intervallo $[a,b]$, ovvero, $f : [a,b] \mapsto \mathbb{R}$.\\
+Nell'esempio quì sopra considereremo la figura nell'intervallo $[a,b]$, ovvero, $f: [a,b] \mapsto \mathbb{R}$.\\
 Una volta che siamo certi di lavorare su un problema che è ben posto occorrerà controllare che questo sia anche ben condizionato. \\
 Abbiamo già visto in più occasioni che lavorare all'interno ad una macchina per trovare la soluzione ad un problema causa un determinato quantitativo di errore che abbiamo definito precedentemente come errore totale. 
-Sappiamo che composto da due fattori : l'errore inerente e l'errore algoritmico il cui primo subisce variazioni di un determinato fattore $K$ che abbiamo chiamato indice di condizionamento di cui vogliamo, anche in questo caso, andarne ad analizzare il valore.
+Sappiamo che composto da due fattori: l'errore inerente e l'errore algoritmico il cui primo subisce variazioni di un determinato fattore $K$ che abbiamo chiamato indice di condizionamento di cui vogliamo, anche in questo caso, andarne ad analizzare il valore.
 \end{flushleft}
 
 \section{Studio del condizionamento}
@@ -1578,7 +1578,7 @@ Sappiamo che composto da due fattori : l'errore inerente e l'errore algoritmico 
 L'approccio che adottiamo nello studio del condizionamento è anche in questo caso quello di simulare una perturbazione sui dati del problema e vedere come si comportano i risultati.\\
 \vspace{1em}
 \textbf{Problema perturbato:}\\
-Determinare il valore $\tilde{\alpha} = \alpha + \delta$ tale che $\tilde{f(\tilde{\alpha}}) = 0$ dove $\tilde{f} = f + \varepsilon g$,  $g : \mathbb{R} \mapsto \mathbb{R} $ differenziabile dove
+Determinare il valore $\tilde{\alpha} = \alpha + \delta$ tale che $\tilde{f(\tilde{\alpha}}) = 0$ dove $\tilde{f} = f + \varepsilon g$,  $g: \mathbb{R} \mapsto \mathbb{R} $ differenziabile dove
 \begin{itemize}
 	\item $\delta$ è una perturbazione sul risultato del problema.
 	\item $\varepsilon$ è una perturbazione sui dati del problema che viene condizionata dalla funzione $g$.
@@ -1607,7 +1607,7 @@ Come da definizione sappiamo che le funzioni $f, \tilde{f}, g$ sono differenziab
 \end{equation}
  
  E' da notare in questi ultimi passaggi come il termine $\delta \varepsilon g^{'}(\alpha)$ sia stato eliminato poichè il valore che assumeva era irrilevante (dato che sia $\delta$ che $\epsilon$ sono entrambi molto piccoli). \\
-Facciamo ora delle osservazioni :
+Facciamo ora delle osservazioni:
 
 \begin{equation}
 	\begin{split}
@@ -1617,7 +1617,7 @@ Facciamo ora delle osservazioni :
 \end{equation}
 
 
-Passiamo ai valori assoluti :
+Passiamo ai valori assoluti:
 \begin{equation}
 	\begin{split}
 		 | \delta | & \approx   \dfrac{| \varepsilon g(\alpha) |}{ | \tilde{f^{'}}(\alpha)| } \\
@@ -1649,7 +1649,7 @@ Possiamo ulteriormente raggruppare gli algoritmi iterativi per la ricerca degli 
 	\item Algoritmi a convergenza locale: Dipendono fortemente dalla scelta di $x_{0}$ il quale valore deve essere vicino al valore $\alpha$ per ottenere un risultato corretto.  Algoritmi risolutivi di questa tipologia sono molto più veloci rispetto quelli a convergenza globale.
 \end{itemize}
 
-In termini di pseudo codice avremmo : 
+In termini di pseudo codice avremmo: 
 
 \begin{algorithm}
 \caption{Generico algoritmo iterativo}
@@ -1671,13 +1671,13 @@ Si definisce errore i-esimo, o errore al passo i, il valore $e_{i} = |x_{i} - \a
 \end{defn}
 Possiamo utilizzare il valore dell'errore i-esimo per stabilire una prima condizione d'arresto infatti, una volta determinata una tolleranza $Tol$, possiamo imporre $e_{i} \leq Tol$.Tuttavia il problema che si presenta è quello che noi ancora non siamo in grado di conoscere il valore di $\alpha$ potremmo dunque riscrivere  il valore di $e_{i}$ come $|x_{i} - x_{i+1}|$ poichè $x_{i+1}$ può essere considerato una migliore approssimazione di $\alpha$ rispetto al termine $x_{i}$ e richiedere all'algoritmo di uscire dal loop while quando $Tol$ è minore di $|x_{i} - x_{i+1}|$.\\
 \vspace{1em}
-Questa condizione d'arresto tuttavia non è sicura poiché la tolleranza dovrebbe dipendere dall'ordine di grandezza degli elementi $x_{i}, x_{i+1}$ utilizzeremo allora un errore relativo : 
+Questa condizione d'arresto tuttavia non è sicura poiché la tolleranza dovrebbe dipendere dall'ordine di grandezza degli elementi $x_{i}, x_{i+1}$ utilizzeremo allora un errore relativo: 
 \[ 
 	\dfrac{|x_{i} - x_{i+1}|}{|x_{i+1}|} \leq Tol
 \]
 
 \begin{defn}
-Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore assoluto la relazione : 
+Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore assoluto la relazione: 
 \[ 
 	|x_{i} - x_{i+1}| \leq Tol
 \]
@@ -1685,7 +1685,7 @@ Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore ass
 
 
 \begin{defn}
-Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore relativo la relazione : 
+Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore relativo la relazione: 
 \[ 
 	\dfrac{|x_{i} - x_{i+1}|}{|x_{i+1}|} \leq Tol
 \]
@@ -1693,7 +1693,7 @@ Dato un valore di tolleranza $Tol$ si definisce criterio d'arresto su valore rel
 
 Come detto esiste un 'ulteriore terzo criterio d'arresto chiamato controllo sul residuo in cui viene verificato che la relazione $|f(x_{i})| < Tol$ sia rispettata.  
 \pagebreak
-Quest'ultimo non può essere adoperato da solo come condizione d'arresto poiché potrebbe tornare una falsa condizione d'uscita, possiamo vedere  questo in un esempio grafico : 
+Quest'ultimo non può essere adoperato da solo come condizione d'arresto poiché potrebbe tornare una falsa condizione d'uscita, possiamo vedere  questo in un esempio grafico: 
 
 \begin{figure}[ht!]
 \centering
@@ -1723,11 +1723,11 @@ In conclusione se volessi quindi adoperare anche questo terzo criterio d'arresto
 \begin{flushleft}
 
 \begin{defn}
-	Una successione di valori $\{x_{i}\}_{i \geq 0}$ tendente ad un limite $\alpha$ si dice essere convergente di ordine $p$ se esistono due valori $p \geq 1$ e $C \geq 0$ (fattore di convergenza) tali per cui : 
+	Una successione di valori $\{x_{i}\}_{i \geq 0}$ tendente ad un limite $\alpha$ si dice essere convergente di ordine $p$ se esistono due valori $p \geq 1$ e $C \geq 0$ (fattore di convergenza) tali per cui: 
 	\[
-		\lim_{x \to \infty} \dfrac{|e_{k+1}|}{|e_{k}|^{p}} = C \quad \quad e_{k} := x_{k} - \alpha
+		\lim_{x \to \infty} \dfrac{|e_{k+1}|}{|e_{k}|^{p}} = C \quad \quad e_{k}:= x_{k} - \alpha
 	\]	
-	In altre parole per valori di $k$ grandi risulta valere : $|e_{k+1}| \approx C|e_{k}|^{p}$
+	In altre parole per valori di $k$ grandi risulta valere: $|e_{k+1}| \approx C|e_{k}|^{p}$
 \end{defn}
 
 \begin{defn}
@@ -1745,19 +1745,19 @@ Per capire l'ordine di convergenza di un algoritmo iterativo vogliamo partire da
 	\end{split}
 \end{equation}
 
-A questo punto vogliamo ricordare la relazione $e_{k} := x_{k} - \alpha$ la quale può essere approssimata in $x_{k} - x_{k+i}$. Andando a sostituire otterremmo : 
+A questo punto vogliamo ricordare la relazione $e_{k}:= x_{k} - \alpha$ la quale può essere approssimata in $x_{k} - x_{k+i}$. Andando a sostituire otterremmo: 
 \[ 
 	p \approx \dfrac{\log \left( \dfrac{|x_{k+2} - x_{k+3} |}{|x_{k+1} - x_{k+2}|} \right)}{\log  \left( \dfrac{|x_{k+1} - x_{k+2}|}{|x_{k} -x_{k+1}|} \right)}
 \]
 
 Nei metodi che studieremo avremo:
 \begin{itemize}
-	\item $p = 1$ : Convergenza lineare
+	\item $p = 1$: Convergenza lineare
 	\item $ 1 < p < 2$: Convergenza superlineare
 	\item $p = 2$: Convergenza quadratica
 \end{itemize}
 
-Il fattore di convergenza $C$ è soggetto ad un ulteriore vincolo nel caso in cui l'ordine di convergenza sia uguale ad 1,ovvero il suo valore deve essere minore di 1; infatti dato $p=1$ avremmo :
+Il fattore di convergenza $C$ è soggetto ad un ulteriore vincolo nel caso in cui l'ordine di convergenza sia uguale ad 1,ovvero il suo valore deve essere minore di 1; infatti dato $p=1$ avremmo:
 
 \begin{equation}
 	\begin{split}
@@ -1777,7 +1777,7 @@ Da cui abbiamo $0 < C < 1$.\\
 \begin{flushleft}
 Il metodo di bisezione è un algoritmo a convergenza globale avente come parametri $p=1$ e $C=\frac{1}{2}$. Il costo computazionale è dato dal numero di iterazioni eseguite $+ 2$. \\
 \vspace{1em}
-Posso applicare il metodo di bisezione nel caso : 
+Posso applicare il metodo di bisezione nel caso: 
 \begin{itemize}
 	\item La funzione sia continua.
 	\item La funzione presenti segni discordi negli estremi dell'intervallo che si osserva.
@@ -1793,7 +1793,7 @@ Da queste considerazioni otteniamo il seguente pseudocodice:
 \begin{algorithm}
 \caption{Algoritmo di bisezione}
 	\begin{algorithmic} 
-		\REQUIRE $a, b$ , $f : \mathbb{R} \mapsto \mathbb{R}$ continua e derivabile
+		\REQUIRE $a, b$ , $f: \mathbb{R} \mapsto \mathbb{R}$ continua e derivabile
 		\ENSURE $x_{\hat{i}} \approx \alpha$
 		\STATE $ a_{0} \leftarrow  a$
 		\STATE $ b_{0} \leftarrow  b$
@@ -1816,9 +1816,9 @@ Da queste considerazioni otteniamo il seguente pseudocodice:
 
 \subsubsection{Condizione d'arresto}
 La condizione d'arresto di questo algoritmo impone di proseguire a suddividere l'intervallo finchè la lunghezza di questo ancora è maggiore o uguale ad una certa tolleranza, ovvero, $|b_{i} - a_{i}| < Tol$.
-Lavorando in aritmetica di macchina tuttavia potremmo ricadere nel seguente problema : 
+Lavorando in aritmetica di macchina tuttavia potremmo ricadere nel seguente problema: 
 \begin{exmp}
-Immaginiamoci di avere ad un certo punto delle nostre iterazioni i seguenti valori per gli estremi dell'intervallo considerato : 
+Immaginiamoci di avere ad un certo punto delle nostre iterazioni i seguenti valori per gli estremi dell'intervallo considerato: 
 \begin{itemize}
 	\item $a_{i} = 98.5$
 	\item $b_{i} = 98.6$
@@ -1826,7 +1826,7 @@ Immaginiamoci di avere ad un certo punto delle nostre iterazioni i seguenti valo
 e si ipotizzi che la tolleranza da considerare sia $Tol = 0.05$. \\
 Il risultato di $|b_{i} - a_{i}|$  è $0.1$, ciò significa che possiamo continuare con le nostre iterazioni ricavando un nuovo valore  $x_{i + 1}$.  Svolgendo l'operazione $\frac{a_{i}+b_{i}}{2}$ otteniamo come risultato nuovamente $98.6 = b_{i}$ e, quindi, avremmo che $[a_{i+1}, b_{i+1}] = [a_{i}, x_{i+1}] = [98.5,98.6]$ ricadendo in un loop infinito. 
 \end{exmp}
-Occorre quindi modificare la condizione d'arresto nel seguente modo : 
+Occorre quindi modificare la condizione d'arresto nel seguente modo: 
 \[ 
 	|b_{i} - a_{i}| < Tol + eps \times \max \{|a_{i}|, |b_{i}|\}
 \]
@@ -1838,12 +1838,12 @@ Ad ogni calcolo di $x_{i}$ occorre calcolare anche il valore di $f(x_{i})$ ed, i
 \subsubsection{Stima dell'errore}
 Mostriamo infine l'ordine di convergenza del nostro algoritmo. \\
 Al passo n-esimo dovremmo calcolare il punto medio $x_{n}$ in un intervallo $[a_{n-1}, b_{n-1}]$ e scegliere uno tra gli intervalli così formati $[a_{n-1},x_{n}]$ o $[x_{n},b_{n-1}]$.
-L'errore che si va a commettere nello stimare il punto medio è :
+L'errore che si va a commettere nello stimare il punto medio è:
 \[
 	|e_{n}| = | x_{n} - \alpha | \approx \frac{b_{n-1} - a_{n-1}}{2} \approx  \frac{b_{0} - a_{0}}{2^{n}}
 \]
 
-Possiamo dire allora che : 
+Possiamo dire allora che: 
 \[ 
 	|e_{n-1}| \approx \frac{b_{0} - a_{0}}{2^{n-1}} 
 \]
@@ -1852,7 +1852,7 @@ Possiamo dire allora che :
 	\dfrac{|e_{n}| }{|e_{n-1}| } = \frac{1}{2}
 \]
 
-Da questo risultato possiamo trarre alcune conclusioni : 
+Da questo risultato possiamo trarre alcune conclusioni: 
 \begin{enumerate}
 	\item abbiamo mostrato che $C = \frac{1}{2}$ e $p = 1$ dalla relazione $|e_{k+1}| \approx C|e_{k}|^{p}$ dove in questo caso $|e_{k+1}| = |e_{n}| $ e $|e_{k}| = |e_{n-1}| $.
 	\item E' possibile stimare il numero di iterazioni necessarie per approssimare $\alpha$ in un numero finito tale per cui $|x_{n} - \alpha| \leq \varepsilon$
@@ -1907,7 +1907,7 @@ Grazie a questo risultato abbiamo espresso in un'ulteriore maniera l'algoritmo d
 \begin{algorithm}
 \caption{Algoritmo di falsa posizione}
 	\begin{algorithmic} 
-		\REQUIRE $a, b$ , $f : \mathbb{R} \mapsto \mathbb{R}$ continua e derivabile
+		\REQUIRE $a, b$ , $f: \mathbb{R} \mapsto \mathbb{R}$ continua e derivabile
 		\ENSURE $x_{\hat{i}} \approx \alpha$
 		\STATE $ a_{0} \leftarrow  a$
 		\STATE $ b_{0} \leftarrow  b$
@@ -1958,24 +1958,24 @@ Data una funzione $f(x)$ definita in un intervallo in cui è possibile individua
 \end{figure}
 
 Costruisco una successione di valori $x_{i+1}$ con $i \geq 0$ in cui ciascuno di questi è l'intersezione tra l'asse delle ascisse e 
-la retta $y = f(x_{0}) + m_{0}(x-x_{0})$ :
+la retta $y = f(x_{0}) + m_{0}(x-x_{0})$:
 
 \[ 	
 	x_{i+1}  = x_{i} - \frac{f(x_{i})}{m_{i}}
 \]
 
-A seconda della scelta dei valori $m_{i}$ otteniamo : 
+A seconda della scelta dei valori $m_{i}$ otteniamo: 
 
 \begin{enumerate}
-	\item Metodo di Newton : $m_{i} = f^{'}(x_{i})$,  ovvero all' i-esimo passo la retta che andrò a costruire è la tangente in quel punto. 
-	\item Metodo delle corde : $m_{i} = m$,  scelgo un coefficiente costante ad ogni iterazione.  Le condizioni necessarie per l'utilizzo del metodo delle corde sono le seguenti : \\
+	\item Metodo di Newton: $m_{i} = f^{'}(x_{i})$,  ovvero all' i-esimo passo la retta che andrò a costruire è la tangente in quel punto. 
+	\item Metodo delle corde: $m_{i} = m$,  scelgo un coefficiente costante ad ogni iterazione.  Le condizioni necessarie per l'utilizzo del metodo delle corde sono le seguenti: \\
 	Data una funzione $f:[a,b] \mapsto R$ tale che esista $\alpha$ per la quale la funzione si annulla in quel punto e $f(x)$ sia derivabile scegliamo $m$ in base ai seguenti tre principi
 	\begin{itemize}
 		\item $f^{'}(x) \neq 0$
 		\item $mf^{'}(x) > 0$
 		\item $m > \max_{[a,b]} \frac{1}{2}f^{'}(x) $
 	\end{itemize}
-	\item Metodo delle secanti :  $m_{i} = \dfrac{f(x_{i}) - f(x_{i - 1})}{x_{i} - x_{i - 1}}$ ovvero approssimo il grafico della funzione con le rette passanti per i punti $(x_{i-1}, f(x_{x_{i-1}}))$ e $(x_{i}, f(x_{i}))$. In questo caso avremmo bisogno di due valori di innesco $x_{-1}, x_{0}$ per la prima iterata 
+	\item Metodo delle secanti:  $m_{i} = \dfrac{f(x_{i}) - f(x_{i - 1})}{x_{i} - x_{i - 1}}$ ovvero approssimo il grafico della funzione con le rette passanti per i punti $(x_{i-1}, f(x_{x_{i-1}}))$ e $(x_{i}, f(x_{i}))$. In questo caso avremmo bisogno di due valori di innesco $x_{-1}, x_{0}$ per la prima iterata 
 \end{enumerate}
 
 \subsection{Convergenza del metodo di Newton}
@@ -2023,7 +2023,7 @@ Sia data una funzione $f$ definita continua e convessa all'interno di un interva
 
 Nell'esempio raffigurato qui sopra abbiamo tracciato una retta tra i punti $f(a)$ e $f(b)$ di entrambe le funzioni la quale divide queste in due parti. Dato che stiamo parlando di funzioni a concavità fissa una delle parti separate dalla retta passante tra $f(a)$ e $f(b)$ conterrà interamente tale concavità definiremo quindi estremo di Fourier uno dei due estremi $a$ o $b$ compresi nella parte di funzione separata dalla retta $f(a)f(b)$ contenente la concavità. 
 
-Se una funzione $f[a,b] \mapsto \mathbb{R}$ rispetta le seguenti proprietà : 
+Se una funzione $f[a,b] \mapsto \mathbb{R}$ rispetta le seguenti proprietà: 
 \begin{itemize}
 	\item $f(a)f(b)<0$
 	\item $f,f^{'},f^{''}$ sono funzioni continue in $[a,b]$, ovvero $f \in C^{2}[a,b]$  
@@ -2033,7 +2033,7 @@ Se una funzione $f[a,b] \mapsto \mathbb{R}$ rispetta le seguenti proprietà :
 
 E si sceglie come punto di innesco $x_{0}$ l'estremo di Fourier nell'intervallo $[a,b]$ allora il metodo di Newton produrrà una serie ${x_{i}}_{i \geq 1}$ monotona (crescente se l'estremo di fourier è $a$ decrescente se invece è $b$) che converge all'unica radice $\alpha \in [a,b]$ e tale convergenza è superlineare.\\
 \vspace{1em}
-Inoltre se la funzione $f \in C^{3}[a,b]$  allora la convergenza è quadratica e vale inoltre : 
+Inoltre se la funzione $f \in C^{3}[a,b]$  allora la convergenza è quadratica e vale inoltre: 
 \[ 
 	\lim_{i \rightarrow \infty} \frac{|x_{i-1} - \alpha|}{(x_{i} - \alpha)^{2}} = \dfrac{f^{''}(\alpha)}{2f^{'}(\alpha)}
 \]
@@ -2042,7 +2042,7 @@ quindi $p = 2$ e $C = \dfrac{f^{''}(\alpha)}{2f^{'}(\alpha)}$
 
 \subsection{ Metodi iterativi a punto fisso}
 \begin{flushleft}
-I metodi iterativi a punto fisso sono algoritmi che permettono in maniera del tutto generica di calcolare gli zeri di una funzione $f(x)$ non lineare riconducendoci ad una funzione $g(x)$ detta funzione di iterazione tale per cui vale la relazione : 
+I metodi iterativi a punto fisso sono algoritmi che permettono in maniera del tutto generica di calcolare gli zeri di una funzione $f(x)$ non lineare riconducendoci ad una funzione $g(x)$ detta funzione di iterazione tale per cui vale la relazione: 
 \[ 
 	f(\alpha) = 0 \Longleftrightarrow g(\alpha) = \alpha
 \]
@@ -2061,7 +2061,7 @@ Elenchiamo ora alcuni modi che abbiamo nel calcolare la nostra funzione $g(x)$
 					& x^{3} + 4x + x - 10 = x \\
 				\end{split}
 			\end{equation}
-	\item Dall'ultima equazione che  ho trovato sposto il numero 10 a destra dell'equazione e raccolgo a primo membro una $x$ in comune :
+	\item Dall'ultima equazione che  ho trovato sposto il numero 10 a destra dell'equazione e raccolgo a primo membro una $x$ in comune:
 		\begin{equation}
 				\begin{split}
 					& x^{3} + 4x + x - 10 = x \\
@@ -2081,7 +2081,7 @@ Prendiamo in input un valore di innesco $x_{0}$ e calcoliamo le varie iterate $x
 \begin{algorithm}
 \caption{Algoritmo punto fisso}
 	\begin{algorithmic} 
-		\REQUIRE $x_{0}$ , $g : \mathbb{R} \mapsto \mathbb{R}$
+		\REQUIRE $x_{0}$ , $g: \mathbb{R} \mapsto \mathbb{R}$
 		\WHILE{$ COND = TRUE \vee i \geq 0$}
 			\STATE $ x_{i+1} \leftarrow  g(x_{i})$
 		\ENDWHILE
@@ -2100,31 +2100,31 @@ Vogliamo analizzare ora le condizioni che deve rispettare la funzione $g$ per ga
 	\item $\exists C < 1: \; |g^{'}(x)| \leq C \; \forall x \in [a,b]$
 \end{enumerate}
 
-In questo caso la nostra $g$ ha un unico punto fisso $\alpha$ e qualunque valore di innesco $x_{0}$ si scelga all'interno dell'intervallo $[a,b]$ la funzione è convergente e si ha inoltre : 
+In questo caso la nostra $g$ ha un unico punto fisso $\alpha$ e qualunque valore di innesco $x_{0}$ si scelga all'interno dell'intervallo $[a,b]$ la funzione è convergente e si ha inoltre: 
 
 \[ 
 	\lim_{i \rightarrow \infty} \dfrac{x_{i+1} - \alpha}{x_{i} - \alpha} = |g^{'}(\alpha)| 
 \]
 
 \textbf{Teorema convergenza locale:} Sia $\alpha$ un punto fisso della funzione $g \in C^{1} [\alpha - \rho,\alpha + \rho]$ con 
-$\rho > 0$ se :
+$\rho > 0$ se:
 \[
 	|g^{'}(x)| < 1,  \forall x \in [\alpha - \rho,\alpha + \rho]
 \]
 
-Allora per ciascun valore di $x_{0} \in [\alpha - \rho,\alpha + \rho]$ la successione di punti generati dalla funzione $g(x_{i})$ è tale che :
+Allora per ciascun valore di $x_{0} \in [\alpha - \rho,\alpha + \rho]$ la successione di punti generati dalla funzione $g(x_{i})$ è tale che:
 \begin{enumerate}
 	\item $x_{i} \in [\alpha - \rho,\alpha + \rho]$.
 	\item $\lim_{i \rightarrow \infty} x_{i} = \alpha $ unico punto fisso di $g$.
 \end{enumerate} 
 \vspace{1em}
 \textbf{Teorema dell'ordine di convergenza}:
-Sia $\alpha \in [I]$ il punto fisso di una funzione $g \in C^{p}[I]$, dove $I$ è un opportuno intervallo,  preso punto $x_{0}$ la successione $x_{i+1}$ è convergente se :
+Sia $\alpha \in [I]$ il punto fisso di una funzione $g \in C^{p}[I]$, dove $I$ è un opportuno intervallo,  preso punto $x_{0}$ la successione $x_{i+1}$ è convergente se:
 \[	
 	g^{'}(\alpha) = g^{''}(\alpha) = g^{'''}(\alpha) = \dots = g^{p-1}(\alpha) = 0 
 \]
 
-in questo caso l'ordine di convergenza è $p$ e risulta inoltre che :
+in questo caso l'ordine di convergenza è $p$ e risulta inoltre che:
 
 \[ 	
 	\lim_{i \rightarrow +\infty} \dfrac{|x_{i+1} - \alpha|}{|x_{i} - \alpha|^{p}} = C  \quad \quad C = \dfrac{|g^{p}(\alpha)|}{p!}
@@ -2159,7 +2159,7 @@ Nel seguente capitolo vogliamo studiare come risolvere sistemi lineari attravers
 		\end{pmatrix}		
 	\]
 
-Che possiamo rappresentare come sistema : 
+Che possiamo rappresentare come sistema: 
 
 	\[ 
 			\begin{cases}
@@ -2215,7 +2215,7 @@ Abbiamo due tipologie differenti di metodi:
 		\end{pmatrix}
 	\]
 	
-	Il relativo sistema risultante ci permette di ottenere i valori delle incognite $x_{1},x_{2}, \dots, x_{n}$ in una maniera più agevole  poichè si presenterà nel seguente modo : 	
+	Il relativo sistema risultante ci permette di ottenere i valori delle incognite $x_{1},x_{2}, \dots, x_{n}$ in una maniera più agevole  poichè si presenterà nel seguente modo: 	
 	\[ 
 		\begin{cases}
   				a_{11}x_{1} = b_{1} \; \longrightarrow x_{1} = \frac{b_{1}}{a_{11}} \\   
@@ -2227,17 +2227,17 @@ Abbiamo due tipologie differenti di metodi:
 		\end{cases}	
 	\]
 	
-	Possiamo riscrivere una generica riga $i$ del nostro sistema come una sommatoria di $i$ fattori, ovvero : 
+	Possiamo riscrivere una generica riga $i$ del nostro sistema come una sommatoria di $i$ fattori, ovvero: 
 	\[
 		\sum_{j = 1} ^ {i} a_{ji}x_{j} = b_{i}
 	\]	
 	
-	Dunque la generica soluzione di $xi$ può essere scritta allo stesso modo in funzione di una sommatoria in quanto :
+	Dunque la generica soluzione di $xi$ può essere scritta allo stesso modo in funzione di una sommatoria in quanto:
 	\[
 		x_{i} = \frac{ b_{i} - \sum_{j = 1} ^ {i-1} a_{ji}x_{j}}{a_{ii}}
 	\]	
 	
-	Questo ci permette dunque di determinare un algoritmo risolutivo : 
+	Questo ci permette dunque di determinare un algoritmo risolutivo: 
 	
 	\begin{algorithm}
 		\caption{ Metodo di sostituzione in avanti}
@@ -2311,7 +2311,7 @@ In questo caso possiamo scrivere l'equazione di una generica riga $i$ nel seguen
 \]	
 
 
-Il relativo pseudocodice : 
+Il relativo pseudocodice: 
 
 \begin{algorithm}
 		\caption{ Metodo di sostituzione all'indietro}
@@ -2334,17 +2334,17 @@ Da notare che abbiamo posto $j = n-i+1$ ottenendo lo stesso costo computazionale
 
 Come useremo i metodi diretti per risolvere un sistema lineare ?\\
 Dato un sistema del tipo $Ax = b$ con $A$ matrice $n \times n $ e $\det(A) \neq 0$ ci ricondurremo ad un sistema $Cx = y$ equivalente e tale per cui $C$ è triangolare superiore.
-Una caratteristica comune che avranno i metodi che studieremo è quella della fattorizzazione, ovvero,  per ottenere il sistema  $Cx = y$ a partire da  $Ax = b$  moltiplicheremo la matrice triangolare superiore $C$ per una matrice $B$ tale che : 
+Una caratteristica comune che avranno i metodi che studieremo è quella della fattorizzazione, ovvero,  per ottenere il sistema  $Cx = y$ a partire da  $Ax = b$  moltiplicheremo la matrice triangolare superiore $C$ per una matrice $B$ tale che: 
 \[ 
 	A = BC
 \]
-dove $A,B,C$ sono matrici con dimensioni $n \times n$ e $B$ può essere :
+dove $A,B,C$ sono matrici con dimensioni $n \times n$ e $B$ può essere:
 \begin{itemize}
 	\item triangolare inferiore.
 	\item ortogonale.
 \end{itemize}
 
-Tramite la fattorizzazione possiamo riscrivere il sistema $Ax = b$ nel relativo equivalente $BCx = b$ il quale vogliamo scomporre in due ulteriori sotto sistemi lineari  ponendo $Cx = y$. Avremmo dunque :
+Tramite la fattorizzazione possiamo riscrivere il sistema $Ax = b$ nel relativo equivalente $BCx = b$ il quale vogliamo scomporre in due ulteriori sotto sistemi lineari  ponendo $Cx = y$. Avremmo dunque:
 \[ 
 		\begin{cases}
 				By = b\\
@@ -2364,14 +2364,14 @@ Per quanto riguarda i costi derivanti dalla fattorizzazione se $A = BC$ con $B$ 
 \subsection{Metodo di gauss o eliminazione gaussiana}
 \begin{flushleft}
 
-Sia data la matrice $A = LU$  avente : 
+Sia data la matrice $A = LU$  avente: 
 
 \begin{itemize}
 	\item $L$ triangolare inferiore e diagonale 1 
 	\item $U$ triangolare superiore
 \end{itemize}
 
-La condizioni che dobbiamo richiedere affinché le matrici $L$ ed $U$ esistano è :
+La condizioni che dobbiamo richiedere affinché le matrici $L$ ed $U$ esistano è:
 \[
 	\det(A(1:k, 1:k)) \neq 0 \quad \forall k = 1, \dots, n-1
 \]

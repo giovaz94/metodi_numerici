@@ -4,15 +4,12 @@ jobs:
   pdflatex:
     name: 'Compile LaTeX'
     runs-on: ubuntu-latest
+    container: rekka/tectonic:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: 'Run pdflatex'
-        run: |
-          sudo apt install texlive-pictures texlive-lang-italian
-          pdflatex appunti.tex
-          pdflatex appunti.tex
-        shell: bash
+        run: tectonic appunti.tex
       - name: 'Archive production artifacts'
         uses: actions/upload-artifact@v2
         with:

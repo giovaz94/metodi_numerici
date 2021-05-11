@@ -521,7 +521,10 @@ Facciamo ora un osservazione:
 
 Poichè:
 
-\[ (1-\beta)(1 + \beta + \beta^{2} +\dots+ \beta^{t}) = (1 + \beta + \beta^{2} +\dots+ \beta^{t-1}) - (\beta + \beta^{2} +\dots+ \beta^{t-1} + \beta^{t-1}) \]
+\[
+	(1-\beta)(1 + \beta + \beta^{2} +\dots+ \beta^{t}) =
+	= (1 + \beta + \beta^{2} +\dots+ \beta^{t-1}) - (\beta + \beta^{2} +\dots+ \beta^{t-1} + \beta^{t-1})
+\]
 
 Tutti gli elementi uguali si eliminano fra loro facendo rimanere all'interno dell'espressione solamente il valore $1-\beta^{t}$. Possiamo sostituire questo risultato nella formula precedente: 
 
@@ -552,8 +555,8 @@ Il primo passo che facciamo è osservare quanti segmenti del tipo $[\beta^{p}, \
 \draw[black,thick,fill] (axis cs: 6.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U-1}$};
 \draw[black,thick,fill] (axis cs: 8.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U}$};
 
-\node [black] (\dots) at (axis cs:-4.5 ,  -1.5) {\dots};
-\node [black] (\dots) at (axis cs:3.5 ,  -1.5) {\dots};
+\node [black] (...) at (axis cs:-4.5 ,  -1.5) {...};
+\node [black] (...) at (axis cs:3.5 ,  -1.5) {...};
 \end{axis}
 \end{tikzpicture}
 \caption{Segmenti tra più potenze successive di $F^{+}$}

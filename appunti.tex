@@ -314,7 +314,7 @@ Come esempio di quest'ultima categoria di problemi vogliamo presentare un proble
 Sia data una serie di n punti $(x_{i}, y_{i})$ $\forall i = 1,2, ...  n$ e con le ascisse tutte distinte. \\
 Vogliamo individuare se $\exists p $ polinomio di grado $n-1$ tale che $p(x_{i}) = y_{i}$ $\forall i = 1,2, ...  n$.\\
 Se $n = 3$ per,  esempio allora $p$ è una parabola denominata,  in questo caso,  polinomio di interpolazione dei dati. \\
-E' da notare che in questo caso io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ corrispondente al polinomio $p$ di grando $n-1$.
+È da notare che in questo caso io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ corrispondente al polinomio $p$ di grando $n-1$.
 \end{exmp}
 \end{enumerate}
 \end{flushleft}
@@ -328,7 +328,7 @@ In questo corso ci interesserà andare a cercare di risolvere dei problemi defin
 Si definisce \textbf{problema ben posto} una particolare tipologia di problema la quale soluzione è caratterizzata da queste 3 proprietà: 
 \begin{enumerate}
 \item Esiste.
-\item E' unica.
+\item È unica.
 \item Dipende in modo continuo dai dati del problema.
 \end{enumerate}
 \end{defn}
@@ -457,7 +457,7 @@ Ovviamente il tentare di rappresentare numeri $x \notin F$ può comportare una s
 \label{rappresentazione errori f}
 \end{figure}
  
-E' importante notare che gli intervalli rappresentati dai due rettangoli nelle figure \ref{rappresentazione f} e \ref{rappresentazione errori f} presentino dei "buchi" al loro interno . Due numeri $x_{1}, x_{2} \in F$  contigui tra loro presentano uno spazio in cui ricadono dei valori che non appartengono ad $F$.
+È importante notare che gli intervalli rappresentati dai due rettangoli nelle figure \ref{rappresentazione f} e \ref{rappresentazione errori f} presentino dei "buchi" al loro interno . Due numeri $x_{1}, x_{2} \in F$  contigui tra loro presentano uno spazio in cui ricadono dei valori che non appartengono ad $F$.
  
 \begin{exmp} 
 \label{card1}
@@ -1140,7 +1140,7 @@ Per le norme che abbiamo visto valgono le seguenti proposizioni:
 \end{itemize}
 
 Il rapporto tra i due errori relativi è:
-\begin{equation} \label{dis_err_rel}
+\begin{equation} \label{dis_err_rel_1}
 	\begin{split}
 		\frac{A}{B} \leq \frac{E_{rel}^{*}}{E_{rel}^{
 		+}} \leq \frac{B}{A}
@@ -1264,8 +1264,8 @@ dove $\rho(X)$ indica il raggio spettrale di una matrice $X$. Il raggio spettral
 
 La matrice $\VarMtrx{M}=\VarMtrx{A}^{T}\VarMtrx{A}$ di cui andiamo a calcolare il nostro raggio spettrale gode di due proprietà: 
 \begin{enumerate}
-	\item E' simmetrica: $\VarMtrx{M} = \VarMtrx{M}^{T}$.  E' facile dimostrare tale proprietà infatti: $\VarMtrx{M}^{T} = (\VarMtrx{A}^{T}\VarMtrx{A})^{T} = \VarMtrx{A}^{T}\VarMtrx{A} = \VarMtrx{M} $. 
-	\item E' semidefinita positiva: $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}\VarMtrx{M}\VarMtrx{x} \geq 0$.
+	\item È simmetrica: $\VarMtrx{M} = \VarMtrx{M}^{T}$.  È facile dimostrare tale proprietà infatti: $\VarMtrx{M}^{T} = (\VarMtrx{A}^{T}\VarMtrx{A})^{T} = \VarMtrx{A}^{T}\VarMtrx{A} = \VarMtrx{M} $. 
+	\item È semidefinita positiva: $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}\VarMtrx{M}\VarMtrx{x} \geq 0$.
 \end{enumerate}
 \end{flushleft}
 
@@ -1358,7 +1358,7 @@ Che conferma ciò che abbiamo detto, ovvero, che l'errore totale è influenzato 
 \vspace{1em}
 L'errore inerente è strettamente legato con il condizionamento; quest'ultimo è una caratteristica del problema e non dipende in alcun modo da come questo viene calcolato. \\
 In altre parole il condizionamento del problema non dipende in nessun modo da errori di approssimazione delle operazioni di macchina o dalla tipologia di algoritmo utilizzata.
-E' l’errore algoritmico che dipende strettamente dalla tipologia di algoritmo risolutivo che viene adoperato, in particolare questo è influenzato da: 
+È l’errore algoritmico che dipende strettamente dalla tipologia di algoritmo risolutivo che viene adoperato, in particolare questo è influenzato da: 
 \begin{itemize}
 	\item Numero di operazioni eseguite.
 	\item Ordine di operazioni.
@@ -1366,7 +1366,7 @@ E' l’errore algoritmico che dipende strettamente dalla tipologia di algoritmo 
 \end{itemize}
 
 Le osservazioni fatte fin ora forniscono un importante risultato:\\
-E' inutile tentare di risolvere un problema che \textbf{presenta un errore inerente eccessivamente elevato.}
+È inutile tentare di risolvere un problema che \textbf{presenta un errore inerente eccessivamente elevato.}
 \end{flushleft}
 
 \section{Studio del condizionamento}
@@ -1606,7 +1606,7 @@ Come da definizione sappiamo che le funzioni $f, \tilde{f}, g$ sono differenziab
 	\end{split}
 \end{equation}
  
- E' da notare in questi ultimi passaggi come il termine $\delta \varepsilon g^{'}(\alpha)$ sia stato eliminato poichè il valore che assumeva era irrilevante (dato che sia $\delta$ che $\epsilon$ sono entrambi molto piccoli). \\
+ È da notare in questi ultimi passaggi come il termine $\delta \varepsilon g^{'}(\alpha)$ sia stato eliminato poichè il valore che assumeva era irrilevante (dato che sia $\delta$ che $\epsilon$ sono entrambi molto piccoli). \\
 Facciamo ora delle osservazioni:
 
 \begin{equation}
@@ -1855,7 +1855,7 @@ Possiamo dire allora che:
 Da questo risultato possiamo trarre alcune conclusioni: 
 \begin{enumerate}
 	\item abbiamo mostrato che $C = \frac{1}{2}$ e $p = 1$ dalla relazione $|e_{k+1}| \approx C|e_{k}|^{p}$ dove in questo caso $|e_{k+1}| = |e_{n}| $ e $|e_{k}| = |e_{n-1}| $.
-	\item E' possibile stimare il numero di iterazioni necessarie per approssimare $\alpha$ in un numero finito tale per cui $|x_{n} - \alpha| \leq \varepsilon$
+	\item È possibile stimare il numero di iterazioni necessarie per approssimare $\alpha$ in un numero finito tale per cui $|x_{n} - \alpha| \leq \varepsilon$
 \end{enumerate}
 
 Per questo ultimo punto si procede nel seguente modo:\\
@@ -1967,7 +1967,7 @@ la retta $y = f(x_{0}) + m_{0}(x-x_{0})$:
 A seconda della scelta dei valori $m_{i}$ otteniamo: 
 
 \begin{enumerate}
-	\item Metodo di Newton: $m_{i} = f^{'}(x_{i})$,  ovvero all' i-esimo passo la retta che andrò a costruire è la tangente in quel punto. 
+	\item Metodo di Newton: $m_{i} = f^{'}(x_{i})$,  ovvero all'$i$-esimo passo la retta che andrò a costruire è la tangente in quel punto. 
 	\item Metodo delle corde: $m_{i} = m$,  scelgo un coefficiente costante ad ogni iterazione.  Le condizioni necessarie per l'utilizzo del metodo delle corde sono le seguenti: \\
 	Data una funzione $f:[a,b] \mapsto R$ tale che esista $\alpha$ per la quale la funzione si annulla in quel punto e $f(x)$ sia derivabile scegliamo $m$ in base ai seguenti tre principi
 	\begin{itemize}
@@ -2249,7 +2249,7 @@ Abbiamo due tipologie differenti di metodi:
 		\end{algorithmic}
 	\end{algorithm}	
 	
-	E' da notare che i fattori $a_{11}, a_{22}, \dots, a_{nn}$ non si annullino nel nostro algoritmo poichè abbiamo richiesto che la nostra matrice non abbia determinante nullo.\\
+	È da notare che i fattori $a_{11}, a_{22}, \dots, a_{nn}$ non si annullino nel nostro algoritmo poichè abbiamo richiesto che la nostra matrice non abbia determinante nullo.\\
 \vspace{1em}
 \textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-1$ moltiplicazioni e $1$ divisione per un totale di $i$ operazioni distinte,  ripetiamo queste $i$ operazioni per $n$ volte. 
 

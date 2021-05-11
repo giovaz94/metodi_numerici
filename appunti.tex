@@ -71,13 +71,13 @@ Calcolare l'area della superficie terrestre
 \end{exmp}
 
 Per procedere al calcolo di tale area occorre iniziare con delle osservazioni:\\
-La prima è che la terra, a livello figurativo, può essere rappresentata come una sfera e dato dunque un raggio che possiamo attribuirle ( $r \approx 6370 km$ ) adoperiamo la formula dell'area della superficie della sfera:
+La prima è che la terra, a livello figurativo, può essere rappresentata come una sfera e dato dunque un raggio che possiamo attribuirle ($r \approx 6370 km$ ) adoperiamo la formula dell'area della superficie della sfera:
 
 \[ 
 	4\pi r^2 
 \]
 
-In questo ragionamento è possibile individuare dei passaggi chiave ( Fig \ref{schema passaggi}) .   Siamo partiti da un problema reale (\emph{Area supericie terrestre}), abbiamo costruito un modello matematico ed infine applicato l'algoritmo per il calcolo dell'area. 
+In questo ragionamento è possibile individuare dei passaggi chiave (Fig \ref{schema passaggi}) .   Siamo partiti da un problema reale (\emph{Area supericie terrestre}), abbiamo costruito un modello matematico ed infine applicato l'algoritmo per il calcolo dell'area. 
 
 % Astrazione relazioni citate precedentemente
 \begin{figure}[h]
@@ -282,11 +282,11 @@ Questi non sono altro che esempi di introduzione di sorgenti di errore nel passa
 \begin{flushleft}
 
 \begin{defn}
-	Si definisce \textbf{Problema numeric} una descrizione chiara e non ambigua di una determinata relazione funzionale $\phi$ tra dei dati in ingresso e dei risultati detti anche dati di uscita. 
+	Si definisce \textbf{Problema numerico} una descrizione chiara e non ambigua di una determinata relazione funzionale $\phi$ tra dei dati in ingresso e dei risultati detti anche dati di uscita. 
 \end{defn}
 \vspace{1cm}
 
-Siano dati $x,y$ come dati di ingresso e uscita del problema ( non necessariamente in quest'ordine).
+Siano dati $x,y$ come dati di ingresso e uscita del problema (non necessariamente in quest'ordine).
 Nell'effettuare il passaggio dal modello matematico al numerico computazionale possiamo incontrare tre tipologie di problemi differenti: 
 
 \begin{enumerate}
@@ -311,10 +311,10 @@ conosciamo la matrice dei coefficienti $A$ che rappresenta la nostra relazione f
 \item \textbf{Problemi d'identificazione}: tipologie di problemi in cui siamo a conoscenza di $x, y$ e vogliamo trovare $\phi$.\\
 Come esempio di quest'ultima categoria di problemi vogliamo presentare un problema di approssimazione:
 \begin{exmp}
-Sia data una serie di n punti $(x_{i}, y_{i})$ $\forall i = 1,2, ...  n$ e con le ascisse tutte distinte. \\
-Vogliamo individuare se $\exists p $ polinomio di grado $n-1$ tale che $p(x_{i}) = y_{i}$ $\forall i = 1,2, ...  n$.\\
+Sia data una serie di n punti $(x_{i}, y_{i})$ $\forall i = 1,2, \dots  n$ e con le ascisse tutte distinte. \\
+Vogliamo individuare se $\exists p $ polinomio di grado $n-1$ tale che $p(x_{i}) = y_{i}$ $\forall i = 1,2, \dots  n$.\\
 Se $n = 3$ per,  esempio allora $p$ è una parabola denominata,  in questo caso,  polinomio di interpolazione dei dati. \\
-È da notare che in questo caso io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ corrispondente al polinomio $p$ di grando $n-1$.
+È da notare che in questo caso io conosco sia il dato $x$ (corrispondente alle ascisse) e il dato $y$ (corrispondente alle ordinate) e ne voglio trovare una relazione $\phi$ corrispondente al polinomio $p$ di grado $n-1$.
 \end{exmp}
 \end{enumerate}
 \end{flushleft}
@@ -344,12 +344,12 @@ Si definisce \textbf{problema ben condizionato} un problema nel quale a piccole 
 
 \section{La notazione posizionale}
 \begin{flushleft}
-Trattando problemi matematici di tipo aritmetico ci viene naturale rappresentare un determinato valore in base decimale. Questo è dovuto alla semplicità con la quale possiamo usare i valori per effettuare le operazioni; tuttavia in ambito informatico i calcolatori, per effettuare i loro controlli ed eseguire istruzioni adottano una rappresentazione binaria per i valori. Abbiamo bisogno, dunque, di una metodologia per effettuare agilmente dei cambi di base.\\
+Trattando problemi matematici di tipo aritmetico ci viene naturale rappresentare un determinato valore in base decimale. Questo è dovuto alla semplicità con la quale possiamo usare i valori per effettuare le operazioni; tuttavia in ambito informatico i calcolatori, per effettuare i loro controlli ed eseguire istruzioni, adottano una rappresentazione binaria per i valori. Abbiamo bisogno, dunque, di una metodologia per effettuare agilmente dei cambi di base.\\
 
 Sia data dunque una base $\beta$, possiamo rappresentare un valore in questa attraverso la seguente notazione:
 
 \[ 
-	(a_{n}....a_{0}.b_{1}b_{2}....)_{\beta} = \sum_{k=0}^{n}a_{k}\beta^{k} + \sum_{k=1}^{\infty}b_{k}\beta^{-k} 
+	(a_{n}\dots a_{0}.b_{1}b_{2}\dots)_{\beta} = \sum_{k=0}^{n}a_{k}\beta^{k} + \sum_{k=1}^{\infty}b_{k}\beta^{-k} 
 \]
 
 \begin{exmp}
@@ -368,23 +368,23 @@ Scelta una base $\beta$ vogliamo ora vedere come possiamo rappresentare un quals
 \begin{defn}
 Un numero $x$ si dice \textbf{rappresentato in forma normalizzata} se,  scelta una base $\beta \geq 2$,  questo si presenta nella forma: 
 \[ 
-	\pm (0.d_{1}d_{2}d_{3}....)_{\beta} \times \beta^{p}. 
+	\pm (0.d_{1}d_{2}d_{3}\dots)_{\beta} \times \beta^{p}. 
 \]
 
 Dove $ 1 \leq d_{1} \leq \beta - 1 $ e $ 0 \leq d_{i} \leq \beta $ $\forall i > 1$
 \end{defn}
-$0.d_{1}d_{2}d_{3}....$ è detta \textit{mantissa} del numero e questa può assumere valori compresi tra $\beta^{-1}$ e 1.
+$0.d_{1}d_{2}d_{3}\dots$ è detta \textit{mantissa} del numero e questa può assumere valori compresi tra $\beta^{-1}$ e 1.
 \end{flushleft}
 
 \section{L'insieme dei numeri finiti }
 \begin{flushleft}
 
-Come ormai detto più volte uno dei principali limiti nel rappresentare dei numeri reali all'interno del calcolatore è il fatto che questo possiede un quantitativo di memoria finito.\\
-Adottando la notazione posizionale in forma normalizzata per la rappresentazione dei nostri numeri definiamo ora un insieme $F(\beta, t, L,U)$ dipendente da 4 parametri:
+\par Come ormai detto più volte uno dei principali limiti nel rappresentare dei numeri reali all'interno del calcolatore è il fatto che questo possiede un quantitativo di memoria finito.
+\par Adottando la notazione posizionale in forma normalizzata per la rappresentazione dei nostri numeri definiamo ora un insieme $F(\beta, t, L,U)$ dipendente da 4 parametri:
 
 \begin{enumerate}
 \item $\beta$: base usata.
-\item $t$: è il numero di cifre di cui si compone la mantissa $\pm (0.d_{1}d_{2}d_{3}...d_{t}). $
+\item $t$: è il numero di cifre di cui si compone la mantissa $\pm (0.d_{1}d_{2}d_{3}\dotsd_{t}). $
 \item $L$: \textit{Lower bound} dell'esponente $p$.  $L$ si intende come intero negativo.
 \item $U$: \textit{Upper bound} dell'esponente $p$.  In questo caso $U$ è inteso essere un intero positivo.
 \end{enumerate} 
@@ -392,7 +392,7 @@ Adottando la notazione posizionale in forma normalizzata per la rappresentazione
 Possiamo rappresentare $F$ come: 
 \[ 
 	F(\beta, t, L, U):= 
-	\bigg\{ x \in \mathbb{R} \setminus \{0\}: x =  \pm \bigg( \sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}
+	\bigg\{ x \in \mathbb{R} \setminus \{0\}: x =  \pm \bigg(\sum_{i = 1}^{t} d_{i} \beta^{-i} \bigg) \beta^{p}  \bigg\} \cup \{0\}
 \]
 
 $F$ è detto \textit{Insieme dei numeri finiti} o anche \textit{insieme numeri macchina} e possiamo rappresentarlo graficamente nella seguente maniera: 
@@ -463,7 +463,7 @@ Ovviamente il tentare di rappresentare numeri $x \notin F$ può comportare una s
 \label{card1}
 Si rappresenti $F(2, 3, -2 ,1):= \{ \pm 0.1d_{1}d_{2} \times \beta^{p} \} \cup \{0\}$ dove $d_{i} \in \{0,1\}$ e $ -2 \leq p \leq 1$.\\
 \vspace{1em}
-Notiamo subito che, per essere in forma normalizzata, il primo numero dopo la virgola deve essere necessariamente diverso da 0. questo impone, se $\beta = 2$ che la prima cifra dopo la virgola sia un 1, quindi le uniche cifre che varieranno saranno due (ovvero $d_{1}$ e $d_{2}$). 
+Notiamo subito che, per essere in forma normalizzata, il primo numero dopo la virgola deve essere necessariamente diverso da 0. Questo impone, se $\beta = 2$ che la prima cifra dopo la virgola sia un 1, quindi le uniche cifre che varieranno saranno due (ovvero $d_{1}$ e $d_{2}$). 
 \begin{table}[h!]
 \centering
 \begin{tabular}{|l|c|c|c|c|}\hline
@@ -510,18 +510,18 @@ Per iniziare contiamo il numero di valori positivi di $F$.
 
 La prima cosa che vogliamo capire è quale sia il massimo e il minimo numero in valore assoluto che possiamo rappresentare in $F$.  \\
 \begin{itemize}
-	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}......d{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi: $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
-	\item il numero più grande che possiamo rappresentare invece è $0.d_{1}d_{2}......d{t} \times \beta^{U}$ dove $\forall i $ $d_{i} = \beta - 1$. 
-\[ (\beta -1)\times\beta^{-1}(\beta -1)\times\beta^{-2}...(\beta -1)\times\beta^{-t} \times \beta^{U} \]
-\[ (\beta -1) \beta^{-t}(1 + \beta + \beta^{2} +......+ \beta^{t-1})\beta^{U} \]
+	\item Il numero più piccolo che possiamo rappresentare è $0.1d_{1}d_{2}\dotsd{t} \times \beta^{L}$ dove $\forall i $ $d_{i} = 0$, quindi: $\beta^{-1}\times\beta^{L}=\beta^{L-1}$ 
+	\item il numero più grande che possiamo rappresentare invece è $0.d_{1}d_{2}\dotsd{t} \times \beta^{U}$ dove $\forall i $ $d_{i} = \beta - 1$. 
+\[ (\beta -1)\times\beta^{-1}(\beta -1)\times\beta^{-2}\dots(\beta -1)\times\beta^{-t} \times \beta^{U} \]
+\[ (\beta -1) \beta^{-t}(1 + \beta + \beta^{2} +\dots+ \beta^{t-1})\beta^{U} \]
 
 Facciamo ora un osservazione:
 
-\[ (1 + \beta + \beta^{2} +......+ \beta^{t-1})  = \frac{1-\beta^{t}}{1-\beta}\]
+\[ (1 + \beta + \beta^{2} +\dots+ \beta^{t-1})  = \frac{1-\beta^{t}}{1-\beta}\]
 
 Poichè:
 
-\[ (1-\beta)(1 + \beta + \beta^{2} +......+ \beta^{t}) = (1 + \beta + \beta^{2} +......+ \beta^{t-1}) - (\beta + \beta^{2} +......+ \beta^{t-1} + \beta^{t-1}) \]
+\[ (1-\beta)(1 + \beta + \beta^{2} +\dots+ \beta^{t}) = (1 + \beta + \beta^{2} +\dots+ \beta^{t-1}) - (\beta + \beta^{2} +\dots+ \beta^{t-1} + \beta^{t-1}) \]
 
 Tutti gli elementi uguali si eliminano fra loro facendo rimanere all'interno dell'espressione solamente il valore $1-\beta^{t}$. Possiamo sostituire questo risultato nella formula precedente: 
 
@@ -552,8 +552,8 @@ Il primo passo che facciamo è osservare quanti segmenti del tipo $[\beta^{p}, \
 \draw[black,thick,fill] (axis cs: 6.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U-1}$};
 \draw[black,thick,fill] (axis cs: 8.5, 0) circle (1mm) node[black, below,yshift=-1em] {$\beta^{U}$};
 
-\node [black] (dots1) at (axis cs:-4.5 ,  -1.5) {...};
-\node [black] (dots1) at (axis cs:3.5 ,  -1.5) {...};
+\node [black] (dots1) at (axis cs:-4.5 ,  -1.5) {\dots};
+\node [black] (dots1) at (axis cs:3.5 ,  -1.5) {\dots};
 \end{axis}
 \end{tikzpicture}
 \caption{Segmenti tra più potenze successive di $F^{+}$}
@@ -564,10 +564,10 @@ Il nostro esponente p può assumere un valore massimo $U$ ed uno minimo $L$ il n
 \vspace{1em}
 Internamente ad ogni intervallo tra due potenze successive di $\beta$ vi è una stessa quantità di numeri macchina.  Questi sono equispaziati tra loro di un valore variabile (di segmento in segmento) $s$ detto spacing.
 Calcoliamo $s$ portando la nostra attenzione ad un generico segmento $[\beta^{p}, \beta^{p+1}]$. \\
-Il numero macchina più piccolo in questo intervallo è uguale a $x_{1} = 0.1000000...0000 \times \beta^{p+1}$, il suo successivo, invece,  è uguale alla stessa cifra con l'unica differenza che la mantissa è incrementata di uno alla t-esima posizione: $x_{2}=0.1000000...0001 \times \beta^{p+1}$. 
+Il numero macchina più piccolo in questo intervallo è uguale a $x_{1} = 0.1000000\dots0000 \times \beta^{p+1}$, il suo successivo, invece,  è uguale alla stessa cifra con l'unica differenza che la mantissa è incrementata di uno alla t-esima posizione: $x_{2}=0.1000000\dots0001 \times \beta^{p+1}$. 
 La differenza tra questi due valori ci permette di ricavare lo spazio $s$ che intercorre tra loro:
 
-\[ x_{2} - x_{1} = 0.1000000...0001 \times \beta^{p+1} - 0.1000000...0000 \times \beta^{p+1} = \beta^{-t}\beta^{p+1} = \beta^{p-t+1} \]
+\[ x_{2} - x_{1} = 0.1000000\dots0001 \times \beta^{p+1} - 0.1000000\dots0000 \times \beta^{p+1} = \beta^{-t}\beta^{p+1} = \beta^{p-t+1} \]
 
 Il quantitativo di numeri macchina compresi in questo intervallo è: 
 \[ \frac{\beta^{p+1} - \beta^{p}}{\beta^{p-t+1}}  =(\beta-1)\beta^{t-1}\]
@@ -589,9 +589,9 @@ Valutiamo due tipologie di approssimazioni:
 
 \subsection{Approssimazione per troncamento}
 \begin{flushleft}
-sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per troncamento: 
+sia $x = \pm(d_{1}d_{2}\dotsd_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per troncamento: 
 \[ 
-	fl_{T}(x) = \pm(d_{1}d_{2}....d_{t})\times \beta^{p}.
+	fl_{T}(x) = \pm(d_{1}d_{2}\dotsd_{t})\times \beta^{p}.
 \]
 Se il nostro valore $x$ ha un numero di cifre dopo la virgola maggiori di $t$ semplicemente quelle in eccesso vengono scartate
 
@@ -603,7 +603,7 @@ Se definiamo $F$ con $\beta = 10 $ e $t = 4$ e vogliamo approssimare il valore $
 \subsection{Approssimazione per arrotondamento}
 \begin{flushleft}
 In questo caso richiediamo che la base con cui lavoriamo sia pari.
-sia $x = \pm(d_{1}d_{2}....d_{t}d_{t+1}....)\times \beta^{p}$ definiamo come approssimazione per arrotondamento:
+sia $x = \pm(d_{1}d_{2}\dotsd_{t}d_{t+1}\dots)\times \beta^{p}$ definiamo come approssimazione per arrotondamento:
 \[
 fl_{A}(x) = 
 \begin{cases}
@@ -648,7 +648,7 @@ Ragioniamo nel concreto cosa questi valori vogliano significare nel nostro studi
 Partendo dalla prima definizione portiamoci nel segmento $[\beta^0, \beta^1]$, avendo definito $eps = \beta^{1-t}$ lo spacing di questo intervallo possiamo subito capire che la distanza tra due numeri macchina consecutivi in questo è proprio $eps$.
 Per esempio,  se volessimo conoscere il numero macchina immediatamente successivo ad 1 ($\beta^{0}$) occorrerebbe semplicemente sommare ad 1 il valore $eps$. \\
 Cosa accade quando si aggiunge ad 1 il nostro valore $u$ rappresentante la roundoff unit? \\
-$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola: $0.1d_{1}d_{2}d_{3}...d_{t}$ $\forall i $ $d_{i} = 0$
+$ 1 + u \notin F$ quindi occorrerà approssimare il nostro risultato ottenuto ad $1$ o $1+eps$.  In questo caso sappiamo che il valore 1 è un valore che ha nella mantissa dei valori uguali a 0 eccetto per la prima cifra subito dopo la virgola: $0.1d_{1}d_{2}d_{3}\dotsd_{t}$ $\forall i $ $d_{i} = 0$
 Il successivo macchina invece avrà una mantissa uguale fatta eccezione per la t-esima cifra la quale possiede un 1 come valore.  Dovendo approssimare questo risultato avremmo che, tramite la regola del rouding to even, il nostro valore approssimato risulterà proprio 1. 
 
 \[ fl_{A}(1+u) = 1  \]
@@ -676,23 +676,23 @@ Si vuole ora procedere con un osservazione:
 Immaginiamo di voler rappresentare un determinato numero $x_{1}$  tramite rappresentazione per troncamento. 
 Riprendendo quanto fatto in precedenza tal numero, non ancora approssimato,  si presenta in questa forma: 
 \[
-	 x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \times \beta^{p} 
+	 x = 0.d_{1}d_{2}\dotsd_{t}d_{t+1}\dots \times \beta^{p} 
 \]
 
 Effettuando l'approssimazione per troncamento rimuoviamo dalla mantissa le cifre decimali in eccesso riducendole esattamente a t:
 \[ 
-	\widetilde{x} = 0.d_{1}d_{2}...d_{t}\times\beta^{p} 
+	\widetilde{x} = 0.d_{1}d_{2}\dotsd_{t}\times\beta^{p} 
 \]
 
 Calcoliamo ora l'errore commesso: 
 \[ 
-	E_{ass}^{T} = |x - \widetilde{x}| =   0.d_{t+1}d_{t+2}...\times\beta^{p-t} < 1 \Longrightarrow  E_{ass}^{T} < \beta^{p-t}  
+	E_{ass}^{T} = |x - \widetilde{x}| =   0.d_{t+1}d_{t+2}\dots\times\beta^{p-t} < 1 \Longrightarrow  E_{ass}^{T} < \beta^{p-t}  
 \]
 
 \[
 	E_{rel}^{T} = \frac{E_{ass}^{T}}{|x|} < \frac{ \beta^{p-t}}{ \beta^{p-1}} =  \beta^{1-t} = esp \]
 
-essendo infatti $x = 0.d_{1}d_{2}...d_{t}d_{t+1}... \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che: $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
+essendo infatti $x = 0.d_{1}d_{2}\dotsd_{t}d_{t+1}\dots \geq \beta^{-1}$ e quindi $|x| \geq \beta^{p-1}$ passando ai reciproci avremmo che: $\frac{1}{|x|} \leq \frac{1}{\beta^{p-1}}$
 \end{flushleft}
 \pagebreak
 
@@ -795,7 +795,7 @@ Di seguito viene definito come effettuare le basiche operazioni algebriche (somm
 \begin{itemize}
 	\item  Si rappresentano i due numeri \textbf{in forma normalizzata}. 
 	\item  Si prende il numero tra $x$ e $y$ che presenta l'esponente minore e lo si trasforma in modo che entrambi i valori presentino lo stesso esponente.  Ovviamente in questo passaggio il numero trasformato perde la forma normalizzata. 
-	\item  Le mantisse vengono sommate tra loro ( gli esponenti vengono lasciati invariati tra di loro 
+	\item  Le mantisse vengono sommate tra loro (gli esponenti vengono lasciati invariati tra di loro 
 	\item  Il risultato viene approssimato tramite le varie tecniche di floating mostrate in precedenza. 
 \end{itemize}
 
@@ -806,7 +806,7 @@ L'insieme $F$ sul quale lavoriamo è definito nella seguente maniera: $F(10, 2, 
 Effettuiamo i passaggi elencati qui sopra: 
 \begin{itemize}
 	\item I due numeri sono espressi già in forma normalizzata, non occorre effettuare alcuna correzione sotto questo aspetto.
-	\item I due numeri presentano degli esponenti diversi tra loro, occorre prendere il valore avente quello più piccollo ( $x$ ) e trasformarlo in modo che il suo esponente diventi 1. Il valore finale di $x$ dopo questo passaggio sarà $0.029 \times 10^{1}$.  
+	\item I due numeri presentano degli esponenti diversi tra loro, occorre prendere il valore avente quello più piccollo ($x$ ) e trasformarlo in modo che il suo esponente diventi 1. Il valore finale di $x$ dopo questo passaggio sarà $0.029 \times 10^{1}$.  
 	\item Possiamo ora sommare le mantisse tra loro lasciando invariati i due esponenti. \\
 	\vspace{1em}
 	 \begin{tabular}{r}
@@ -869,7 +869,7 @@ Effettuiamo lo stesso calcolo ma questa volta con valore $y=2^{-3}$
 \end{equation}
 
 Soffermiamoci a ragionare sui calcoli che sono stati svolti in questo esempio. Visto che stiamo lavorando nell'insieme $F(2,3,-3,2)$ vogliamo calcolare di questo il valore di $eps$ il quale vale $\beta^{1-t} = 2 ^ {1-3} = 2^{-2}$ ed il valore della roundoff unit $u = \frac{1}{2}\beta^{1-t} = 2^{-3}$.\\
-Questi valori che abbiamo ottenuto sono esattamente gli stessi delle $y$ che abbiamo usato nei casi precedenti; nel primo conto ( somma di 1 con $eps$) siamo riusciti ad ottenere il successivo numero di macchina di 1 mentre nel secondo l'arrotondamento ci ha restituito il numero $x$ di partenza.
+Questi valori che abbiamo ottenuto sono esattamente gli stessi delle $y$ che abbiamo usato nei casi precedenti; nel primo conto (somma di 1 con $eps$) siamo riusciti ad ottenere il successivo numero di macchina di 1 mentre nel secondo l'arrotondamento ci ha restituito il numero $x$ di partenza.
 Proprio l'ultimo calcolo ci fa capire che lo 0 non è più l'elemento neutro rispetto la somma,  infatti basterebbe sommare a $x$ qualsiasi numero $y \leq u$ per ottenere il valore iniziale di $x$.
 \end{exmp}
 \end{flushleft}
@@ -904,7 +904,7 @@ Da questo risultato otteniamo che l'operazione del prodotto è un operazione sic
 Cosa succede se, invece che moltiplicare, io dividessi i valori di $x$ e $y$ di partenza?\\
 I passaggi iniziali rimangono invariati, ovvero, se avessi che $x,y \notin F$ allora dovrei operare delle approssimazioni tali per cui possa rappresentare sia $x$ che $y$ all'interno di $F$. \\
 Calcolo il valore della divisione internamente alla macchina: 
-\[ x \oslash y =  fl_{A}\left( \frac{fl_{A}(x)}{fl_{A}(y)}\right) = \left(\frac{x(1+\varepsilon_{x})}{y(1+\varepsilon_{y})} \right)(1+\varepsilon_{d})\]
+\[ x \oslash y =  fl_{A}\left(\frac{fl_{A}(x)}{fl_{A}(y)}\right) = \left(\frac{x(1+\varepsilon_{x})}{y(1+\varepsilon_{y})} \right)(1+\varepsilon_{d})\]
 L'errore relativo è in questo caso: 
 \begin{equation} \label{}
 	\begin{split}
@@ -945,7 +945,7 @@ L'errore relativo sarà:
 					&\approx \displaystyle\left\lvert \frac{x\varepsilon_{x} + y\varepsilon_{y} + (x+y)\varepsilon_{s}}{x+y}   \right\rvert \\
 					&\leq  \displaystyle\left\lvert \frac{x}{x+y} \right\rvert \varepsilon_{x } + \displaystyle\left\lvert \frac{y}{x+y} \right\rvert \varepsilon_{y} + \varepsilon_{s} \\
 					&\leq \displaystyle\left\lvert \frac{x}{x+y} \right\rvert u + \displaystyle\left\lvert \frac{y}{x+y} \right\rvert u +  u\\
-					&= \left( \displaystyle\left\lvert \frac{x}{x+y} \right\rvert +  \displaystyle\left\lvert \frac{y}{x+y} \right\rvert + 1 \right)u
+					&= \left(\displaystyle\left\lvert \frac{x}{x+y} \right\rvert +  \displaystyle\left\lvert \frac{y}{x+y} \right\rvert + 1 \right)u
 	\end{split}
 \end{equation}
 
@@ -977,7 +977,7 @@ Sia $a = 0.96 \times 10^{-1}$ e $b = 0.99 \times 10^{-1}$ voglio prima sommare i
 \]
 che in forma normalizzata è $0.195 \time 10^{0}$.  Ora vogliamo assicurarci che il risultato ottenuto sia sempre interno all'interno di $F$ per questo motivo effettuiamo un arrotondamento:
 \[ fl_{A}(a+b) = fl_{A}(0.195 \time 10^{0}) = 0.2 \times 10^{0} \quad per \; R.T.E \]
-Infine calcoliamo l'approssimazione della somma ottenuta moltiplicata per 0.5 ( ovvero divisa per due ).
+Infine calcoliamo l'approssimazione della somma ottenuta moltiplicata per 0.5 (ovvero divisa per due ).
 \[ fl_{A}((a+b) \times 0.5 ) = 0.1 \times 10^{0} \]
 
 Cosa notiamo in questo risultato ? \\
@@ -1038,7 +1038,7 @@ Le norme che utilizzeremo da quì in avanti godono di tutte queste proprietà (d
 \subsection{Norma infinito}
 \begin{flushleft}
 La norma infinito di un vettore è definita nella seguente maniera: 
-\[ \lVert\VarMtrx{x}\rVert_{\infty}  = \max_{\{i = 1,...,n\}} |x_{i}| \]
+\[ \lVert\VarMtrx{x}\rVert_{\infty}  = \max_{\{i = 1,\dots,n\}} |x_{i}| \]
 
 \begin{exmp}
 Sia dato il vettore:
@@ -1072,7 +1072,7 @@ Se moltiplicassimo un vettore per il suo trasposto avremmo il seguente risultato
 
 \[ 
 	 \VarMtrx{x}^{T}\VarMtrx{x} = \begin{pmatrix} x_{1} \\ x_{2} \\ .\\ x_{n}  \end{pmatrix} \begin{pmatrix} x_{1} \; x_{2} \; . \; x_{n}  \end{pmatrix}  = 
-	 (x_{1} \times x_{1}) + (x_{2} \times x_{2}) + ...  + (x_{n} \times x_{n})
+	 (x_{1} \times x_{1}) + (x_{2} \times x_{2}) + \dots  + (x_{n} \times x_{n})
 	 = \sum_{i=1}^{n} x_{i}^{2}
 \]
 
@@ -1222,7 +1222,7 @@ Definiamo una matrice $\VarMtrx{A}$:
 
 \begin{defn}
 Si definisce norma matriciale infinito la funzione:
-\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,...m\}} \sum_{j=1}^{n} |a_{i,j}| \]
+\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,\dotsm\}} \sum_{j=1}^{n} |a_{i,j}| \]
 \end{defn}
 
 prendendo come riferimento \VarMtrx{A} siano: 
@@ -1239,7 +1239,7 @@ Allora possiamo scrivere la funzione precedente come:
 \newpage
 \begin{defn}
 Si definisce norma matriciale uno la funzione:
-\[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,...n\}} \sum_{i=1}^{m} |a_{i,j}| \]
+\[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,\dotsn\}} \sum_{i=1}^{m} |a_{i,j}| \]
 \end{defn}
 
 Consideriamo ora: 
@@ -1313,7 +1313,7 @@ Definiamo quindi:
 	\item $\Psi(\tilde{x})$ risposta ottenuta dall'applicazione risolvente applicando l'algoritmo $\Psi$, implementato sulla macchina, ed adoperando una dato  $\tilde{x}$ avente perturbazioni al suo interno. 
 \end{itemize}
 
-\textbf{Nota bene}: è da sottolineare ciò che contraddistingue $f(\tilde{x})$ e  $\Psi(\tilde{x})$. Nel primo caso ho il risultato di una funzione $f$ la quale parte da un dato che presenta degli errori, nel secondo caso $\Psi$ rappresenta un algoritmo scritto all'interno della macchina di cui ad ogni passo introduce ( possibilmente ) ulteriori errori di rappresentazione. Quest'ultimo opera su dati che sono stati soggetti a perturbazioni ($\tilde{x}$).
+\textbf{Nota bene}: è da sottolineare ciò che contraddistingue $f(\tilde{x})$ e  $\Psi(\tilde{x})$. Nel primo caso ho il risultato di una funzione $f$ la quale parte da un dato che presenta degli errori, nel secondo caso $\Psi$ rappresenta un algoritmo scritto all'interno della macchina di cui ad ogni passo introduce (possibilmente ) ulteriori errori di rappresentazione. Quest'ultimo opera su dati che sono stati soggetti a perturbazioni ($\tilde{x}$).
 \end{flushleft}
 
 \section{Errore inerente, algoritmico e totale}
@@ -1739,15 +1739,15 @@ Per capire l'ordine di convergenza di un algoritmo iterativo vogliamo partire da
 	\begin{split}
 		& |e_{k+1}| \approx C|e_{k}|^{p} \\
 		& |e_{k+2}| \approx C|e_{k+1}|^{p} \\
-		& \dfrac{|e_{k+2}|}{|e_{k+1}|} \approx \left( \dfrac{|e_{k+1}|}{|e_{k}|} \right) ^ {p} \\
-		& \log \left( \dfrac{|e_{k+2}|}{|e_{k+1}|} \right) \approx p \log  \left( \dfrac{|e_{k+1}|}{|e_{k}|} \right) \\
-		& p \approx \dfrac{\log \left( \dfrac{|e_{k+2}|}{|e_{k+1}|} \right)}{\log  \left( \dfrac{|e_{k+1}|}{|e_{k}|} \right)}
+		& \dfrac{|e_{k+2}|}{|e_{k+1}|} \approx \left(\dfrac{|e_{k+1}|}{|e_{k}|} \right) ^ {p} \\
+		& \log \left(\dfrac{|e_{k+2}|}{|e_{k+1}|} \right) \approx p \log  \left(\dfrac{|e_{k+1}|}{|e_{k}|} \right) \\
+		& p \approx \dfrac{\log \left(\dfrac{|e_{k+2}|}{|e_{k+1}|} \right)}{\log  \left(\dfrac{|e_{k+1}|}{|e_{k}|} \right)}
 	\end{split}
 \end{equation}
 
 A questo punto vogliamo ricordare la relazione $e_{k}:= x_{k} - \alpha$ la quale può essere approssimata in $x_{k} - x_{k+i}$. Andando a sostituire otterremmo: 
 \[ 
-	p \approx \dfrac{\log \left( \dfrac{|x_{k+2} - x_{k+3} |}{|x_{k+1} - x_{k+2}|} \right)}{\log  \left( \dfrac{|x_{k+1} - x_{k+2}|}{|x_{k} -x_{k+1}|} \right)}
+	p \approx \dfrac{\log \left(\dfrac{|x_{k+2} - x_{k+3} |}{|x_{k+1} - x_{k+2}|} \right)}{\log  \left(\dfrac{|x_{k+1} - x_{k+2}|}{|x_{k} -x_{k+1}|} \right)}
 \]
 
 Nei metodi che studieremo avremo:
@@ -2173,7 +2173,7 @@ Che possiamo rappresentare come sistema:
 Esiste un'unica soluzione se e solo se il determinante della matrice $A$ è diverso da zero, ovvero $\det(A) \neq 0$.
 \end{defn}
 
-Il sistema lineare risulta un problema ben condizionato quando il numero di condizionamento della matrice $A$ ( $K(A) = \lVert A \rVert \lVert A^{-1} \rVert$ ) non risulta troppo elevato.
+Il sistema lineare risulta un problema ben condizionato quando il numero di condizionamento della matrice $A$ ($K(A) = \lVert A \rVert \lVert A^{-1} \rVert$ ) non risulta troppo elevato.
 \end{flushleft}
 
 \section{Metodi diretti}
@@ -2292,7 +2292,7 @@ Abbiamo due tipologie differenti di metodi:
 	\[ 
 		\begin{cases}
 				a_{nn}x_{1} = b_{n} \; \longrightarrow x_{1} = \frac{b_{n}}{a_{nn}} \\   
-				a_{n-1n-11}x_{1} + a_{n-1n}x_{2} = b_{n-1} \; \longrightarrow x_{2} = \frac{b_{n-1}-( a_{n-1n-1}x_{1})}{a_{n-1n}}  \\
+				a_{n-1n-11}x_{1} + a_{n-1n}x_{2} = b_{n-1} \; \longrightarrow x_{2} = \frac{b_{n-1}-(a_{n-1n-1}x_{1})}{a_{n-1n}}  \\
 				\vdots \\
 				a_{i1}x_{1} + a_{i2}x_{2}  + \dots + a_{ii}x_{i} = b_{i} \\
 				\vdots \\

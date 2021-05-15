@@ -1093,12 +1093,14 @@ Calcoliamo la norma due del vettore \VarMtrx{y}:
 
 \section{Errore relativo vettoriale}
 \begin{flushleft}
-Si vuole estendere ora il concetto di errore relativo definito nel capitolo precedente applicandolo al caso in cui si vuole lavorare con dati in input che non sono più singolo valori ma bensì devi vettori. 
-Si immagini di avere come dati di input un vettore \VarMtrx{x} ed una funzione $f(\VarMtrx{x})$ la quale produce un risultato. Per rappresentare il nostro vettore all'interno della nostra macchina occorre effettuare delle approssimazioni ed ottenere quello che  è un dato perturbato.
+Si vuole estendere ora il concetto di errore relativo definito nel capitolo precedente applicandolo al caso in cui si vuole lavorare con dati in input che non sono più singoli valori ma bensì dei vettori. 
+Si immagini dunque di avere  un vettore \VarMtrx{x} ed una funzione $f(\VarMtrx{x})$,  per rappresentare il nostro vettore all'interno della nostra macchina occorre effettuare delle approssimazioni ed ottenere quello che  è un dato perturbato.
 Sia quindi $\widetilde{\VarMtrx{x}}$ il nostro dato perturbato e  \VarMtrx{x} il vettore di origine. Possiamo calcolare il nostro errore relativo vettoriale nella seguente maniera : 
-\[  E_{rel} = \frac{\lVert \VarMtrx{x} - \widetilde{\VarMtrx{x}}\rVert }{\lVert\VarMtrx{x}\rVert}\]
+\[  
+	E_{rel} = \frac{\lVert \VarMtrx{x} - \widetilde{\VarMtrx{x}}\rVert }{\lVert\VarMtrx{x}\rVert}
+\]
 
-Ovviamente la cosa da notare  è che le norme utilizzate per il denominatore e il numeratore devono coincidere come tipo. Verranno adoperate solamente norme che abbiamo visto in precedenza (1,2,  $\infty$).
+Ovviamente la cosa da notare  è che le norme utilizzate per il denominatore e il numeratore devono coincidere come tipo (verranno adoperate solamente norme che abbiamo visto in precedenza: 1,2 e $\infty$).
 \end{flushleft}
 
 \subsection{Il teorema di equivalenza}
@@ -1130,7 +1132,7 @@ Dividendo tra loro \ref{dis_num} e \ref{dis_den} avremmo il seguente risultato:
 	\end{split}
 \end{equation}
 La \ref{dis_err_rel} ci fa vedere proprio come i vari errori relativi calcolati nelle norme $\lVert \cdot \rVert_{+}$ e $\lVert \cdot \rVert_{*}$ siano messi in relazione tra loro. \\
-Questo risultato che abbiamo ottenuto è molto importante. Se avessimo infatti calcolato il risultato di un errore relativo utilizzando una determinata norma possiamo ottenere una stima dello stesso calcolato adoperando una norma differente senza svolgere dei nuovi conti, il che è molto conveniente se stiamo adoperando dei vettori aventi delle dimensioni elevate.\\
+Questo risultato che abbiamo ottenuto è molto importante. Se avessimo infatti calcolato il risultato di un errore relativo utilizzando una determinata norma possiamo ottenere una stima dello stesso calcolato adoperando una norma differente senza svolgere dei nuovi conti, il che è molto conveniente se stiamo adoperando su vettori aventi delle dimensioni elevate.\\
  
 Per le norme che abbiamo visto valgono le seguenti proposizioni:  
 \begin{itemize}
@@ -1153,53 +1155,59 @@ Il rapporto tra i due errori relativi è :
 
 \begin{flushleft}
 \begin{defn}
-Una norma matriciale \textbf{generalizzata} è una funzione che,  analogamente a quella definita per le norme vettoriali, associa ad una matrice \VarMtrx{A} un numero reale maggiore o uguale a 0 : 
-\[ \lVert \VarMtrx{A} \rVert :  \mathbb{R}^{m \times n } \longrightarrow \mathbb{R}_{+} \cup \{0\} \]
+Una norma matriciale \textbf{generalizzata} è una funzione che,  analogamente a quella definita per le norme vettoriali, associa ad una matrice $A$ un numero reale maggiore o uguale a 0 : 
+\[ 
+	\lVert A \rVert :  \mathbb{R}^{m \times n } \longrightarrow \mathbb{R}_{+} \cup \{0\} 
+\]
 \end{defn}
 Una norma matriciale generalizzata  gode delle seguenti proprietà (anche queste analoghe alla norma vettoriale): 
 \begin{itemize}
-	\item $\lVert \VarMtrx{A} \rVert \geq 0$ $\forall \VarMtrx{A} \in \mathbb{R}^{m \times n}$.
-	\item $\lVert \VarMtrx{A} \rVert = 0$ solamente se $\VarMtrx{A} = 0$, ovvero la matrice è vuota
-	\item $\lVert\alpha \VarMtrx{A}\rVert = |\alpha|\lVert\VarMtrx{A}\rVert$ con $\alpha \in \mathbb{R}$
-	\item $\lVert \VarMtrx{A} + \VarMtrx{B}\rVert \leq \lVert \VarMtrx{A}\rVert + \lVert\VarMtrx{B}\rVert$ per la disuguaglianza triangolare.
+	\item $\lVert A \rVert \geq 0$ $\forall A \in \mathbb{R}^{m \times n}$.
+	\item $\lVert A \rVert = 0$ solamente se $A = 0$, ovvero la matrice è vuota
+	\item $\lVert\alpha A\rVert = |\alpha|\lVert A \rVert$ con $\alpha \in \mathbb{R}$
+	\item $\lVert A + B \rVert \leq \lVert A \rVert + \lVert B \rVert$ per la disuguaglianza triangolare.
 \end{itemize}
 
 \begin{defn}
 Si definisce una norma matriciale una funzione che oltre ad essere una norma matriciale generalizzata rispetta anche la proprietà submoltiplicativa (detta anche di consistenza):
-\[ \lVert \VarMtrx{A}\VarMtrx{B}\rVert \leq \lVert \VarMtrx{A}\rVert\lVert\VarMtrx{B}\rVert \]
+\[ 
+	\lVert AB \rVert \leq \lVert A \rVert\lVert B\rVert
+\]
 \end{defn}
 
 Non tutte le norme matriciali generalizzate quindi possono essere norme matriciali. 
 \begin{exmp}
 Si immagini di aver definito una norma matriciale nel seguente modo : 
-\[ \lVert\VarMtrx{A}\rVert = \max_{\{i,j\}} |a_{ij}| \]
+\[ \lVert A \rVert = \max_{\{i,j\}} |a_{ij}| \]
 Questa è una norma matriciale generalizzata che però non risulta essere una norma matriciale poichè date due matrici definite nel seguente modo : 
 \[ 
-	\VarMtrx{A} = \begin{pmatrix} 1 & 1 \\ 0 & 1  \end{pmatrix} 
+	A = \begin{pmatrix} 1 & 1 \\ 0 & 1  \end{pmatrix} 
 \]
 \[ 
-	\VarMtrx{B} = \begin{pmatrix} 1 & 1 \\ 1 & 0  \end{pmatrix} 
+	B = \begin{pmatrix} 1 & 1 \\ 1 & 0  \end{pmatrix} 
 \]
 
 di cui : 
 
 \[ 
-	\VarMtrx{AB} = \begin{pmatrix} 2 & 1 \\ 1 & 0  \end{pmatrix} 
+	AB = \begin{pmatrix} 2 & 1 \\ 1 & 0  \end{pmatrix} 
 \]
-Avremo che $\lVert \VarMtrx{AB}\rVert = 2$ e invece $\lVert \VarMtrx{A}\rVert  = \lVert\VarMtrx{B}\rVert = 1$
+Avremo che $\lVert AB \rVert = 2$ e invece $\lVert A \rVert  = \lVert B \rVert = 1$
 \end{exmp}
 
 \begin{defn}
 Una norma matriciale $\lVert\cdot\rVert_{M}$ si dice compatibile con una norma vettoriale  $\lVert\cdot\rVert_{V}$ se la seguente relazione è valida: 
-\[  \lVert\VarMtrx{A}\VarMtrx{x}\rVert_{V} \leq \lVert\VarMtrx{A}\rVert_{M}\lVert\VarMtrx{x}\rVert_{V} \]
-Dove $\VarMtrx{A}$ e $\VarMtrx{x}$ sono rispettivamente una matrice ed un vettore che possono essere moltiplicati tra loro. 
+\[  
+	\lVert A\VarMtrx{x} \rVert_{V} \leq \lVert A \rVert_{M}\lVert\VarMtrx{x}\rVert_{V} 
+\]
+Dove $A$ e $\VarMtrx{x}$ sono rispettivamente una matrice ed un vettore che possono essere moltiplicati tra loro. 
 \end{defn}
 
 \begin{defn}
 Una norma matriciale $\lVert\cdot\rVert_{M}$ si dice essere naturale o indotta da una norma vettoriale  $\lVert\cdot\rVert_{V}$
 solamente se produce la più piccola costante $C$ tale per cui vale la relazione :
 \[ 
-	\lVert\VarMtrx{A}\VarMtrx{x}\rVert_{V} \leq C\lVert\VarMtrx{x}\rVert_{V} 
+	\lVert A \VarMtrx{x}\rVert_{V} \leq C\lVert\VarMtrx{x}\rVert_{V} 
 \]
 \end{defn}
 \end{flushleft}
@@ -1207,10 +1215,10 @@ solamente se produce la più piccola costante $C$ tale per cui vale la relazione
 \subsection{Norma matriciale infinita e uno}
 \begin{flushleft}
 
-Definiamo una matrice $\VarMtrx{A}$ : 
+Definiamo una matrice $A$ : 
 
 \[
-		\VarMtrx{A} = 
+		A = 
 								\begin{pmatrix} 
 								a_{11} & a_{12} & \dots &  a_{1n} \\  
 								a_{21} & a_{22} & \dots &  a_{2n} \\
@@ -1222,10 +1230,12 @@ Definiamo una matrice $\VarMtrx{A}$ :
 
 \begin{defn}
 Si definisce norma matriciale infinito la funzione :
-\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max_{\{i=1,...m\}} \sum_{j=1}^{n} |a_{i,j}| \]
+\[ 
+	\lVert A \rVert_{\infty} = \max_{\{i=1,...m\}} \sum_{j=1}^{n} |a_{i,j}|
+\]
 \end{defn}
 
-prendendo come riferimento \VarMtrx{A} siano : 
+prendendo come riferimento $A$  siano : 
 \begin{itemize}
 	\item $C_{1} := |a_{11}| + |a_{12}| + \dots + |a_{1n}|$
 	\item $C_{2} := |a_{21}| + |a_{22}| + \dots + |a_{2n}|$
@@ -1234,12 +1244,12 @@ prendendo come riferimento \VarMtrx{A} siano :
 \end{itemize}
 
 Allora possiamo scrivere la funzione precedente come : 
-\[ \lVert\VarMtrx{A}\rVert_{\infty} = \max \{ C_{1}, C_{2}, \dots,  C_{m}\}\]
+\[ \lVert A \rVert_{\infty} = \max \{ C_{1}, C_{2}, \dots,  C_{m}\}\]
 
 \newpage
 \begin{defn}
 Si definisce norma matriciale uno la funzione :
-\[ \lVert\VarMtrx{A}\rVert_{1} = \max_{\{j=1,...n\}} \sum_{i=1}^{m} |a_{i,j}| \]
+\[ \lVert A \rVert_{1} = \max_{\{j=1,...n\}} \sum_{i=1}^{m} |a_{i,j}| \]
 \end{defn}
 
 Consideriamo ora : 
@@ -1251,21 +1261,26 @@ Consideriamo ora :
 \end{itemize}
 
 possiamo riscrivere la funzione precedente come : 
-\[ \lVert\VarMtrx{A}\rVert_{1} = \max \{ D_{1}, D_{2}, \dots,  D_{m}\}\]
+\[ 
+	\lVert A \rVert_{1} = \max \{ D_{1}, D_{2}, \dots,  D_{m}\}
+\]
 \end{flushleft}
 
 \subsection{Norma matriciale due}
 \begin{flushleft}
 \begin{defn}
 Si definisce norma matriciale due la funzione :
-\[ \lVert\VarMtrx{A}\rVert_{2} = \sqrt{\rho(\VarMtrx{A}^{T}\VarMtrx{A})} \]
+\[ 
+	\lVert A \rVert_{2} = \sqrt{\rho(A^{T}A)} 
+\]
+
 dove $\rho(X)$ indica il raggio spettrale di una matrice $X$. Il raggio spettrale rappresenta l'autovalore di valore assoluto massimo. 
 \end{defn}
 
-La matrice $\VarMtrx{M}=\VarMtrx{A}^{T}\VarMtrx{A}$ di cui andiamo a calcolare il nostro raggio spettrale gode di due proprietà : 
+La matrice $M=A^{T}A$ di cui andiamo a calcolare il nostro raggio spettrale gode di due proprietà : 
 \begin{enumerate}
-	\item E' simmetrica : $\VarMtrx{M} = \VarMtrx{M}^{T}$.  E' facile dimostrare tale proprietà infatti : $\VarMtrx{M}^{T} = (\VarMtrx{A}^{T}\VarMtrx{A})^{T} = \VarMtrx{A}^{T}\VarMtrx{A} = \VarMtrx{M} $. 
-	\item E' semidefinita positiva : $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}\VarMtrx{M}\VarMtrx{x} \geq 0$.
+	\item E' simmetrica : $M = M^{T}$.  E' facile dimostrare tale proprietà infatti : $M^{T} = (A^{T}A)^{T} = A^{T}A = M$. 
+	\item E' semidefinita positiva : $\forall \VarMtrx{x} \in \mathbb{R}^{n} \setminus \{0\}$ si ha che $\VarMtrx{x}^{T}M\VarMtrx{x} \geq 0$.
 \end{enumerate}
 \end{flushleft}
 
@@ -1273,24 +1288,26 @@ La matrice $\VarMtrx{M}=\VarMtrx{A}^{T}\VarMtrx{A}$ di cui andiamo a calcolare i
 \begin{flushleft}
 
 
-Prendiamo in considerazione la matrice definita precedentemente $\VarMtrx{A}^{T}\VarMtrx{A}$, come sappiamo questa è semidefinita positiva e simmetrica, inoltre possiede n autovalori reali e non nulli.
+Prendiamo in considerazione la matrice definita precedentemente $A^{T}A$, come sappiamo questa è semidefinita positiva e simmetrica, inoltre possiede n autovalori reali e non nulli.
 Possiamo ordinare per valore crescente quest'ultimi e in particolare interessarci dei due aventi valore massimo e minimo: 
-\[ \lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A}) \quad \lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A}) \]
+\[ \lambda_{max}(A^{T}A) \quad \lambda_{min}(A^{T}A) \]
 
 \begin{defn}
-Si definisce numero di condizionamento in norma 2 di una matrice $\VarMtrx{A}$ il valore : 
-\[ K_{2}(\VarMtrx{A})= \frac{\sqrt{ \lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A})}}{\sqrt{ \lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A})}}\]
-ovvero, il rapporto delle radici dell'autovalore massimo e minimo della matrice  $\VarMtrx{A}^{T}\VarMtrx{A}$
+Si definisce numero di condizionamento in norma 2 di una matrice $A$ il valore : 
+\[ 
+	K_{2}(A)= \frac{\sqrt{ \lambda_{max}(A^{T}A)}}{\sqrt{ \lambda_{min}(A^{T}A)}}
+\]
+ovvero, il rapporto delle radici dell'autovalore massimo e minimo della matrice  $A^{T}A$
 \end{defn}
 
 Possiamo denotare tre proprietà per il numero di condizionamento :
 
 \begin{enumerate}
-	\item $K_{2}(\VarMtrx{A}^{T}\VarMtrx{A}) = K_{2}(\VarMtrx{A})^{2} = \frac{\lambda_{max}(\VarMtrx{A}^{T}\VarMtrx{A})}{\lambda_{min}(\VarMtrx{A}^{T}\VarMtrx{A})}$
-	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice non singolare (determinante diverso da zero) allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
-	\[K_{2}(\VarMtrx{A}) = \lVert\VarMtrx{A}\rVert_{2}\lVert\VarMtrx{A^{-1}}\rVert_{2} \]
-	\item Se $\VarMtrx{A} \in \mathbb{R}^{n \times n}$ è una matrice simmetrica allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
-	\[K_{2}(\VarMtrx{A}) = \frac{\max_{\{i=1,\dots, n\}}|\lambda_{i}(A)|}{\min_{\{i=1,\dots, n\}}|\lambda_{i}(A)|} \]
+	\item $K_{2}(A^{T}A) = K_{2}(A)^{2} = \frac{\lambda_{max}(A^{T}A)}{\lambda_{min}(A^{T}A)}$
+	\item Se $A \in \mathbb{R}^{n \times n}$ è una matrice non singolare (determinante diverso da zero) allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
+	\[K_{2}(A) = \lVert A \rVert_{2}\lVert A^{-1} \rVert_{2} \]
+	\item Se $A \in \mathbb{R}^{n \times n}$ è una matrice simmetrica allora possiamo riscrivere il suo valore di condizionamento nel seguente modo : 
+	\[K_{2}(A) = \frac{\max_{\{i=1,\dots, n\}}|\lambda_{i}(A)|}{\min_{\{i=1,\dots, n\}}|\lambda_{i}(A)|} \]
 \end{enumerate}
 
 \end{flushleft}

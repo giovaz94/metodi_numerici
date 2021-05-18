@@ -2578,7 +2578,7 @@ $L$ si presenta nella seguente forma :
 		1 & 0 & \dots & 0 &0 \\
 		m^{(1)}_{21}& 1 & \dots & 0 & 0 \\
 	    m^{(1)}_{31}& m^{(2)}_{32}& 1 & \dots & 0  \\
-		\vdots &  &  \vdots  & \ddots & \vdots  \\
+		\vdots &  \vdots &  \vdots  & \ddots & \vdots  \\
 		m^{(1)}_{n1} & m^{(2)}_{n2} & \dots & m^{(n-1)}_{n,n-1} & 1 \\
 	\end{pmatrix}
 \]
@@ -2667,5 +2667,343 @@ di cui il costo computazionale :
 	\frac{n^{3}}{3}
 \]
 
+\end{flushleft}
+
+\subsection{Errori algoritmici nel metodo di eliminazione gaussiana}
+\begin{flushleft}
+Si consideri il seguente esempio: 
+
+\begin{exmp}
+Risoluzione del seguente sistema lineare attraverso l'algoritmo di Gauss:
+\[ 	
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 1 & 1.0001 & 2 \\
+		 1 & 2 & 2 
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1} \\
+		x_{2} \\
+		x_{3}
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		1 \\
+		2 \\
+		1
+	\end{pmatrix}
+\]
+
+Esattamente come prima definiamo la nostra matrice di partenza $A^{(1)}$ e costruiamo di conseguenza $M^{(1)}$.
+\[ 	
+	M^{(1)} = 
+	\begin{pmatrix}
+		 1 & 0 & 0 \\
+		 -1 & 1 & 0 \\
+		 -1 & 0 & 1 
+	\end{pmatrix}
+\]
+
+Applichiamo $M^{(1)}$ ad $A^{(1)}$ 
+
+\[ 	
+	A^{(2)} = M^{(1)}A^{(1)}= 
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 10^{-4} & 1 \\
+		 0 & 1 & 1 
+	\end{pmatrix}
+\]
+
+Costruiamo $M^{(2)}$
+
+\[ 	
+	M^{(2)} = 
+	\begin{pmatrix}
+		 1 & 0 & 0 \\
+		 0 & 1 & 0 \\
+		 0 & -10^{4} & 1 
+	\end{pmatrix}
+\]
+
+Applichiamo $M^{(2)}$ ad $A^{(2)}$ 
+
+\[ 	
+	A^{(3)} = M^{(2)}A^{(2)}= 
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 10^{-4} & 1 \\
+		 0 & 0 & (1 - 10^{-4})
+	\end{pmatrix}
+\]
+
+Una volta ottenuta una matrice triangolare applichiamo anche ai vettori dei termini noti le matrici elementari di Gauss : 
+\[ 	
+	b^{(1)}  = b = 
+	\begin{pmatrix}
+		 1 \\
+		 2 \\
+		 1
+	\end{pmatrix}
+\]
+
+\[ 	
+	b^{(2)}  = M^{(1)}b^{(1)} = 
+	\begin{pmatrix}
+		 1 \\
+		 1 \\
+		 0
+	\end{pmatrix}
+	\quad
+	b^{(3)}  = M^{(2)}b^{(2)} = 
+	\begin{pmatrix}
+		 1 \\
+		 1 \\
+		 -10^{4}
+	\end{pmatrix}
+	= y
+\]
+
+A questo punto possiamo riscrivere il sistema che abbiamo ottenuto :
+
+\[ 
+	Ax = b  \Longleftrightarrow 
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 10^{-4} & 1 \\
+		 0 & 0 & (1 - 10^{-4})
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1} \\
+		x_{2} \\
+		x_{3}
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		 1 \\
+		 1 \\
+		 -10^{4}
+	\end{pmatrix}
+\]
+
+Con il metodo di sostituzione all'indietro troviamo che i seguenti risultati 
+\begin{itemize}
+	\item $\tilde{x_{3}} = fl_{A} \left( -\frac{10^{4}}{1 - 10^{-4}}\right) =  fl_{A}(0.10001 \dots \times 10 ) = 1$
+	\item $\tilde{x_{2}} = fl_{A} \left( \frac{1 - \tilde{x_{3}}}{10^{-4}} \right) =  fl_{A}(\frac{1 - 1}{10^{-4}}) = 0$
+	\item $\tilde{x_{1}} = fl_{A} \left( 1 - \tilde{x_{2}} - \tilde{x_{3}} \right) =  fl_{A}( 1 - 0 - 1) = 0$ 
+\end{itemize}
+
+Risultato : 
+\[ 	
+	\tilde{x} = 
+	\begin{pmatrix}
+		 0 \\
+		 0 \\
+		 1
+	\end{pmatrix}
+\]
+\end{exmp}
+
+Quanto ottenuto non è preciso in quanto il risultato esatto è : 
+\[ 	
+	\tilde{x} = 
+	\begin{pmatrix}
+		 1 \\
+		 -1.0001 \dots \\
+		 1.0001 \dots
+	\end{pmatrix}
+\]
+
+Si può notare quindi un  errore di approssimazione dei termini $\tilde{x_{1}}, \tilde{x_{2}}$ dovuto dalla presenza di un valore molto piccolo in $a^{(2)}_{22} = 10^{-4}$ il quale produce un moltiplicatore molto elevato.
+\end{flushleft}
+
+\subsection{Pivoting parziale}
+\begin{flushleft}
+Il pivoting parziale è una tecnica che ci permette di ridurre l'errore algoritmico generato dal metodo di eliminazione gaussiana.
+Consiste nello scambiare il valore dell'elemento pivotale $a^{(k)}_{kk}$ della matrice $A^{(k)}$, al passo $k$ con l'elemento di valore assoluto massimo collocato sotto colonna  di elementi $a^{(k)}_{kk} \dots a^{(k)}_{nk}$ effettuando uno scambio di righe attraverso una matrice di permutazione $P^{k}$. \\
+\vspace{1em}
+Riprendiamo l'esempio precedente questa volta sfruttando la tecnica del pivoting parziale e vediamo come i risultati cambino : 
+
+\[ 	
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 1 & 1.0001 & 2 \\
+		 1 & 2 & 2 
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1} \\
+		x_{2} \\
+		x_{3}
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		1 \\
+		2 \\
+		1
+	\end{pmatrix}
+\]
+
+\[ 	
+	M^{(1)} = 
+	\begin{pmatrix}
+		 1 & 0 & 0 \\
+		 -1 & 1 & 0 \\
+		 -1 & 0 & 1 
+	\end{pmatrix}
+	\quad
+	A^{(2)} = M^{(1)}A^{(1)}= 
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 10^{-4} & 1 \\
+		 0 & 1 & 1 
+	\end{pmatrix}	
+\]
+
+I primi due passaggi rimangono invariati, non abbiamo la necessità di applicare una matrice di permutazione ci troviamo tuttavia da questa trasformazione l'elemento $a^{(2)}_{22}$ avente il valore $10^{-4}$.
+Procediamo in questo modo:
+\begin{itemize}
+	\item Dobbiamo creare anzitutto una matrice di permutazione, per farlo partiamo dalla matrice identità e scambiamo l'ordine delle righe che vogliamo invertire pure nella matrice $A$.  In questo caso scambiamo la 2 e la 3.
+	\[ 
+		P^{(2)} = 
+		\begin{pmatrix}
+		 1 & 0 & 0 \\
+		 0 & 0 & 1 \\
+		 0 & 1 & 0 
+		\end{pmatrix}	
+	\]
+	\item Moltiplichiamo ad $A^{(2)}$ la matrice $P^{(2)}$ facendo scambiare le righe.
+	\[ 
+		P^{(2)}A^{(2)} = 
+		\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 1 & 1 \\
+		 0 & 10^{-4} & 1 
+		\end{pmatrix}
+	\]
+\end{itemize}
+
+Continuiamo quindi con i relativi calcoli fino ad ottenere una matrice triangolare superiore : 
+\[ 
+	M^{(2)} =
+	\begin{pmatrix}
+		 1 & 0 & 0 \\
+		 0 & 1 & 0 \\
+		 0 & -10^{-4} & 1 
+	\end{pmatrix}	
+	\quad
+	A^{(3)} = M^{(2)}A^{(2)}= 
+	\begin{pmatrix}
+		 1 & 1 & 1 \\
+		 0 & 1 & 1 \\
+		 0 & 0 & (1 - 10^{-4})
+	\end{pmatrix}	
+\]
+
+Applichiamo anche a $b$ le stesse matrici applicate ad $A$.
+\[ 
+	b = 
+	\begin{pmatrix}
+		 1 \\
+		 2 \\
+		 1 
+	\end{pmatrix},
+	\quad
+	b^{(2)}  = M^{(1)}b^{(1)} = 
+	\begin{pmatrix}
+		 1 \\
+		 1 \\
+		 0
+	\end{pmatrix},
+	\quad
+	P^{(2)}b^{(2)}  =
+	 \begin{pmatrix}
+		 1 \\
+		 0 \\
+		 1
+	\end{pmatrix},
+	\quad
+	b^{(3)} = M^{(2)}P^{(2)}b^{(2)}  =
+	\begin{pmatrix}
+		 1 \\
+		 0 \\
+		 1
+	\end{pmatrix}
+	=y
+\]
+
+Ancora una volta applichiamo il metodo di sostituzione all'indietro ottenendo come risultato : 
+
+\[ 	
+	\tilde{x} = 
+	\begin{pmatrix}
+		 1 \\
+		 -1 \\
+		 1
+	\end{pmatrix}
+\]
+
+Il quale, da come si può notare, è molto più preciso rispetto al primo ottenuto in precedenza.\\
+
+Come differisce dunque il metodo di eliminazione gaussiana tramite pivoting parziale dalla versione vista in precedenza? Semplicemente ad ogni passo vogliamo costruire la matrice $P^{(k)}$  che ci permette di scambiare due righe di $A^{k}$ in modo tale da immettere nella posizione del pivot l'elemento con valore assoluto maggiore.\\
+\vspace{1em}
+Si procederà ovviamente poi a trovare la nostra matrice $U = A^{(n)}$ triangolare superiore ed $L$ triangolare inferiore usando gli stessi altri passaggi visti precedentemente con la sola differenza che ora per trovare $A^{(k+1)}$ dovremmo moltiplicare anche $P^{(k)} $: 
+\[ 
+	A^{(k+1)} = M^{(k)}A^{(k)}P^{(k)}
+\]
+
+La matrice $L$ trovata avrà il seguente aspetto : 
+\[ 
+	L = 
+	\begin{pmatrix}
+		1 & 0 & \dots & 0 &0 \\
+		\widetilde{m}_{21}^{(1)} & 1 & \dots & 0 & 0 \\
+	    \widetilde{m}_{31}^{(1)} & \widetilde{m}_{32}^{(2)} & 1 & \dots & 0  \\
+		\vdots &  \vdots &  \vdots  & \ddots & \vdots  \\
+		\widetilde{m}_{n1}^{(1)} & \widetilde{m}_{n2}^{(2)} & \dots & \widetilde{m}_{n,n-1}^{(n-1)} & 1 \\
+	\end{pmatrix}
+\]
+
+La parte triangolare inferiore di $L$ è ottenuta memorizzando gli elementi del vettore $\widetilde{m}_{ik}^{(k)}$ con $i = k+1, \dots, n$ ottenuti come :
+\[ 
+	\widetilde{m}^{(k)} = P^{(n-1)}P^{(n-2)} \dots P^{(k+1)}P^{(k)}m^{(k)}
+\]
+\[ 
+	\widetilde{m}^{(n-1)} =m^{(n-1)}
+\]
+
+Procediamo con un osservazione: \\
+Applicando i passaggi dell'algoritmo otteniamo la matrice $U = A^{(n)}$ 
+\[
+	\begin{split}
+		U = A^{(n)} &= M^{(n-1)}P^{(n-1)}A^{(n-1)} \dots M^{(2)}P^{(2)}A^{(2)}M^{(1)}P^{(1)}A^{(1)}\\
+			&= \widetilde{M}^{(n-1)}\widetilde{M}^{(n-2)}\widetilde{M}^{(n-3)} \dots P^{(n-1)} P^{(n-2)} \dots  P^{(1)}A
+	\end{split}
+\]
+
+dove $\widetilde{M}^{(i-1)} = S^{(i)}M^{(i-1)}(S^{(i)})^{-1}$ e 
+\[ 
+	S^{(n-1)} = P^{(n-1)}
+\] 
+\[ 
+	S^{(i)} = P^{(n-1)}P^{(n-2)} \dots P^{(i)}
+\] 
+
+Ricordando che  $M^{(k)} = I - m^{(k)}e^{T}_{k}$ osserviamo quanto segue : 
+\[ 	
+	\begin{split}
+		\widetilde{M}^{(i-1)} &= S^{(i)}M^{(i-1)}(S^{(i)})^{-1} \\
+									    &= S^{(i)}(I - m^{(i-1)}e^{T}_{i-1})(S^{(i)})^{-1} \\
+									    &= S^{(i)}(S^{(i)})^{-1} - S^{(i)} m^{(i-1)}e^{T}_{i-1}(S^{(i)})^{-1} 
+	\end{split}
+\]
+
+Sappiamo che :
+\begin{itemize}
+	\item $ S^{(i)}(S^{(i)})^{-1} = I$
+	\item $S^{(i)} m^{(i-1)} = \widetilde{m}^{(i-1)}$
+	\item $e^{T}_{i-1}(S^{(i)})^{-1} = e^{T}_{i-1}$
+\end{itemize}
+
+e quindi $\widetilde{M}^{(i-1)} = I -  \widetilde{m}^{(i-1)} e^{T}_{i-1}$ è anch'essa una matrice elementare di Gauss.
 \end{flushleft}
 \end{document}

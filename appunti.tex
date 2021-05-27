@@ -1668,7 +1668,7 @@ Quest'ultimo non può essere adoperato da solo come condizione d'arresto poiché
 \end{tikzpicture}
 \end{figure}
 
-Ipotizziamo che  il valore $|f(x_{i}|$ sia più piccolo di una certa tolleranza $Tol$, in questo caso ci aspettiamo che il corrispondente $x_{i}$ approssimi in una maniera ottimale il valore di $\alpha$, tuttavia non è così poichè, come si può vedere, $\alpha$ è molto più distante.
+Ipotizziamo che  il valore $|f(x_{i})|$ sia più piccolo di una certa tolleranza $Tol$, in questo caso ci aspettiamo che il corrispondente $x_{i}$ approssimi in una maniera ottimale il valore di $\alpha$, tuttavia non è così poichè, come si può vedere, $\alpha$ è molto più distante.
 Per avere una spiegazione appropriata di cosa stia succedendo occorre osservare la tangente alla figura nel punto $\alpha$ e notare che l'angolo formato tra questo e l'asse orizzontale risulta essere molto piccolo.  Questo ci riporta a quanto detto circa il condizionamento del problema in cui il valore di $K$ in questo caso era dato da $\dfrac{1}{f^{'}(\alpha)}$; in figura abbiamo che $f^{'}(\alpha)$ risulta essere molto piccolo e quindi di conseguenza abbiamo che $K$ è molto elevato ed il problema risulta essere mal condizionato.\\
 
 In conclusione se volessi quindi adoperare anche questo terzo criterio d'arresto lo dovrei fare assieme ad uno degli  altri due definiti precedentemente.
@@ -3005,5 +3005,262 @@ Sappiamo che :
 \end{itemize}
 
 e quindi $\widetilde{M}^{(i-1)} = I -  \widetilde{m}^{(i-1)} e^{T}_{i-1}$ è anch'essa una matrice elementare di Gauss.
+\end{flushleft}
+
+\subsection{Metodo di Householder}
+\begin{flushleft}
+
+Il metodo di Householder è un'ulteriore metodo diretto con il 	quale possiamo risolvere un sistema $Ax = b$.
+
+\subsubsection{Applicazione a matrici quadrate: }
+\begin{theorem}
+	$\exists Q$ matrice triangolare $n \times n$ ($QQ^{T} = Q^{T}Q = I$) ed una matrice $R$, triangolare superiore e non singolare ($rg(R) = n$) tale per cui vale l'eguaglianza : 
+	\[ 
+		A = QR	
+	\]
+\end{theorem}
+
+Quindi anche questo caso studiamo un metodo che, per risolvere un determinato sistema,  riduce la matrice iniziale dei coefficienti in una equivalente mediante delle fattorizzazioni le quali avranno i seguenti effetti:
+\[	
+	A = 
+	\begin{pmatrix}
+		 a_{11} & a_{12} & a_{13} \\
+		 a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} \\
+	\end{pmatrix}
+	H_{1}A = 
+	\begin{pmatrix}
+		 a_{11} & a_{12} & a_{13} \\
+		0 & a_{22} & a_{23} \\
+		0 & a_{32} & a_{33} \\
+	\end{pmatrix}
+	H_{2}(H_{1}A) = 
+	\begin{pmatrix}
+		 a_{11} & a_{12} & a_{13} \\
+		0 & a_{22} & a_{23} \\
+		0 & 0 & a_{33} \\
+	\end{pmatrix}
+\]
+
+Ad ogni applicazione di $H_{i}$ vengono azzerati i coefficienti della matrice che risiedono sotto l'i-esimo elemento pivotale.
+Dimostriamo il teorema appena mostrato definendo :
+
+\[	
+	H_{n-1}H_{n-2} \dots H_{2}H_{1}A = L 
+\]
+
+Tali matrici di trasformazione sono simmetriche ed ortogonali, da definizione, pertanto vale la seguente catena di eguaglianze :
+\[ 	
+	\begin{split}
+		A &= (H_{n-1}H_{n-2} \dots H_{2}H_{1})^{-1} L \\
+		   &= H_{n-1}^{-1} H_{n-2}^{-1} \dots H_{2}^{-1}H_{1}^{-1} L \\
+		   &= H_{1}^{T}H_{2}^{T} \dots  H_{n-2}^{T}H_{n-1}^{T} L \\
+		   &= H_{1}H_{2} \dots H_{n-2}H_{n-1} L
+	\end{split}
+\]
+
+Dove $H_{1}H_{2} \dots H_{n-2}H_{n-1}  = Q$
+
+Il costo computazionale di questo metodo è $\frac{2}{3}n^{3}$ quindi il doppio rispetto al metodo di eliminazione Gaussiana,  quale vantaggio ha dunque applicare Householder?
+
+Visto che abbiamo effettuato una fattorizzazione possiamo riscrivere il nostro sistema $Ax = b$ come $QRx = b$. Ponendo $Rx = y $ possiamo ricondurci, come già visto, a risolvere due sistemi lineari:
+
+\begin{itemize}
+	\item $Rx = y$
+	\item $Qy = b$
+\end{itemize}
+
+A questo punto ricordandoci le proprietà della matrice $Q$ possiamo moltiplicare entrambi i membri di $Qy = b$ per la trasposta ottenendo in una maniera più agile il termine $y$.
+
+Un grande vantaggio che ci offre questo metodo è anche la stabillità che presenta, infatti,  è possibile dimostrare che il metodo di Householder è più stabile rispetto all'eliminazione Gaussiana con pivoting parziale e, inoltre, la fattorizzazione $QR$ non è unica. Sia infatti data una matrice diagonale $S$:
+\[ 
+	S = 
+	\begin{pmatrix}
+		\pm 1 & 0 & \dots & 0 &0 \\
+		0 & \pm 1 & \dots & 0 & 0 \\
+	    0 & 0 & \pm 1 & \dots & 0  \\
+		\vdots &  \vdots &  \vdots  & \ddots & \vdots  \\
+		0 & 0 & \dots & 0 & \pm 1 \\
+	\end{pmatrix}
+\]
+
+Sappiamo che $SS^{T} = I$, data quindi l'eguaglianza $A = QR$ possiamo moltiplicare entrambi i membri per $I$ ottenendo che $A = QSS^{T}R$. Da qui possiamo ottenere quindi due ulteriori matrici $QS = \overline{Q} $ e $S^{T}R = \overline{R}$  tali per cui vale la relazione $A = \overline{QR}$; si noti inoltre che $\overline{Q}$ rimane una matrice ortogonale e $\overline{S}$ rimane triangolare superiore.
+
+\subsubsection{Applicazione a matrici triangolari: }
+Guardiamo ora il caso dell'applicazione di Householder a matrici triangolari, in particolare vogliamo studiare la soluzione di sistemi con matrici dei coefficienti della forma $m \times n$ con $ m \geq n $:
+\[
+	A = 
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} \\
+		a_{41} & a_{42} & a_{43} \\
+		a_{51} & a_{52} & a_{53} \\
+	\end{pmatrix}
+\]
+Anche in questo caso vogliamo ricondurci ad una fattorizzazione $QR$ in cui $Q$ è sempre una matrice ortogonale $m \times m$ ed $R$ è, invece,  "trapezoidale superiore".   
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+
+		\draw (0,0) -- (4,0) -- (4,7) -- (0,7) -- (0,0);
+		\draw[blue,thick,dashed] (0,4) -- (4,4);
+		\node[font=\large] at (1,5) {0};
+		\node[font=\large] at (2,2) {0};
+		\fill[red] (4,4) -- (4,7) -- (0,7);
+		\draw [decorate,decoration={brace,amplitude=4pt}]
+			(4.5,7)--(4.5,4) node[midway, right, font=\footnotesize, xshift=2pt] {$R_{1} = R(1:n, :)$ matrice $n \times n$ triangolare superiore};
+		\draw [decorate,decoration={brace,amplitude=4pt}]
+			(4.5,3.9)--(4.5,0) node[midway, right, font=\footnotesize, xshift=2pt] {$m-n$};
+	\end{tikzpicture}
+\end{figure}
+
+\newpage
+\begin{theorem}
+	Sia $A$ una matrice $m \times n$  avente $rg(A) = n$ allora $\exists Q$ matrice $m \times m$ ortogonale e $R$ $m \times n$ trapezoidale superiore tali che $A = QR$.
+\end{theorem}
+
+Focalizziamo la nostra attenzione ora sull'applicazione delle matrici di fattorizzazione $H_{1}, H_{2}, \dots, H_{n-2}, H_{n-1}$.  Partiamo da una matrice $A$ di dimensione $5 \times 3$ :
+
+\[
+	A = 
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} \\
+		a_{41} & a_{42} & a_{43} \\
+		a_{51} & a_{52} & a_{53} \\
+	\end{pmatrix}
+	H_{1}A =
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		0 & a_{22} & a_{23} \\
+		0 & a_{32} & a_{33} \\
+		0 & a_{42} & a_{43} \\
+		0 & a_{52} & a_{53} \\
+	\end{pmatrix}
+	H_{2}(H_{1}A) =
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		0 & a_{22} & a_{23} \\
+		0 & 0 & a_{33} \\
+		0 & 0 & a_{43} \\
+		0 & 0 & a_{53} \\
+	\end{pmatrix}
+\]
+
+\[ 
+H_{3}(H_{2}H_{1}A) =
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		0 & a_{22} & a_{23} \\
+		0 & 0 & a_{33} \\
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+	\end{pmatrix}
+\]
+
+La differenza rispetto al caso quadrato è che qui i passaggi che andiamo a fare non sono più $n - 1$ ma bensì $n$.
+Il numero di matrici di trasformazione $r$ da applicare sarà dunque $ \min(n-1, n) $ in cui $n-1$ è il caso in cui la matrice $A$ è quadrata mentre $n$ quando abbiamo, come appena visto, una matrice $A$ di tipo $m \times n$ con $m > n$.
+
+\[	
+	R = H_{r}H_{r-1} \dots H_{1}A
+\]
+
+Ricaviamo $A$:
+\[ 
+	A = H_{1}H_{2} \dots H_{r}R
+\]
+
+Definiamo $Q = H_{1}H_{2} \dots H_{r} $.
+Il costo computazionale di questo metodo è $mn^{2} - \frac{n^{3}}{3}$, si nota che se $m = n$ allora questo è esattamente il costo computazionale del caso quadrato.
+\end{flushleft}
+
+\section{Risoluzione di sistemi sovradeterminati}
+\begin{flushleft}
+
+Quando risolviamo un sistema del tipo : 
+\[
+	Ax = b \quad A= m \times n \quad x = n \times 1 \quad b = m \times 1
+\]
+
+con $m > n$ abbiamo che il numero di incognite è superiore al numero di equazioni; questo è quindi un problema mal posto di cui potremmo non avere una soluzione. 
+Per procedere dovremmo dunque riformulare tale problema in un ulteriore maniera, ovvero ricercando $x^{*}$ tale per cui :
+
+\[ 
+	x^{*} = \operatorname*{argmin}_{x \in \mathbb{R}^{n}}  \lVert b - Ax  \rVert ^ {2} _{2}
+\]
+
+In altri termini : 
+
+\[ 
+	 \lVert b - Ax^{*}  \rVert ^ {2} _{2} \leq \lVert b - Ax  \rVert ^ {2}  _{2} \quad \forall x \in \mathbb{R}^{n}
+\]
+
+A questo punto possiamo definire una funzione :
+\[ 
+	\begin{split}
+		& \mathbb{Q} : \mathbb{R}^{m} \mapsto \mathbb{R} \\
+		& x \mapsto  \mathbb{Q} =  \lVert b - Ax  \rVert ^ {2}  _{2}
+	\end{split}
+\]
+la quale ha matrice Hessiana definita positiva e quindi è strettamente convessa ( con l'unico punto di minimo $x^{*}$).
+Cerchiamo di calcolare la nostra $x^{*}$ adoperando la fattorizzazione $QR$ di $A$ ricordando anzitutto la seguente catena di uguaglianza : 
+
+\[ 
+	 \lVert y \rVert ^{2}_{2} = y^{T}y = y^{T}Iy = y^{T}QQ^{T}y = (Q^{T}y)^{T}(Q^{T}y) =  \lVert Q^{T}y \rVert ^{2}_{2}
+\]
+
+con $Q$ matrice ortogonale.  Ponendo a questo punto $y = b - Ax^{*}$  :
+
+\[ 
+	\begin{split}
+	 	\lVert b - Ax^{*}  \rVert ^ {2} _{2} &=  \lVert Q^{T}b - Q^{T}Ax^{*}  \rVert ^ {2} _{2} \\
+	 	&=  \left\lVert \begin{pmatrix} \tilde{b_{1}} \\ \tilde{b_{2}} \end{pmatrix} - \begin{pmatrix} R_{1} \\ 0 \end{pmatrix} \right\rVert^{2}_{2} \\
+	 	&=  \left\lVert \begin{pmatrix} \tilde{b_{1}} - R_{1} \\ \tilde{b_{2}} \end{pmatrix}  \right\rVert^{2}_{2} \\
+	 \end{split}
+\]
+
+in cui $Q^{T}A$, come abbiamo già visto, può essere scritto come $R$.
+\textbf{Nota:}
+\begin{itemize}
+	\item $\tilde{b_{1}}$ rappresenta le prime $n$ componenti del vettore $Q^{T}b$,  $\tilde{b_{1}}$
+	\item $R_{1}$ è la parte superiore del vettore trapezzoidale superiore $R$ e coincide con le sue prime $n$ componenti. 
+\end{itemize}
+
+Ricordiamo ora la seguente proprietà legata alla norma 2 di un vettore $\VarMtrx{y} \in R^{m}$: 
+\[ 
+	\left\lVert \VarMtrx{y} \right\rVert^{2}_{2} = \sum^{n}_{i=0} y^{2} = \sum^{n-1}_{i=0} y^{2} +  \sum^{m}_{i=n-1} y^{2}
+\]
+
+questo ci permette di risolvere $ \operatorname*{argmin} \lVert b - Ax  \rVert ^ {2} _{2}$ nella seguente maniera : 
+
+\[ 
+	\begin{split}
+ 		\operatorname*{argmin}  \lVert b - Ax  \rVert ^ {2} _{2} &=  \operatorname*{argmin} ( \lVert  \tilde{b_{1}} - R_{1}  \rVert ^ {2} _{2}  + \lVert  \tilde{b_{2}} \rVert ^ {2} _{2}) \\
+ 		&=    \operatorname*{argmin} ( \lVert  \tilde{b_{1}} - R_{1}  \rVert ^ {2} _{2})  + \lVert  \tilde{b_{2}} \rVert ^ {2} _{2}\\
+ 	\end{split}
+\]
+
+
+Se scelgo allora il vettore $x^{*}$ tale che risolva $R_{1}x = \tilde{b_{1}}$ ed otteniamo quindi la soluzione:
+\[
+	 x^{*} =  \operatorname*{argmin}  \lVert b - Ax  \rVert ^ {2} _{2}
+\] 
+
+e : 
+
+\[ 
+	\min \lVert b - Ax  \rVert ^ {2} _{2} =   \lVert b - Ax^{*} \rVert ^ {2} _{2} = \lVert  \tilde{b_{2}} \rVert ^ {2} _{2}.
+\]
+
+
+\textbf{Nota:} Se la matrice $A$ è ben condizionata allora lo è anche $R_{1}$ in quanto vale la seguente relazione :
+\[ 
+	A^{T}A = A^{T}QQ^{T}A = (Q^{T}A)^{T}Q^{T}A = \begin{pmatrix} R_{1}^{T} & 0 \end{pmatrix} \begin{pmatrix} R_{1} \\ 0 \end{pmatrix} = R_{1}^{T}R_{1}
+\]
+
+Da cui possiamo dire $K_{2}(A^{T}A) = K_{2}(A) = K_{2}(R_{1}) =  K_{2}(R_{1}^{T}R_{1})$
 \end{flushleft}
 \end{document}

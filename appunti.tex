@@ -3374,5 +3374,67 @@ In questo paragrafo vogliamo studiare come trasformare il nostro polinomio dalla
 	L_{j}(x) = \prod_{i = 0 \; i \neq j}^{n} \frac{x-x_{i}}{x_{j}-x_{i}} = 
 		\frac{(x-x_{0}) \dots (x-x_{j-1})(x-x_{j+1}) \dots (x-x_{n}) }{(x_{j}-x_{0}) \dots (x_{j}-x_{j-1}) (x_{j}-x_{j+1}) \dots (x_{j}-x_{n})}
 \]
+
+Riscriveremo il nostro polinomio quindi nella seguente forma :
+\[ 
+	P_{n}(x) = \sum_{j=0}^{n} y_{j}L_{j}(x)
+\]
+
+\begin{exmp}
+Immaginiamo di avere le seguenti coordinate:
+
+	\begin{center}
+ 		\begin{tabular}{||c c c c||}
+ 		\hline
+ 			i & 0 & 1 & 2 \\ [0.5ex] 
+ 		\hline\hline
+ 			$x_{i}$ & -1 & 0 & 1 \\ 
+ 		\hline
+ 		 	$y_{i}$ & 0 & 4 & 2 \\
+		\hline
+		\end{tabular}
+	\end{center}
+
+Andiamo a calcolare i polinomi fondamentali di Lagrange applicando la formula scritta in precedenza :
+
+\[ 
+	\begin{split}
+		L_{0} &= \frac{(x-x_{1})(x-x_{2})}{(x_{0}-x_{1})(x_{0}-x_{2})} =  \frac{(x-0)(x-1)}{(-1-0)(-1-1)} = \frac{1}{2}x(x-1) \\
+		L_{1} &= \frac{(x-x_{0})(x-x_{2})}{(x_{1}-x_{0})(x_{1}-x_{2})} = \frac{(x+1)(x-1)}{(0+1)(1-0)} = -(x+1)(x-1) \\
+		L_{2} &= \frac{(x-x_{0})(x-x_{1})}{(x_{2}-x_{0})(x_{2}-x_{1})}  = \frac{(x+1)(x-0)}{(1+1)(1-0)} =  \frac{1}{2}(x+1)x
+	\end{split}
+\]
+
+applichiamo le nostre ascisse ai polinomi di Lagrange:
+
+\[ 
+	\begin{split}
+		& L_{0}(x_{0}) = 1 \quad L_{0}(x_{1}) = 0 \quad L_{0}(x_{2}) = 0 \\
+		& L_{1}(x_{0}) = 0 \quad L_{1}(x_{1}) = 1 \quad L_{1}(x_{2}) = 0 \\
+		& L_{2}(x_{0}) = 0 \quad L_{0}(x_{1}) = 0 \quad L_{0}(x_{2}) = 1
+	\end{split}
+\]
+
+riscriviamo infine il nostro polinomio  $P_{2}(x)$ :
+
+\[ 
+	P_{2}(x) = y_{0}L_{0} + y_{1}L_{1} + y_{2}L_{2} = -3x^{2} +x +4
+\]
+\end{exmp}
+
+Dall'esempio riportato viene messa in risalto quella che è una proprietà  dei polinomi di  fondamentali di Lagrange, infatti 
+\begin{itemize}
+	\item	 $L_{j}(x_{i}) = 0 \quad  \forall i,j \; i \neq j$
+	\item	 $L_{j}(x_{i}) = 1 \quad  i = j$
+\end{itemize}
+
+Questo ci permette di verificare che effettivamente il cambiamento di base produce un polinomio equivalente in termini algebrici da quello di partenza.
+\[
+	P_{n}(x_{i}) = \sum_{j=0}^{n} c_{j}L_{j}(x_{i}) = c_{i}L_{i}(x_{i}) = c_{i} \quad \forall i = 0 \dots n
+\]
+
+quindi $y_{i} = c_{i}$.
 \end{flushleft}
+
+
 \end{document}

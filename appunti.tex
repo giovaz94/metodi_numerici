@@ -2206,7 +2206,7 @@ Abbiamo due tipologie differenti di metodi:
 	
 	E' da notare che i fattori $a_{11}, a_{22}, \dots, a_{nn}$ non si annullino nel nostro algoritmo poichè abbiamo richiesto che la nostra matrice non abbia determinante nullo.\\
 \vspace{1em}
-\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $n-1$ moltiplicazioni e $1$ divisione per un totale di $i$ operazioni distinte,  ripetiamo queste $i$ operazioni per $n$ volte. 
+\textbf{Costo computazionale:} ad ogni i-esimo passaggio effettuiamo $i-1$ moltiplicazioni e $1$ divisione per un totale di $i$ operazioni distinte,  ripetiamo queste $i$ operazioni per $n$ volte. 
 
 \[
 	\sum_{i = 1}^{n} i = \frac{n(n-1)}{2} \approx \frac{n^{2}}{2}
@@ -2379,7 +2379,7 @@ Se i determinanti delle $n-1$ matrici principali di testa di testa di $A$ sono d
 	\quad
 	n = 4
 \]
-Vogliamo trasformare la matrice $A$ di partenza in una matrice triangolare superiore $U$ applicando un metodo diretto che il quale permette di arrivare al nostro scopo in un numero finito di passi i quali sono esattamente $n-1$.
+Vogliamo trasformare la matrice $A$ di partenza in una matrice triangolare superiore $U$ applicando un metodo diretto che permette di arrivare al nostro scopo in un numero finito di passi i quali sono esattamente $n-1$.
 In questo caso quindi ci basteranno 3 passi per trasformare $A$ in $U$ creando le matrici elementari di gauss da applicare ad $A$.
 
 \begin{enumerate}
@@ -2463,9 +2463,9 @@ In questo caso quindi ci basteranno 3 passi per trasformare $A$ in $U$ creando l
 				\end{pmatrix}
  		\]
  	 
- 		Come previsto  anche in questo caso, abbiamo che gli elementi della colonna sotto la diagonale si sono azzerati, procediamo dunque gli ultimi passaggio.
+ 		Come previsto  anche in questo caso, abbiamo che gli elementi della colonna sotto la diagonale si sono azzerati, procediamo dunque con l'ultimo passaggio.
  
- 	\item Costruisco la terza,  e ultima,  matrice elementare di Gauss $M^{(3)}$ usando gli stessi passi adoperati per la prima e la seconda.
+ 	\item Costruisco la terza,  ed ultima,  matrice elementare di Gauss $M^{(3)}$ usando gli stessi passi adoperati per la prima e la seconda.
  	
  	\[ 
  			M^{(2)} = 
@@ -3432,9 +3432,57 @@ Questo ci permette di verificare che effettivamente il cambiamento di base produ
 \[
 	P_{n}(x_{i}) = \sum_{j=0}^{n} c_{j}L_{j}(x_{i}) = c_{i}L_{i}(x_{i}) = c_{i} \quad \forall i = 0 \dots n
 \]
-
 quindi $y_{i} = c_{i}$.
 \end{flushleft}
 
+\subsection{ Costo computazionale per l'interpolazione nella base di Lagrange}
 
+\begin{flushleft}
+
+
+Calcolare il costo computazionale delle operazioni descritte sopra è abbastanza intuitivo.  Come abbiamo visto il costo per computazionale per ottenere i coefficienti $(c_{1},c_{2},  \dots ,c_{n})$ è nullo. \\
+\vspace{1em}
+Calcolare un polinomio in uno specifico punto comporta $(n-1)$ moltiplicazioni sia per il numeratore che  per il denominatore, quindi, 
+avremmo che il costo computazionale di un generico polinomio $L(x_{i}) = 2(n-1)$ operazioni. \\
+Queste devono essere ripetute $n+1$ volte,  poichè, una volta calcolato $L(x_{i})$ su un punto occorrerà effettuare la sommatoria :
+\[ 
+	P_{n}(x) = \sum_{j=0}^{n} y_{j}L_{j}(x)
+\] 
+Il calcolo avrà quindi come costo computazionale : $2(n-1)(n+1) + (n+1) \approx O(2n^{2}) $.
+
+\subsection{ Errore di interpolazione polinomiale }
+
+Sia data la funzione $f:[a,b] \mapsto \mathbb{R}$ ed un polinomio di interpolazione dei dati $(x_{i},  f(x_{i}))$ $P_{n}:[a,b] \mapsto \mathbb{R}$ avente tutti i punti con ascisse distinte si definisce errore di interpolazione la funzione :
+\[
+	r_{n+1}(x) = f(x) - P_{n}(x)
+\]
+
+Tramite questa otteniamo quella che è la differenza di risultato tra la funzione $f(x)$ che stiamo cercando di approssimare e il polinomio $P_{n}(x)$ che cerca di interpolarla.\\
+Vogliamo far vedere, contrariamente a quello che si potrebbe pensare,  che non è sempre vero che all'aumentare del numero dei punti di interpolazione venga ridotto il valore dell'errore e quindi otteniamo una migliore approssimazione.
+
+\begin{theorem}
+Se $f \in C^{\infty}[a,b]$ e $\lim_{n \mapsto \infty} \dfrac{(b-a)^{n}}{n!}M_{n} = 0$ con ( $M_{n}$ tale che $|f^{n}(x)| \leq M_{n} \quad \forall n \in \mathbb{N},  \; \forall x \in [a,b]$ ) allora : 
+\[	
+	\lVert r_{n+1}(x)  \rVert_{\infty} = \max_{x \in [a,b]} |r_{n+1}(x)| \rightarrow 0 \quad n \mapsto \infty
+\]
+\end{theorem}
+
+Un esempio di funzione che rispetta questa proprietà può essere ad esempio il seno o il coseno le quali sono derivabili infinite volte e rientrano nella classe di funzioni $C^{\infty}$.\\
+Non tutte le funzioni, tuttavia possiedono tali proprietà, possiamo dunque indebolire le ipotesi adoperando come ascisse dei punti speciali detti nodi di Chebyshev:
+\[ 
+	x_{i}^{c} = \frac{a + b}{2} + \frac{b - a}{2} cos \left( \frac{(2i +1) \pi}{ 2n + 1 } \right)
+\]
+
+Questo ci porta a riformulare un nuovo teorema :
+
+\begin{theorem}
+Se $f$ è una funzione Lipshitziana in $[a,b]$  allora :
+\[	
+	\lVert r^{c}_{n+1}(x)  \rVert_{\infty} = \max_{x \in [a,b]} |r^{c}_{n+1}(x)| \rightarrow 0 \quad n \mapsto \infty
+\]
+
+con  $r^{c}_{n+1}(x) = f(x) - P^{c}_{n} $  e  $P^{c}_{n}$ polinomio di interpolazione  costruito sui nodi di Chebyshev.
+\end{theorem}
+
+\end{flushleft}
 \end{document}
